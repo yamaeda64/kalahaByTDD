@@ -20,5 +20,17 @@ class GameControllerTest
         verify(view).showMenu();
     }
     
+    @Test
+    public void quit_whenQuitCommandRecieved_shouldSendQuitMesssage()
+    {
+        ConsoleView view = mock(ConsoleView.class);
+        sut = new GameController(view);
+        
+        sut.quit();
+        
+        verify(view).showQuitMessage();
+            
+        
+    }
     
 }

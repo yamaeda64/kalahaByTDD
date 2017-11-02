@@ -18,4 +18,9 @@ public class GameController
     {
         view.showMenu();
     }
+    
+    public void quit()
+    {
+        
+    }
 }
