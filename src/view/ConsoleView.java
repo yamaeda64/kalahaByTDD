@@ -16,6 +16,6 @@ public class ConsoleView
     
     public void showMenu()
     {
-       out.println();
+       out.println("Welcome to Kalaha, press 'N' for new game or 'Q' to Quit");
     }
 }
