@@ -1,21 +1,20 @@
+import controller.GameController;
 import org.junit.jupiter.api.Test;
+import view.ConsoleView;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-/**
- * Created by joakimbergqvist on 2017-11-01.
- */
-class GameTest
+
+class GameControllerTest
 {
-    private Game sut;
+    private GameController sut;
     
-  
     @Test
-    public void shouldShowMenu()
+    public void shouldShowMenu_whenStart_shouldShowMenu()
     {
         ConsoleView view = mock(ConsoleView.class);
-        sut = new Game(view);
+        sut = new GameController(view);
         
         sut.start();
         verify(view).showMenu();

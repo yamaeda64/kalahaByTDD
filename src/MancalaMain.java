@@ -1,12 +1,16 @@
-/**
- * Created by joakimbergqvist on 2017-11-01.
- */
+import controller.GameController;
+import view.ConsoleView;
+
+import java.io.PrintStream;
+
+
 public class MancalaMain
 {
     public static void main(String[] args)
     {
-        Game game = new Game(new ConsoleView());
         
-        game.start();
+        GameController controller = new GameController(new ConsoleView(new PrintStream(System.out)));
+        
+        controller.start();
     }
 }
