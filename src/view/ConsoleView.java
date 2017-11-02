@@ -16,6 +16,6 @@ public class ConsoleView
     
     public void showMenu()
     {
-       
+       out.println();
     }
 }
