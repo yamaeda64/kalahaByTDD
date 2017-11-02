@@ -7,7 +7,7 @@ import view.ConsoleView;
  */
 public class GameController
 {
-    ConsoleView view;
+    private ConsoleView view;
     
     public GameController(ConsoleView consoleView)
     {
