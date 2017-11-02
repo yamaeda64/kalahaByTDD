@@ -28,5 +28,9 @@ public class ConsoleView
     
     public void clearScreen()
     {
+        for(int i = 0; i<50; i++)
+        {
+            out.println();
+        }
     }
 }
