@@ -5,8 +5,7 @@ import view.ConsoleView;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 import static view.ConsoleView.menuText;
 import static view.ConsoleView.quitText;
 
@@ -52,5 +51,12 @@ class ConsoleViewTest
         String actual = quitText;
         String expected = "Thank you for playing Kalaha.";
         assertEquals(actual, expected);
+    }
+    
+    @Test
+    public void shouldClearScreen()
+    {
+        sut.clearScreen();
+        verify(printStream, times(50)).println();
     }
 }

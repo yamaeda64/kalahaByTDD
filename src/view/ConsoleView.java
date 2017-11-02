@@ -25,4 +25,8 @@ public class ConsoleView
     {
         out.println(quitText);
     }
+    
+    public void clearScreen()
+    {
+    }
 }
