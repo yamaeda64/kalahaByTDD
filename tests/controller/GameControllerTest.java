@@ -1,4 +1,5 @@
-import controller.GameController;
+package controller;
+
 import model.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

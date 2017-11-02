@@ -5,6 +5,7 @@ package model;
  */
 public class Game
 {
+    
     public void startNewGame()
     {
         
