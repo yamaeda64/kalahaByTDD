@@ -22,6 +22,6 @@ public class ConsoleView
     
     public void showQuitMessage()
     {
-        out.println();
+        out.println("Thank you for playing Kalaha.");
     }
 }
