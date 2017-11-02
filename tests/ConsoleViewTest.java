@@ -44,4 +44,12 @@ class ConsoleViewTest
         
         verify(printStream).println(quitText);
     }
+    
+    @Test
+    public void shouldShowQuitMessage_assertCorrectQuitMessage()
+    {
+        String actual = quitText;
+        String expected = "Thank you for playing Kalaha.";
+        assertEquals(actual, expected);
+    }
 }
