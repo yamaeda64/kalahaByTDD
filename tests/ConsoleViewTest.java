@@ -5,6 +5,7 @@ import java.io.PrintStream;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static view.ConsoleView.menuText;
 
 
 class ConsoleViewTest
@@ -19,7 +20,7 @@ class ConsoleViewTest
         
         sut.showMenu();
         
-        verify(printStream).println("Welcome to Kalaha, press 'N' for new game or 'Q' to Quit");
+        verify(printStream).println(menuText);
         
     }
 }
