@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
@@ -13,17 +14,20 @@ import static view.ConsoleView.quitText;
 class ConsoleViewTest
 {
     private ConsoleView sut;
+    private PrintStream printStream;
+    
+    @BeforeEach
+    public void setUp()
+    {
+        printStream = mock(PrintStream.class);
+        sut = new ConsoleView(printStream);
+    }
     
     @Test
     public void shouldShowMenu()
     {
-        PrintStream printStream = mock(PrintStream.class);
-        sut = new ConsoleView(printStream);
-        
         sut.showMenu();
-        
         verify(printStream).println(menuText);
-        
     }
     
     @Test
@@ -34,14 +38,11 @@ class ConsoleViewTest
         assertEquals(actual, expected);
     }
     
+    
     @Test
     public void shouldShowQuitMessage()
     {
-        PrintStream printStream = mock(PrintStream.class);
-        sut = new ConsoleView(printStream);
-        
         sut.showQuitMessage();
-        
         verify(printStream).println(quitText);
     }
     

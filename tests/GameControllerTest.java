@@ -1,4 +1,5 @@
 import controller.GameController;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
@@ -9,14 +10,18 @@ import static org.mockito.Mockito.verify;
 class GameControllerTest
 {
     private GameController sut;
+    private ConsoleView view;
     
+    @BeforeEach
+    public void setUp()
+    {
+        view = mock(ConsoleView.class);
+        sut = new GameController(view);
+    }
     
     @Test
     public void shouldShowMenu_whenStart_shouldShowMenu()
     {
-        ConsoleView view = mock(ConsoleView.class);
-        sut = new GameController(view);
-        
         sut.start();
         verify(view).showMenu();
     }
@@ -24,13 +29,8 @@ class GameControllerTest
     @Test
     public void quit_whenQuitCommandRecieved_shouldSendQuitMesssage()
     {
-        ConsoleView view = mock(ConsoleView.class);
-        sut = new GameController(view);
-        
         sut.quit();
-        
         verify(view).showQuitMessage();
-        
     }
     
 }
