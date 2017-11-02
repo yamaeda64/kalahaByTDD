@@ -1,4 +1,5 @@
 import controller.GameController;
+import model.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import view.ConsoleView;
@@ -11,12 +12,14 @@ class GameControllerTest
 {
     private GameController sut;
     private ConsoleView view;
+    private Game game;
     
     @BeforeEach
     public void setUp()
     {
         view = mock(ConsoleView.class);
         sut = new GameController(view);
+        game = mock(Game.class);
     }
     
     @Test
@@ -33,4 +36,10 @@ class GameControllerTest
         verify(view).showQuitMessage();
     }
     
+    @Test
+    public void shouldStartNewGame()
+    {
+        sut.play();
+        verify(game).startNewGame();
+    }
 }

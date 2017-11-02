@@ -59,4 +59,6 @@ class ConsoleViewTest
         sut.clearScreen();
         verify(printStream, times(50)).println();
     }
+    
+    
 }

@@ -23,4 +23,9 @@ public class GameController
     {
         view.showQuitMessage();
     }
+    
+    public void play()
+    {
+        
+    }
 }
