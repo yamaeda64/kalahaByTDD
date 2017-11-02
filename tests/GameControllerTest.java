@@ -18,8 +18,8 @@ class GameControllerTest
     public void setUp()
     {
         view = mock(ConsoleView.class);
-        sut = new GameController(view);
         game = mock(Game.class);
+        sut = new GameController(view, game);
     }
     
     @Test
