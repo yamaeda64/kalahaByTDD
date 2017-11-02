@@ -41,6 +41,6 @@ class ConsoleViewTest
         
         sut.showQuitMessage();
         
-        verify(printStream).println();
+        verify(printStream).println("Thank you for playing Kalaha.");
     }
 }
