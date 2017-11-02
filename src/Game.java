@@ -3,9 +3,14 @@
  */
 public class Game
 {
+    ConsoleView view;
     
+    public Game(ConsoleView consoleView)
+    {
+        this.view = consoleView;
+    }
     public void start()
     {
-        
+        view.showMenu();
     }
 }

@@ -5,7 +5,7 @@ public class MancalaMain
 {
     public static void main(String[] args)
     {
-        Game game = new Game();
+        Game game = new Game(new ConsoleView());
         
         game.start();
     }

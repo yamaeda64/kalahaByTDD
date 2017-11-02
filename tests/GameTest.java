@@ -15,7 +15,7 @@ class GameTest
     public void shouldShowMenu()
     {
         ConsoleView view = mock(ConsoleView.class);
-        sut = new Game();
+        sut = new Game(view);
         
         sut.start();
         verify(view).showMenu();
