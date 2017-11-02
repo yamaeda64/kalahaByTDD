@@ -10,6 +10,7 @@ class GameControllerTest
 {
     private GameController sut;
     
+    
     @Test
     public void shouldShowMenu_whenStart_shouldShowMenu()
     {
@@ -29,7 +30,6 @@ class GameControllerTest
         sut.quit();
         
         verify(view).showQuitMessage();
-            
         
     }
     
