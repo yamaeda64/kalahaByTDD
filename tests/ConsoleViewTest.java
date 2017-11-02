@@ -3,6 +3,7 @@ import view.ConsoleView;
 
 import java.io.PrintStream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static view.ConsoleView.menuText;
@@ -22,5 +23,13 @@ class ConsoleViewTest
         
         verify(printStream).println(menuText);
         
+    }
+    
+    @Test
+    public void shouldShowMenu_assertRightMenuLine()
+    {
+        String actual = menuText;
+        String expected = "Welcome to Kalaha, press 'N' for new game or 'Q' to Quit";
+        assertEquals(actual, expected);
     }
 }
