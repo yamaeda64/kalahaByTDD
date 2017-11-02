@@ -8,6 +8,7 @@ import java.io.PrintStream;
 public class ConsoleView
 {
     public static final String menuText = "Welcome to Kalaha, press 'N' for new game or 'Q' to Quit";
+    public static final String quitText = "Thank you for playing Kalaha.";
     private PrintStream out;
     
     public ConsoleView(PrintStream printStream)
@@ -22,6 +23,6 @@ public class ConsoleView
     
     public void showQuitMessage()
     {
-        out.println("Thank you for playing Kalaha.");
+        out.println(quitText);
     }
 }

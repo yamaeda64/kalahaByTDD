@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static view.ConsoleView.menuText;
+import static view.ConsoleView.quitText;
 
 
 class ConsoleViewTest
@@ -41,6 +42,6 @@ class ConsoleViewTest
         
         sut.showQuitMessage();
         
-        verify(printStream).println("Thank you for playing Kalaha.");
+        verify(printStream).println(quitText);
     }
 }
