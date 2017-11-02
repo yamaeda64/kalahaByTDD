@@ -22,5 +22,6 @@ public class ConsoleView
     
     public void showQuitMessage()
     {
+        out.println();
     }
 }
