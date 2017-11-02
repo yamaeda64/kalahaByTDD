@@ -19,7 +19,7 @@ class ConsoleViewTest
         
         sut.showMenu();
         
-        verify(printStream).println();
+        verify(printStream).println("Welcome to Kalaha, press 'N' for new game or 'Q' to Quit");
         
     }
 }
