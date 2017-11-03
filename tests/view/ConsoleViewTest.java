@@ -4,12 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.*;
 import static view.ConsoleView.menuText;
 import static view.ConsoleView.quitText;
@@ -68,21 +66,9 @@ class ConsoleViewTest
     @Test
     public void consoleView_getInput_ShouldGetQ()
     {
-        
         String input = "Q";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-    
-        
-        InputStream inputStream = mock(InputStream.class);
-        try
-        {
-            when(inputStream.read()).thenReturn(55);
-        }
-        catch(IOException e)
-        {
-            fail("Exception was thrown from Test");
-        }
         char actual = sut.getInput();
         assertEquals('Q', actual);
     }
