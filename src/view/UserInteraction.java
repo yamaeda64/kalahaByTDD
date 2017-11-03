@@ -1,7 +1,7 @@
 package view;
 
 
-public enum UserInteractions
+public enum UserInteraction
 {
     PLAY, QUIT, PICK_BALLS_FROM_HOUSE
 }

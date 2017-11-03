@@ -37,19 +37,19 @@ public class ConsoleView
         }
     }
     
-    
-    public char getInput()
+    protected char getInput()
     {
         Scanner scanner = new Scanner(System.in);
         char input = scanner.next().toUpperCase().charAt(0);
         return input;
     }
     
-    public UserInteractions collectEvent(char input)
+    public UserInteraction collectEvent()
     {
+        char input = getInput();
         if(input == 'Q')
         {
-            return UserInteractions.QUIT;
+            return UserInteraction.QUIT;
         }
         
         return null;

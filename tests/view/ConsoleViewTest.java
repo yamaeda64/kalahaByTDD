@@ -99,9 +99,10 @@ class ConsoleViewTest
     public void consoleView_collectEvent_ShouldReturnQuit()
     {
         char input = 'Q';
-        UserInteractions actual = sut.collectEvent(input);
+        setFakeInputStream("" + input);
+        UserInteraction actual = sut.collectEvent();
         
-        assertEquals(UserInteractions.QUIT, actual);
+        assertEquals(UserInteraction.QUIT, actual);
     }
     
 }
