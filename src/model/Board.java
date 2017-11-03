@@ -17,6 +17,6 @@ public class Board
     
     public int getBoardHousesPerSide()
     {
-        return 0;
+        return 6;
     }
 }
