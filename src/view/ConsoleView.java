@@ -1,6 +1,7 @@
 package view;
 
 import java.io.PrintStream;
+import java.util.Scanner;
 
 /**
  * The base view Class of the application
@@ -39,6 +40,8 @@ public class ConsoleView
     
     public char getInput()
     {
-        return '€';
+        Scanner scanner = new Scanner(System.in);
+        char input = scanner.next().charAt(0);
+        return input;
     }
 }
