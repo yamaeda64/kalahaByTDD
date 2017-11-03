@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-/**
- * Created by joakimbergqvist on 2017-11-03.
- */
+
 class BoardTest
 {
     
@@ -26,11 +24,18 @@ class BoardTest
     }
     
     @Test
-    public void testBoardSize()
+    public void testBoardHousesPerSideSize()
     {
         Board sut = new Board();
         int actual = sut.getBoardHousesPerSide();
         assertEquals(6, actual);
     }
     
+    @Test
+    public void testBoardStoresSize()
+    {
+        Board sut = new Board();
+        int actual = sut.getStoreSize();
+        assertEquals(2, actual);
+    }
 }
