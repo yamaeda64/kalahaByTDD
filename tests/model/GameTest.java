@@ -2,13 +2,13 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 
 class GameTest
 {
+    
     @BeforeEach
     void setUp()
     {
@@ -16,14 +16,15 @@ class GameTest
     }
     
     @Test
-    void startNewGame()
+    void GameTest_startNewGame_shouldCreateBoard()
     {
-        Game sut = new Game();
-        Board board = mock(Board.class);
+        Game sut = spy(new Game());
+        BoardFactory bf = mock(BoardFactory.class);
+        Board board = new Board();
         sut.startNewGame();
-        Mockito.verify(board).Board();
         
-        
+        verify(bf).getKalahaBoard();
     }
+    
     
 }

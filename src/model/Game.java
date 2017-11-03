@@ -8,6 +8,6 @@ public class Game
     
     public void startNewGame()
     {
-        
+        Board board = new Board();
     }
 }
