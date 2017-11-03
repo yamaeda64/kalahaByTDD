@@ -89,12 +89,23 @@ class ConsoleViewTest
         char actual = sut.getInput();
         assertEquals('5', actual);
     }
-    
     private void setFakeInputStream(String input)
     {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
     }
+    
+    @Test
+    public void consoleView_collectEvent_ShouldReturnQuit()
+    {
+        char input = 'Q';
+        UserInteractions actual = sut.collectEvent(input);
+        
+        assertEquals(UserInteractions.QUIT, actual);
+        
+    }
+    
+    
 }
 
     

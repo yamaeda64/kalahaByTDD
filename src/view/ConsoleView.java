@@ -44,4 +44,9 @@ public class ConsoleView
         char input = scanner.next().toUpperCase().charAt(0);
         return input;
     }
+    
+    public UserInteractions collectEvent(char input)
+    {
+        return null;
+    }
 }
