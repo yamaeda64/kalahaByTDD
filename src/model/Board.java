@@ -5,7 +5,7 @@ public class Board
 {
     private final int BOARD_ROWS = 2;
     private final int BOARD_HOUSES = 6;
-    
+    private final int BOARD_STORES = 2;
     
     public void Board()
     {
@@ -24,6 +24,7 @@ public class Board
     
     public int getStoreSize()
     {
-        return 0;
+        return BOARD_STORES;
     }
+    
 }
