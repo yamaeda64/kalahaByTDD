@@ -6,6 +6,6 @@ public class BoardFactory
     
     public Board getKalahaBoard()
     {
-        return null;
+        return new Board();
     }
 }
