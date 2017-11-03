@@ -41,7 +41,7 @@ public class ConsoleView
     public char getInput()
     {
         Scanner scanner = new Scanner(System.in);
-        char input = scanner.next().charAt(0);
+        char input = scanner.next().toUpperCase().charAt(0);
         return input;
     }
 }
