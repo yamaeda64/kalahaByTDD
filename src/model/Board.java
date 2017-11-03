@@ -3,6 +3,7 @@ package model;
 
 public class Board
 {
+    private final int BOARD_ROWS = 2;
     
     public void Board()
     {
@@ -11,6 +12,6 @@ public class Board
     
     public int getBoardRows()
     {
-        return 2;
+        return BOARD_ROWS;
     }
 }
