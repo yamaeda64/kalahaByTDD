@@ -25,4 +25,12 @@ class BoardTest
         assertEquals(2, actual);
     }
     
+    @Test
+    public void testBoardSize()
+    {
+        Board sut = new Board();
+        int actual = sut.getBoardHousesPerSide();
+        assertEquals(6, actual);
+    }
+    
 }
