@@ -9,16 +9,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BoardTest
 {
     
-   @BeforeEach
+    private Board sut;
+    
+    @BeforeEach
    public void setUp()
    {
-       
+       sut = new Board();
    }
    
     @Test
     public void testBoardRows()
     {
-        Board sut = new Board();
         int actual = sut.getBoardRows();
         assertEquals(2, actual);
     }
@@ -26,7 +27,6 @@ class BoardTest
     @Test
     public void testBoardHousesPerSideSize()
     {
-        Board sut = new Board();
         int actual = sut.getBoardHousesPerSide();
         assertEquals(6, actual);
     }
@@ -34,7 +34,6 @@ class BoardTest
     @Test
     public void testBoardStoresSize()
     {
-        Board sut = new Board();
         int actual = sut.getStoreSize();
         assertEquals(2, actual);
     }
