@@ -3,6 +3,7 @@ import model.BoardFactory;
 import model.Game;
 import view.ConsoleView;
 
+import java.io.InputStream;
 import java.io.PrintStream;
 
 

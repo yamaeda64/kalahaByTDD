@@ -20,6 +20,7 @@ public class GameController
     public void start()
     {
         view.showMenu();
+        view.getInput();
     }
     
     public void quit()
