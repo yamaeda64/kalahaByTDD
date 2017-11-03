@@ -67,8 +67,7 @@ class ConsoleViewTest
     public void consoleView_getInput_ShouldGetQ()
     {
         String input = "Q";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        setFakeInputStream(input);
         char actual = sut.getInput();
         assertEquals('Q', actual);
     }
@@ -77,8 +76,7 @@ class ConsoleViewTest
     public void consoleView_getInput_ShouldGetA()
     {
         String input = "aAT\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        setFakeInputStream(input);
         char actual = sut.getInput();
         assertEquals('A', actual);
     }
@@ -87,10 +85,15 @@ class ConsoleViewTest
     public void consoleView_getInput_ShouldGet5()
     {
         String input = "\n5AT\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        setFakeInputStream(input);
         char actual = sut.getInput();
         assertEquals('5', actual);
+    }
+    
+    private void setFakeInputStream(String input)
+    {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
     }
 }
 
