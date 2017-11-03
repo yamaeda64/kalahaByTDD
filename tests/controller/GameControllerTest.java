@@ -43,5 +43,10 @@ class GameControllerTest
         sut.play();
         verify(game).startNewGame();
     }
-    
+    @Test
+    public void start_getUserCommand_ShouldEvokecollectEvent()
+    {
+        sut.start();
+        verify(view).collectEvent();
+    }
 }

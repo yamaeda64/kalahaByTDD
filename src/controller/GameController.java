@@ -2,7 +2,6 @@ package controller;
 
 import model.Game;
 import view.ConsoleView;
-import view.UserInteraction;
 
 /**
  * the base controller class
@@ -21,7 +20,6 @@ public class GameController
     public void start()
     {
         view.showMenu();
-        UserInteraction currentInteraction = view.collectEvent();
     }
     
     public void quit()
