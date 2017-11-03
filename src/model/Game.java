@@ -1,13 +1,19 @@
 package model;
 
-/**
- * Created by joakimbergqvist on 2017-11-02.
- */
+
 public class Game
 {
+    Board board;
+    BoardFactory boardFactory;
+    
+    public Game (BoardFactory boardFactory)
+    {
+        this.boardFactory = boardFactory;
+    }
     
     public void startNewGame()
     {
-        Board board = new Board();
+      
     }
+    
 }

@@ -30,5 +30,6 @@ public class GameController
     public void play()
     {
         game.startNewGame();
+       // game.setBoardFactory(new BoardFactory());
     }
 }

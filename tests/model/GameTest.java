@@ -2,9 +2,9 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
-import static org.mockito.Mockito.*;
-
+import static org.mockito.Mockito.mock;
 
 class GameTest
 {
@@ -18,13 +18,15 @@ class GameTest
     @Test
     void GameTest_startNewGame_shouldCreateBoard()
     {
-        Game sut = spy(new Game());
         BoardFactory bf = mock(BoardFactory.class);
-        Board board = new Board();
+        Game sut = new Game(bf);
+        
         sut.startNewGame();
         
-        verify(bf).getKalahaBoard();
+        Mockito.verify(bf).getKalahaBoard();
     }
+    
+    
     
     
 }
