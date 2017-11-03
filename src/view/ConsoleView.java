@@ -42,6 +42,6 @@ public class ConsoleView
     {
         Scanner scanner = new Scanner(System.in);
         char input = scanner.next().toUpperCase().charAt(0);
-        return input;
+        return '€';
     }
 }

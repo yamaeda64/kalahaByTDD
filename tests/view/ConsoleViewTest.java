@@ -82,6 +82,16 @@ class ConsoleViewTest
         char actual = sut.getInput();
         assertEquals('A', actual);
     }
+    
+    @Test
+    public void consoleView_getInput_ShouldGet5()
+    {
+        String input = "\n5AT\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        char actual = sut.getInput();
+        assertEquals('5', actual);
+    }
 }
 
     
