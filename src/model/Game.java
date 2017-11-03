@@ -13,7 +13,7 @@ public class Game
     
     public void startNewGame()
     {
-      
+        boardFactory.getKalahaBoard();
     }
     
 }
