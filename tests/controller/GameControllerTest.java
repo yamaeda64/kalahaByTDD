@@ -44,5 +44,4 @@ class GameControllerTest
         verify(game).startNewGame();
     }
     
-    
 }

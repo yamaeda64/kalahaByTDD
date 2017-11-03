@@ -11,38 +11,31 @@ import static org.mockito.Mockito.when;
 class GameTest
 {
     
+    private BoardFactory bf;
+    private Game sut;
+    
     @BeforeEach
     void setUp()
     {
-        
+        bf = mock(BoardFactory.class);
+        sut = new Game(bf);
     }
     
     @Test
     void GameTest_startNewGame_shouldCreateBoard()
     {
-        BoardFactory bf = mock(BoardFactory.class);
-        Game sut = new Game(bf);
-        
         sut.startNewGame();
-        
         Mockito.verify(bf).getKalahaBoard();
     }
     
     @Test
     void GameTest_getBoard_shouldReturnBoard()
     {
-      
-        BoardFactory bf = mock(BoardFactory.class);
         when(bf.getKalahaBoard()).thenReturn(new Board());
-        Game sut = new Game(bf);
         sut.startNewGame();
         
         Board actual = sut.getBoard();
         
         assertEquals(actual.getClass(), actual.getClass());
     }
-    
-    
-    
-    
 }
