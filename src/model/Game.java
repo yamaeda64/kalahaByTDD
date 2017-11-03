@@ -13,7 +13,11 @@ public class Game
     
     public void startNewGame()
     {
-        boardFactory.getKalahaBoard();
+        board = boardFactory.getKalahaBoard();
     }
     
+    public Board getBoard()
+    {
+        return board;
+    }
 }
