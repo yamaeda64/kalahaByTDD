@@ -4,6 +4,7 @@ package model;
 public class Board
 {
     private final int BOARD_ROWS = 2;
+    private final int BOARD_HOUSES = 6;
     
     public void Board()
     {
@@ -17,6 +18,6 @@ public class Board
     
     public int getBoardHousesPerSide()
     {
-        return 6;
+        return BOARD_HOUSES;
     }
 }
