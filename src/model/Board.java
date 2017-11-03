@@ -8,4 +8,9 @@ public class Board
     {
         
     }
+    
+    public int getBoardRows()
+    {
+        return 0;
+    }
 }
