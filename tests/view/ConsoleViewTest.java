@@ -73,8 +73,15 @@ class ConsoleViewTest
         assertEquals('Q', actual);
     }
     
-    
-    
+    @Test
+    public void consoleView_getInput_ShouldGetA()
+    {
+        String input = "aAT\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        char actual = sut.getInput();
+        assertEquals('A', actual);
+    }
 }
 
     
