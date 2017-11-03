@@ -47,6 +47,11 @@ public class ConsoleView
     
     public UserInteractions collectEvent(char input)
     {
+        if(input == 'Q')
+        {
+            return UserInteractions.QUIT;
+        }
+        
         return null;
     }
 }

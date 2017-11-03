@@ -102,10 +102,6 @@ class ConsoleViewTest
         UserInteractions actual = sut.collectEvent(input);
         
         assertEquals(UserInteractions.QUIT, actual);
-        
     }
     
-    
 }
-
-    
