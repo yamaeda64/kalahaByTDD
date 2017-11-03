@@ -11,6 +11,6 @@ public class Board
     
     public int getBoardRows()
     {
-        return 0;
+        return 2;
     }
 }
