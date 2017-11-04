@@ -1,6 +1,7 @@
 package model;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Board
@@ -8,6 +9,7 @@ public class Board
     private final int BOARD_ROWS = 2;
     private final int BOARD_HOUSES = 6;
     private final int BOARD_STORES = 2;
+    private ArrayList<Integer> ballHolder;
     
     public void Board()
     {
@@ -31,11 +33,15 @@ public class Board
     
     public void createHouseAndStores()
     {
-        
+        ballHolder = new ArrayList<>();
+        for(int i = 0; i<BOARD_HOUSES*BOARD_ROWS + BOARD_STORES; i++)
+        {
+            ballHolder.add(0);
+        }
     }
     
     public Iterator<Integer> getHousesAndStores()
     {
-        return null;
+        return ballHolder.iterator();
     }
 }
