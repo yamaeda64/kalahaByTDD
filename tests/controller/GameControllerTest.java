@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
 import static org.mockito.Mockito.*;
+import static view.UserInteraction.PLAY;
 import static view.UserInteraction.QUIT;
 
 
@@ -52,6 +53,14 @@ class GameControllerTest
     {
         sut.play();
         verify(game).startNewGame();
+    }
+    
+    @Test
+    public void takeAction_whenPlay_ShouldStartNewGame()
+    {
+        sut = spy(new GameController(view, game));
+        sut.takeAction(PLAY);
+        verify(sut).play();
     }
     
     @Test
