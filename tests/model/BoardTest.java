@@ -42,7 +42,7 @@ class BoardTest
     
     // Tests if number of elements in iterator is same as (row*houses + stores)
     @Test
-    public void creteHouseAndStoreArray()
+    public void Board_creteHouseAndStoreArray_shouldCreateArrayList()
     {
         sut.createHouseAndStores();
         int actual = 0;
@@ -54,7 +54,20 @@ class BoardTest
             actual++;
         }
         assertEquals(expected,actual);
-        
+    }
+    
+    @Test
+    public void Board_fillArrayWithBalls_sumOfBallsShouldBeEqual()
+    {
+        sut.createHouseAndStores();
+        int actual = 0;
+        Iterator<Integer> iterator = sut.getHousesAndStores();
+        while(iterator.hasNext())
+        {
+            actual += iterator.next();
+        }
+        int expected = sut.getBoardRows()*sut.getBoardHousesPerSide()* 6;
+        assertEquals(expected,actual);
     }
     
 }
