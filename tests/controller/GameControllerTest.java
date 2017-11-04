@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
 import static org.mockito.Mockito.*;
-import static view.UserInteraction.PLAY;
-import static view.UserInteraction.QUIT;
+import static view.UserInteraction.*;
 
 
 class GameControllerTest

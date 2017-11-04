@@ -3,6 +3,8 @@ package view;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import static view.UserInteraction.*;
+
 /**
  * The base view Class of the application
  */
@@ -49,11 +51,11 @@ public class ConsoleView
         char input = getInput();
         if(input == 'Q')
         {
-            return UserInteraction.QUIT;
+            return QUIT;
         }
         else if(input == 'P')
         {
-            return UserInteraction.PLAY;
+            return PLAY;
         }
 
         return null;

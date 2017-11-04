@@ -4,6 +4,8 @@ import model.Game;
 import view.ConsoleView;
 import view.UserInteraction;
 
+import static view.UserInteraction.*;
+
 /**
  * the base controller class
  */
@@ -44,11 +46,11 @@ public class GameController
     
     public void takeAction(UserInteraction userInteraction)
     {
-        if(userInteraction == UserInteraction.QUIT)
+        if(userInteraction == QUIT)
         {
             quit();
         }
-        else if(userInteraction == UserInteraction.PLAY)
+        else if(userInteraction == PLAY)
         {
             play();
         }
