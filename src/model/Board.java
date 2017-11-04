@@ -1,6 +1,8 @@
 package model;
 
 
+import java.util.Iterator;
+
 public class Board
 {
     private final int BOARD_ROWS = 2;
@@ -27,4 +29,13 @@ public class Board
         return BOARD_STORES;
     }
     
+    public void createHouseAndStores()
+    {
+        
+    }
+    
+    public Iterator<Integer> getHousesAndStores()
+    {
+        return null;
+    }
 }

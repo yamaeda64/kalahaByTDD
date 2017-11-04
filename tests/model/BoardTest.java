@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -37,4 +39,22 @@ class BoardTest
         int actual = sut.getStoreSize();
         assertEquals(2, actual);
     }
+    
+    // Tests if number of elements in iterator is same as (row*houses + stores)
+    @Test
+    public void creteHouseAndStoreArray()
+    {
+        sut.createHouseAndStores();
+        int actual = 0;
+        Iterator<Integer> iterator = sut.getHousesAndStores();
+        int expected = sut.getBoardRows()*sut.getBoardHousesPerSide() + sut.getStoreSize();
+        while(iterator.hasNext())
+        {
+            iterator.next();
+            actual++;
+        }
+        assertEquals(expected,actual);
+        
+    }
+    
 }
