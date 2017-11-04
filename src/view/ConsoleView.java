@@ -51,7 +51,7 @@ public class ConsoleView
         {
             return UserInteraction.QUIT;
         }
-        
+
         return null;
     }
 }

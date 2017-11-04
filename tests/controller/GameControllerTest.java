@@ -69,6 +69,7 @@ class GameControllerTest
         verify(sut).exitApplication();
     }
     
+    
     @Test
     public void takeAction_whenStartGame_ShouldCallTakeAction()
     {
@@ -78,6 +79,7 @@ class GameControllerTest
         
         verify(sut).takeAction(QUIT);
     }
+    
     
     private void exchangeGameControllerToSpyThatDoesntExit()
     {

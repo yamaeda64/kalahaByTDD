@@ -105,4 +105,14 @@ class ConsoleViewTest
         assertEquals(UserInteraction.QUIT, actual);
     }
     
+    @Test
+    public void consoleView_collectEvent_ShouldReturnPlay()
+    {
+        char input = 'p';
+        setFakeInputStream("" + input);
+        UserInteraction actual = sut.collectEvent();
+    
+        assertEquals(UserInteraction.PLAY, actual);
+    }
+    
 }
