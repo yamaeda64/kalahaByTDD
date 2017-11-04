@@ -69,6 +69,16 @@ class GameControllerTest
         verify(sut).exitApplication();
     }
     
+    @Test
+    public void takeAction_whenStartGame_ShouldCallTakeAction()
+    {
+        exchangeGameControllerToSpyThatDoesntExit();
+        when(view.collectEvent()).thenReturn(QUIT);
+        sut.start();
+        
+        verify(sut).takeAction(QUIT);
+    }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
