@@ -108,7 +108,7 @@ class ConsoleViewTest
     @Test
     public void consoleView_collectEvent_ShouldReturnPlay()
     {
-        char input = 'p';
+        char input = 'n';
         setFakeInputStream("" + input);
         UserInteraction actual = sut.collectEvent();
     
