@@ -48,5 +48,9 @@ public class GameController
         {
             quit();
         }
+        else if(userInteraction == UserInteraction.PLAY)
+        {
+            play();
+        }
     }
 }
