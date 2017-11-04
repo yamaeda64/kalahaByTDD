@@ -43,6 +43,9 @@ public class GameController
     
     public void takeAction(UserInteraction userInteraction)
     {
-        
+        if(userInteraction == UserInteraction.QUIT)
+        {
+            quit();
+        }
     }
 }
