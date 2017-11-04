@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 
@@ -14,6 +15,9 @@ class GameControllerTest
     private GameController sut;
     private ConsoleView view;
     private Game game;
+    
+
+    
     
     @BeforeEach
     public void setUp()
@@ -38,11 +42,20 @@ class GameControllerTest
     }
     
     @Test
+    public void quit_whenQuitCommandRecieved_ShouldQuitApplication()
+    {
+        sut = spy(new GameController(view,game));
+        sut.quit();
+        verify(sut).exitApplication();
+    }
+    
+    @Test
     public void shouldStartNewGame()
     {
         sut.play();
         verify(game).startNewGame();
     }
+    
     @Test
     public void start_getUserCommand_ShouldEvokecollectEvent()
     {
@@ -50,3 +63,4 @@ class GameControllerTest
         verify(view).collectEvent();
     }
 }
+

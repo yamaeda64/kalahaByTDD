@@ -27,10 +27,16 @@ public class GameController
     public void quit()
     {
         view.showQuitMessage();
+        
     }
     
     public void play()
     {
         game.startNewGame();
+    }
+    
+    public void exitApplication()
+    {
+        
     }
 }
