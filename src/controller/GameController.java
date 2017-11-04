@@ -40,4 +40,9 @@ public class GameController
         System.exit(0);
         return false;        // returns false if system couldn't shut down.
     }
+    
+    public void takeAction(UserInteraction userInteraction)
+    {
+        
+    }
 }

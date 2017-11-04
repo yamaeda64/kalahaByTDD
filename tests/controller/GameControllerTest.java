@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
 import static org.mockito.Mockito.*;
+import static view.UserInteraction.QUIT;
 
 
 class GameControllerTest
@@ -60,6 +61,16 @@ class GameControllerTest
     {
         sut.start();
         verify(view).collectEvent();
+    }
+    
+    @Test
+    public void takeAction_whenQuit_ShouldQuit()
+    {
+        sut.takeAction(QUIT);
+        sut = spy(new GameController(view,game));
+        doReturn(true).when(sut).exitApplication();
+        verify(sut).exitApplication();
+        
     }
 }
 
