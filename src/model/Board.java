@@ -36,7 +36,14 @@ public class Board
         ballHolder = new ArrayList<>();
         for(int i = 0; i<BOARD_HOUSES*BOARD_ROWS + BOARD_STORES; i++)
         {
-            ballHolder.add(6);
+            if(i == BOARD_HOUSES || i == BOARD_HOUSES+1+BOARD_HOUSES)
+            {
+                ballHolder.add(0);
+            }
+            else
+            {
+                ballHolder.add(6);
+            }
         }
     }
     
