@@ -26,7 +26,7 @@ public class GameController
     
     public void quit()
     {
-        view.showQuitMessage();
+        
         
     }
     

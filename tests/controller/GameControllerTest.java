@@ -37,6 +37,7 @@ class GameControllerTest
     {
         sut = spy(new GameController(view,game));
         doReturn(true).when(sut).exitApplication();
+        sut.quit();
         verify(view).showQuitMessage();
     }
     
