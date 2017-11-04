@@ -26,8 +26,8 @@ public class GameController
     
     public void quit()
     {
-        
-        
+        view.showQuitMessage();
+        exitApplication();
     }
     
     public void play()

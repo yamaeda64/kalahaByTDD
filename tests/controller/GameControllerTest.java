@@ -14,8 +14,6 @@ class GameControllerTest
     private ConsoleView view;
     private Game game;
     
-
-    
     
     @BeforeEach
     public void setUp()
