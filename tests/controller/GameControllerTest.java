@@ -34,8 +34,7 @@ class GameControllerTest
     @Test
     public void quit_whenQuitCommandRecieved_shouldSendQuitMesssage()
     {
-        sut = spy(new GameController(view,game));
-        doReturn(true).when(sut).exitApplication();
+        exchangeGameControllerToSpyThatDoesntExit();
         sut.quit();
         verify(view).showQuitMessage();
     }
@@ -43,8 +42,7 @@ class GameControllerTest
     @Test
     public void quit_whenQuitCommandRecieved_ShouldQuitApplication()
     {
-        sut = spy(new GameController(view,game));
-        doReturn(true).when(sut).exitApplication();
+        exchangeGameControllerToSpyThatDoesntExit();
         sut.quit();
         verify(sut).exitApplication();
     }
@@ -66,10 +64,15 @@ class GameControllerTest
     @Test
     public void takeAction_whenQuit_ShouldQuit()
     {
-        sut = spy(new GameController(view,game));
-        doReturn(true).when(sut).exitApplication();
+        exchangeGameControllerToSpyThatDoesntExit();
         sut.takeAction(QUIT);
         verify(sut).exitApplication();
+    }
+    
+    private void exchangeGameControllerToSpyThatDoesntExit()
+    {
+        sut = spy(new GameController(view,game));
+        doReturn(true).when(sut).exitApplication();
     }
 }
 
