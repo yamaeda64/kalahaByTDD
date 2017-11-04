@@ -53,7 +53,7 @@ public class ConsoleView
         {
             return QUIT;
         }
-        else if(input == 'P')
+        else if(input == 'N')
         {
             return PLAY;
         }
