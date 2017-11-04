@@ -51,6 +51,10 @@ public class ConsoleView
         {
             return UserInteraction.QUIT;
         }
+        else if(input == 'P')
+        {
+            return UserInteraction.PLAY;
+        }
 
         return null;
     }
