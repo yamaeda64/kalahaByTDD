@@ -35,8 +35,9 @@ public class GameController
         game.startNewGame();
     }
     
-    public void exitApplication()
+    public boolean exitApplication()
     {
-        
+        System.exit(0);
+        return false;        // returns false if system couldn't shut down.
     }
 }

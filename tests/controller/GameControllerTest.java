@@ -5,9 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 
 class GameControllerTest
@@ -37,7 +35,8 @@ class GameControllerTest
     @Test
     public void quit_whenQuitCommandRecieved_shouldSendQuitMesssage()
     {
-        sut.quit();
+        sut = spy(new GameController(view,game));
+        doReturn(true).when(sut).exitApplication();
         verify(view).showQuitMessage();
     }
     
@@ -45,6 +44,7 @@ class GameControllerTest
     public void quit_whenQuitCommandRecieved_ShouldQuitApplication()
     {
         sut = spy(new GameController(view,game));
+        doReturn(true).when(sut).exitApplication();
         sut.quit();
         verify(sut).exitApplication();
     }
