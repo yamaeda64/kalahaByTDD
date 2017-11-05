@@ -72,7 +72,7 @@ public class Board
     
     public int getComputerStore()
     {
-        return -1;
+        return ballHolder.get(ballHolder.size()-1);
     }
     
     public Iterator<Integer> getComputerHouses()
