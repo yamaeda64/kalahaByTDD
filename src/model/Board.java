@@ -62,29 +62,7 @@ public class Board
     
     public Iterator<Integer> getPlayerHouses()
     {
-        Iterator<Integer> iterator = new Iterator<Integer>()
-        {
-            int i = 0;
-            @Override
-            public boolean hasNext()
-            {
-                if(i < BOARD_HOUSES)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-    
-            @Override
-            public Integer next()
-            {
-                return ballHolder.get(i++);
-            }
-        };
-        return iterator;
+        return getIterator(0,BOARD_HOUSES);
     }
     
     public int getPlayerStore()
@@ -94,13 +72,18 @@ public class Board
     
     public Iterator<Integer> getComputerHouses()
     {
+        return getIterator(BOARD_HOUSES+1, BOARD_HOUSES*2+1);
+    }
+    
+    private Iterator<Integer> getIterator(int start, int stop)
+    {
         Iterator<Integer> iterator = new Iterator<Integer>()
         {
-            int i = BOARD_HOUSES+1;
+            int i = start;
             @Override
             public boolean hasNext()
             {
-                if(i < BOARD_HOUSES*2+1)
+                if(i < stop)
                 {
                     return true;
                 }
