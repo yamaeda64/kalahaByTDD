@@ -70,4 +70,19 @@ class BoardTest
         assertEquals(expected,actual);
     }
     
+    @Test
+    public void boardTest_getPlayerHouses_shouldBe36()  // TODO, need more testing when move balls functionality is added
+    {
+       sut.createHouseAndStores();
+       int actual = 0;
+       Iterator<Integer> iterator = sut.getPlayerHouses();
+       while(iterator.hasNext())
+       {
+           actual += iterator.next();
+       }
+       int expected = sut.getBoardHousesPerSide()*sut.getSTARTING_BALLS_PER_HOUSE();
+       assertEquals(expected,actual);
+        
+    }
+    
 }

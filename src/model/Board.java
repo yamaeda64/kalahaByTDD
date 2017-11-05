@@ -59,4 +59,9 @@ public class Board
     {
         return STARTING_BALLS_PER_HOUSE;
     }
+    
+    public Iterator<Integer> getPlayerHouses()
+    {
+        return null;
+    }
 }
