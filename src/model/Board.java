@@ -89,6 +89,6 @@ public class Board
     
     public int getPlayerStore()
     {
-        return -1;
+        return ballHolder.get(BOARD_HOUSES);
     }
 }

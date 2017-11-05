@@ -86,7 +86,7 @@ class BoardTest
     }
     
     @Test
-    public void boardTest_getPlayerStore_shouldBe0()
+    public void boardTest_getPlayerStore_shouldBe0()       // TODO, need more testing when move balls functionality added
     {
         sut.createHouseAndStores();
         int actual = sut.getPlayerStore();
