@@ -68,14 +68,20 @@ public class Board
             @Override
             public boolean hasNext()
             {
-                
+                if(i < BOARD_HOUSES)
+                {
+                    return true;
+                }
+                else
+                {
                     return false;
+                }
             }
     
             @Override
             public Integer next()
             {
-                return null;
+                return ballHolder.get(i++);
             }
         };
         return iterator;
