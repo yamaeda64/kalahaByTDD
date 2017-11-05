@@ -105,7 +105,6 @@ class BoardTest
         }
         int expected = sut.getBoardHousesPerSide()*sut.getSTARTING_BALLS_PER_HOUSE();
         assertEquals(expected,actual);
-        
     }
     
 }

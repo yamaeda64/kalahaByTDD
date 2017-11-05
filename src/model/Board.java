@@ -96,17 +96,24 @@ public class Board
     {
         Iterator<Integer> iterator = new Iterator<Integer>()
         {
-            
+            int i = BOARD_HOUSES+1;
             @Override
             public boolean hasNext()
             {
-                return false;
+                if(i < BOARD_HOUSES*2+1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         
             @Override
             public Integer next()
             {
-                return -1;
+                return ballHolder.get(i++);
             }
         };
         return iterator;
