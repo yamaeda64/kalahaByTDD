@@ -85,4 +85,12 @@ class BoardTest
         
     }
     
+    @Test
+    public void boardTest_getPlayerStore_shouldBe0()
+    {
+        sut.createHouseAndStores();
+        int actual = sut.getPlayerStore();
+        assertEquals(0,actual);
+    }
+    
 }

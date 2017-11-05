@@ -86,4 +86,9 @@ public class Board
         };
         return iterator;
     }
+    
+    public int getPlayerStore()
+    {
+        return -1;
+    }
 }
