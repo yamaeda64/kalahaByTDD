@@ -62,6 +62,22 @@ public class Board
     
     public Iterator<Integer> getPlayerHouses()
     {
-        return null;
+        Iterator<Integer> iterator = new Iterator<Integer>()
+        {
+            int i = 0;
+            @Override
+            public boolean hasNext()
+            {
+                
+                    return false;
+            }
+    
+            @Override
+            public Integer next()
+            {
+                return null;
+            }
+        };
+        return iterator;
     }
 }
