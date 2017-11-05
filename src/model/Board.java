@@ -70,6 +70,11 @@ public class Board
         return ballHolder.get(BOARD_HOUSES);
     }
     
+    public int getComputerStore()
+    {
+        return -1;
+    }
+    
     public Iterator<Integer> getComputerHouses()
     {
         return getIterator(BOARD_HOUSES+1, BOARD_HOUSES*2+1);
@@ -101,4 +106,6 @@ public class Board
         };
         return iterator;
     }
+    
+
 }

@@ -107,4 +107,12 @@ class BoardTest
         assertEquals(expected,actual);
     }
     
+    @Test
+    public void boardTest_getComputerStore_shouldBe0()       // TODO, need more testing when move balls functionality added
+    {
+        sut.createHouseAndStores();
+        int actual = sut.getComputerStore();
+        assertEquals(0,actual);
+    }
+    
 }
