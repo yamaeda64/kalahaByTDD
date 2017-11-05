@@ -66,7 +66,7 @@ class BoardTest
         {
             actual += iterator.next();
         }
-        int expected = sut.getBoardRows()*sut.getBoardHousesPerSide()* 6;
+        int expected = sut.getBoardRows()*sut.getBoardHousesPerSide()* sut.getSTARTING_BALLS_PER_HOUSE();
         assertEquals(expected,actual);
     }
     

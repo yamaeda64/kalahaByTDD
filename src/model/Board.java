@@ -9,7 +9,10 @@ public class Board
     private final int BOARD_ROWS = 2;
     private final int BOARD_HOUSES = 6;
     private final int BOARD_STORES = 2;
+    private final int STARTING_BALLS_PER_HOUSE = 6;
+    
     private ArrayList<Integer> ballHolder;
+    
     
     public void Board()
     {
@@ -42,7 +45,7 @@ public class Board
             }
             else
             {
-                ballHolder.add(6);
+                ballHolder.add(STARTING_BALLS_PER_HOUSE);
             }
         }
     }
@@ -50,5 +53,10 @@ public class Board
     public Iterator<Integer> getHousesAndStores()
     {
         return ballHolder.iterator();
+    }
+    
+    public int getSTARTING_BALLS_PER_HOUSE()
+    {
+        return STARTING_BALLS_PER_HOUSE;
     }
 }
