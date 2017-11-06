@@ -111,8 +111,16 @@ class ConsoleViewTest
         char input = 'n';
         setFakeInputStream("" + input);
         UserInteraction actual = sut.collectEvent();
-    
         assertEquals(UserInteraction.PLAY, actual);
+    }
+    
+    @Test
+    public void consoleView_collectEvent_ShouldReturnPickBallsFromHouse()
+    {
+        char input = '4';
+        setFakeInputStream("" +input);
+        UserInteraction actual = sut.collectEvent();
+        assertEquals(UserInteraction.PICK_BALLS_FROM_HOUSE, actual);
     }
     
 }

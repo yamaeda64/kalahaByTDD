@@ -88,7 +88,6 @@ class GameControllerTest
         verify(sut).takeAction(QUIT);
     }
     
-    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
