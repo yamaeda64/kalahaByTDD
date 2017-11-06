@@ -14,11 +14,11 @@ class BoardTest
     private Board sut;
     
     @BeforeEach
-   public void setUp()
-   {
-       sut = new Board();
-   }
-   
+    public void setUp()
+    {
+        sut = new Board();
+    }
+    
     @Test
     public void testBoardRows()
     {
@@ -73,15 +73,15 @@ class BoardTest
     @Test
     public void boardTest_getPlayerHouses_shouldBe36()  // TODO, need more testing when move balls functionality is added
     {
-       sut.createHouseAndStores();
-       int actual = 0;
-       Iterator<Integer> iterator = sut.getPlayerHouses();
-       while(iterator.hasNext())
-       {
-           actual += iterator.next();
-       }
-       int expected = sut.getBoardHousesPerSide()*sut.getSTARTING_BALLS_PER_HOUSE();
-       assertEquals(expected,actual);
+        sut.createHouseAndStores();
+        int actual = 0;
+        Iterator<Integer> iterator = sut.getPlayerHouses();
+        while(iterator.hasNext())
+        {
+            actual += iterator.next();
+        }
+        int expected = sut.getBoardHousesPerSide()*sut.getSTARTING_BALLS_PER_HOUSE();
+        assertEquals(expected,actual);
         
     }
     
@@ -115,7 +115,7 @@ class BoardTest
         int actual = sut.getComputerStore();
         assertEquals(0,actual);
     }
-
+    
     
     @Test
     public void boardTest_TakeAndDistribute_House1ShouldBeEmpty()
@@ -134,6 +134,21 @@ class BoardTest
         assertEquals(0,actual);
     }
     
-    
+    @Test
+    public void boardTest_TakeAndDistribute_House2ShouldBe7()
+    {
+        sut.createHouseAndStores();
+        int inputHouse = 1;
+        sut.takeBallsFrom(inputHouse);
+        int actual;
+        Iterator<Integer> iterator = sut.getPlayerHouses();
+        actual = iterator.next();
+        
+        while(iterator.hasNext())
+        {
+            iterator.next();
+        }
+        assertEquals(0,actual);
+    }
     
 }
