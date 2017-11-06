@@ -109,7 +109,7 @@ public class Board
     }
     
     
-    public void takeBallsFrom(int i)
+    public void playerTakesBallsFrom(int i)
     {
         i--;
         int hand = ballHolder.get(i);
