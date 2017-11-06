@@ -114,5 +114,11 @@ public class Board
         i--;
         int hand = ballHolder.get(i);
         ballHolder.set(i,0);
+        while(hand!=0)
+        {
+            i++;
+            ballHolder.set(i,ballHolder.get(i)+1); // adds one ball for each house/store
+            hand--;
+        }
     }
 }
