@@ -156,4 +156,19 @@ class BoardTest
         
         assertEquals(0,actual);
     }
+    @Test
+    public void boardTest_TakeAndDistributeLoopBackToPlayerHouses_firstPlayerHouseShouldBe1()
+    {
+        sut.createHouseAndStores();
+        sut.playerTakesBallsFrom(1);
+        sut.playerTakesBallsFrom(3);
+        sut.playerTakesBallsFrom(2);
+        sut.playerTakesBallsFrom(6);
+        
+        Iterator<Integer> iterator = sut.getPlayerHouses();
+        int actual = iterator.next();
+        
+        assertEquals(1,actual);
+    }
+    
 }

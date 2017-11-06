@@ -120,6 +120,7 @@ public class Board
             if(i == 13)
             {
                 i=0;
+                break;
             }
           
             ballHolder.set(i,ballHolder.get(i)+1); // adds one ball for each house/store
