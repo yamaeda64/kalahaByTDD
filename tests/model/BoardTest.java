@@ -144,4 +144,16 @@ class BoardTest
         }
         assertEquals(7,actual);
     }
+    
+    @Test
+    public void boardTest_TakeAndDistributeOverComputerStore_computerStoreShouldBe0()
+    {
+        sut.createHouseAndStores();
+        sut.playerTakesBallsFrom(1);
+        sut.playerTakesBallsFrom(3);
+        sut.playerTakesBallsFrom(6);
+        int actual = sut.getComputerStore();
+        
+        assertEquals(0,actual);
+    }
 }
