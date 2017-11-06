@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -132,6 +133,29 @@ class ConsoleViewTest
         int actual = sut.getNumberAfterInput();
         assertEquals(6,actual);
         
+    }
+    
+    @Test
+    public void cosoleView_drawBoard_shouldMatchStartDrawPattern()
+    {
+        int playerStore = 0;
+        int computerStore = 0;
+        ArrayList<Integer> playerHouses = new ArrayList<Integer>();
+        ArrayList<Integer> computerHouses = new ArrayList<Integer>();
+        for(int i = 0; i<6; i++)
+        {
+            playerHouses.add(6);
+            computerHouses.add(6);
+        }
+        
+        String actual = sut.drawBoard(playerStore, computerStore, playerHouses.iterator(), computerHouses.iterator());
+        
+        String expected =   "             (06)(06)(06)(06)(06)(06)\n" +
+                            "computer (00)                        (00) player\n" +
+                            "             (06)(06)(06)(06)(06)(06)\n" +
+                            "               1   2   3   4   5   6";
+        
+        assertEquals(expected,actual);
     }
     
 }

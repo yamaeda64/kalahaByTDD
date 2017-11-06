@@ -1,6 +1,7 @@
 package view;
 
 import java.io.PrintStream;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import static view.UserInteraction.*;
@@ -71,5 +72,11 @@ public class ConsoleView
         int returnValue = houseToPickFrom;
         houseToPickFrom = -1;           // reset it to -1 to give error if someone calls it when shouldn't
         return returnValue;
+    }
+    
+    
+    public String drawBoard(int playerStore, int computerStore, Iterator<Integer> iterator, Iterator<Integer> iterator1)
+    {
+        return null;
     }
 }
