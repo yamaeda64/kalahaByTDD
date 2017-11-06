@@ -123,6 +123,15 @@ class ConsoleViewTest
         assertEquals(UserInteraction.PICK_BALLS_FROM_HOUSE, actual);
     }
     
-    
+    @Test
+    public void consoleView_collectNumberAfterEvent_ShouldReturn6()
+    {
+        char input = '6';
+        setFakeInputStream("" +input);
+        sut.collectEvent();
+        int actual = sut.getNumberAfterInput();
+        assertEquals(6,actual);
+        
+    }
     
 }
