@@ -116,15 +116,12 @@ public class Board
         ballHolder.set(i,0);
         while(hand!=0)
         {
-            if(i == 12)
+            i++;
+            if(i == 13)
             {
                 i=0;
             }
-            else
-            {
-                i++;
-                
-            }
+          
             ballHolder.set(i,ballHolder.get(i)+1); // adds one ball for each house/store
             hand--;
         }
