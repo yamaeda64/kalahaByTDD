@@ -123,7 +123,7 @@ class BoardTest
         sut.createHouseAndStores();
         int inputHouse = 1;
         sut.takeBallsFrom(inputHouse);
-        int actual = -1;
+        int actual;
         Iterator<Integer> iterator = sut.getPlayerHouses();
         actual = iterator.next();
         
@@ -140,15 +140,13 @@ class BoardTest
         sut.createHouseAndStores();
         int inputHouse = 1;
         sut.takeBallsFrom(inputHouse);
-        int actual;
+        int actual = -1;
         Iterator<Integer> iterator = sut.getPlayerHouses();
-        actual = iterator.next();
-        
         while(iterator.hasNext())
         {
-            iterator.next();
+            actual = iterator.next();
         }
-        assertEquals(0,actual);
+        assertEquals(7,actual);
     }
     
 }
