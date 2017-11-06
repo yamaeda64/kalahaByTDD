@@ -23,6 +23,6 @@ public class Game
     
     public void playerTakesBallsFrom(int i)
     {
-       
+        board.playerTakesBallsFrom(i);
     }
 }
