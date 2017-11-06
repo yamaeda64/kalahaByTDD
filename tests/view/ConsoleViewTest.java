@@ -123,4 +123,6 @@ class ConsoleViewTest
         assertEquals(UserInteraction.PICK_BALLS_FROM_HOUSE, actual);
     }
     
+    
+    
 }

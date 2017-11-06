@@ -57,7 +57,15 @@ public class ConsoleView
         {
             return PLAY;
         }
-
+        else if(input >= '0' || input <= '9')
+        {
+            return PICK_BALLS_FROM_HOUSE;
+        }
         return null;
+    }
+    
+    public int getNumberAfterInput()
+    {
+        return -1;
     }
 }
