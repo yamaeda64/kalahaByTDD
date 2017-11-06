@@ -63,7 +63,7 @@ class GameControllerTest
     }
     
     @Test
-    public void start_getUserCommand_ShouldEvokecollectEvent()
+    public void start_getUserCommand_ShouldCallCollectEvent()
     {
         sut.start();
         verify(view).collectEvent();

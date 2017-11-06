@@ -45,8 +45,7 @@ public class ConsoleView
     protected char getInput()
     {
         Scanner scanner = new Scanner(System.in);
-        char input = scanner.next().toUpperCase().charAt(0);
-        return input;
+        return scanner.next().toUpperCase().charAt(0);
     }
     
     public UserInteraction collectEvent()

@@ -36,9 +36,8 @@ class ConsoleViewTest
     @Test
     public void shouldShowMenu_assertRightMenuLine()
     {
-        String actual = menuText;
         String expected = "Welcome to Kalaha, press 'N' for new game or 'Q' to Quit";
-        assertEquals(actual, expected);
+        assertEquals(menuText, expected);
     }
     
     
@@ -52,9 +51,8 @@ class ConsoleViewTest
     @Test
     public void shouldShowQuitMessage_assertCorrectQuitMessage()
     {
-        String actual = quitText;
         String expected = "Thank you for playing Kalaha.";
-        assertEquals(actual, expected);
+        assertEquals(quitText, expected);
     }
     
     @Test
