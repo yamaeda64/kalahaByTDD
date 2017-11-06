@@ -3,8 +3,8 @@ package model;
 
 public class Game
 {
-    Board board;
-    BoardFactory boardFactory;
+    private Board board;
+    private BoardFactory boardFactory;
     
     public Game (BoardFactory boardFactory)
     {
@@ -19,5 +19,10 @@ public class Game
     public Board getBoard()
     {
         return board;
+    }
+    
+    public void playerTakesBallsFrom(int i)
+    {
+       
     }
 }

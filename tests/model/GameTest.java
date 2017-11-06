@@ -36,6 +36,16 @@ class GameTest
         
         Board actual = sut.getBoard();
         
-        assertEquals(actual.getClass(), actual.getClass());
+        assertEquals(new Board().getClass(), actual.getClass());
+    }
+    
+    
+    @Test
+    void GameTest_takeBallsFrom3_house3ShouldBeEmpty()
+    {
+        when(bf.getKalahaBoard()).thenReturn(mock(Board.class));
+        sut.startNewGame();
+        sut.playerTakesBallsFrom(3);
+        Mockito.verify(sut.getBoard()).playerTakesBallsFrom(3);
     }
 }
