@@ -85,7 +85,6 @@ public class ConsoleView
         while(computerHouses.hasNext())
         {
             board.append("(");
-            
             board.append(df.format(computerHouses.next().intValue()));
             board.append(")");
         }
@@ -111,7 +110,7 @@ public class ConsoleView
         board.append("\n");
         
         board.append("               1   2   3   4   5   6");
-        
+        board.append("fail");
         return board.toString();
     }
     

@@ -158,4 +158,26 @@ class ConsoleViewTest
         assertEquals(expected,actual);
     }
     
+    @Test
+    public void cosoleView_drawBoard_shouldMatchIngamePattern()
+    {
+        int playerStore = 16;
+        int computerStore = 12;
+        ArrayList<Integer> playerHouses = new ArrayList<Integer>();
+        ArrayList<Integer> computerHouses = new ArrayList<Integer>();
+        for(int i = 0; i<6; i++)
+        {
+            playerHouses.add(i);
+            computerHouses.add(i+6);
+        }
+        
+        String actual = sut.drawBoard(playerStore, computerStore, playerHouses.iterator(), computerHouses.iterator());
+        
+        String expected =   "             (06)(07)(08)(09)(10)(11)\n" +
+                "computer (12)                        (16) player\n" +
+                "             (00)(01)(02)(03)(04)(05)\n" +
+                "               1   2   3   4   5   6";
+        
+        assertEquals(expected,actual);
+    }
 }
