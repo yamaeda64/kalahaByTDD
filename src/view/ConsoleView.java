@@ -12,6 +12,7 @@ public class ConsoleView
 {
     public static final String menuText = "Welcome to Kalaha, press 'N' for new game or 'Q' to Quit";
     public static final String quitText = "Thank you for playing Kalaha.";
+    private int houseToPickFrom = -1;
     
     private PrintStream out;
     
@@ -59,6 +60,7 @@ public class ConsoleView
         }
         else if(input >= '0' || input <= '9')
         {
+            houseToPickFrom = Integer.parseInt(""+input);
             return PICK_BALLS_FROM_HOUSE;
         }
         return null;
@@ -66,6 +68,8 @@ public class ConsoleView
     
     public int getNumberAfterInput()
     {
-        return -1;
+        int returnValue = houseToPickFrom;
+        houseToPickFrom = -1;           // reset it to -1 to give error if someone calls it when shouldn't
+        return returnValue;
     }
 }
