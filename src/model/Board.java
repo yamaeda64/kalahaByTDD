@@ -111,6 +111,8 @@ public class Board
     
     public void takeBallsFrom(int i)
     {
-       
+        i--;
+        int hand = ballHolder.get(i);
+        ballHolder.set(i,0);
     }
 }
