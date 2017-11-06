@@ -104,8 +104,13 @@ public class Board
                 return ballHolder.get(i++);
             }
         };
+        
         return iterator;
     }
     
-
+    
+    public void takeBallsFrom(int i)
+    {
+       
+    }
 }

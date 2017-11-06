@@ -107,11 +107,30 @@ class BoardTest
         assertEquals(expected,actual);
     }
     
+    
     @Test
     public void boardTest_getComputerStore_shouldBe0()       // TODO, need more testing when move balls functionality added
     {
         sut.createHouseAndStores();
         int actual = sut.getComputerStore();
+        assertEquals(0,actual);
+    }
+
+    
+    @Test
+    public void boardTest_TakeAndDistribute_House1ShouldBeEmpty()
+    {
+        sut.createHouseAndStores();
+        int inputHouse = 1;
+        sut.takeBallsFrom(inputHouse);
+        int actual = -1;
+        Iterator<Integer> iterator = sut.getPlayerHouses();
+        actual = iterator.next();
+        
+        while(iterator.hasNext())
+        {
+            iterator.next();
+        }
         assertEquals(0,actual);
     }
     
