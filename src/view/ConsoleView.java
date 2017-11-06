@@ -1,6 +1,7 @@
 package view;
 
 import java.io.PrintStream;
+import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -75,8 +76,43 @@ public class ConsoleView
     }
     
     
-    public String drawBoard(int playerStore, int computerStore, Iterator<Integer> iterator, Iterator<Integer> iterator1)
+    public String drawBoard(int playerStore, int computerStore, Iterator<Integer> playerHouses, Iterator<Integer> computerHouses)
     {
-        return null;
+        DecimalFormat df = new DecimalFormat("00");
+        StringBuilder board = new StringBuilder();
+        board.append("             ");
+        
+        while(computerHouses.hasNext())
+        {
+            board.append("(");
+            
+            board.append(df.format(computerHouses.next().intValue()));
+            board.append(")");
+        }
+        board.append("\n");
+        
+        board.append("computer ");
+        board.append("(");
+        board.append(df.format(computerStore));
+        board.append(")");
+        board.append("                        ");
+        board.append("(");
+        board.append(df.format(playerStore));
+        board.append(")");
+        board.append(" player\n");
+    
+        board.append("             ");
+        while(playerHouses.hasNext())
+        {
+            board.append("(");
+            board.append(df.format(playerHouses.next()));
+            board.append(")");
+        }
+        board.append("\n");
+        
+        board.append("               1   2   3   4   5   6");
+        
+        return board.toString();
     }
+    
 }
