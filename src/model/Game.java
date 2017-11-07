@@ -18,6 +18,7 @@ public class Game
     public void startNewGame()
     {
         board = boardFactory.getKalahaBoard();
+        isGameActive = true;
         board.createHouseAndStores();
     }
     
