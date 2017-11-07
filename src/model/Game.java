@@ -7,10 +7,12 @@ public class Game
 {
     private Board board;
     private BoardFactory boardFactory;
+    private boolean isGameActive;
     
     public Game (BoardFactory boardFactory)
     {
         this.boardFactory = boardFactory;
+        isGameActive = false;
     }
     
     public void startNewGame()
@@ -49,8 +51,8 @@ public class Game
         return board.getComputerHouses();
     }
     
-    public boolean isGame()
+    public boolean isGameActive()
     {
-        return true;
+        return isGameActive;
     }
 }

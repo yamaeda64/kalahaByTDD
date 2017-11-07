@@ -130,7 +130,7 @@ class GameTest
     @Test
     public void GameTest_isGameActive_shouldReturnFalseBeforeStart()
     {
-        boolean actual = sut.isGame();
+        boolean actual = sut.isGameActive();
         
         assertEquals(false, actual);
     }
