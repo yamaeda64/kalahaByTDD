@@ -7,7 +7,7 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -132,7 +132,17 @@ class GameTest
     {
         boolean actual = sut.isGameActive();
         
-        assertEquals(false, actual);
+        assertFalse(actual);
+    }
+    
+    @Test
+    public void GameTest_isGameActiveAfterStartingNewGame_shouldBeTrue()
+    {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        sut.startNewGame();
+        boolean actual = sut.isGameActive();
+        assertTrue(actual);
     }
         
 }
