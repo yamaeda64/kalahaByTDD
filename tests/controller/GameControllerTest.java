@@ -76,7 +76,7 @@ class GameControllerTest
             houses.add(6);
         }
         
-        verify(view).drawBoard(0,0,houses.iterator(),houses.iterator());
+        verify(view).drawBoard(anyInt(),anyInt(),anyObject(),anyObject());
         
     }
     

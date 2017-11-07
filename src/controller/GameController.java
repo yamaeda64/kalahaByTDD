@@ -36,7 +36,7 @@ public class GameController
     public void play()
     {
         game.startNewGame();
-        
+       
     }
     
     public boolean exitApplication()
