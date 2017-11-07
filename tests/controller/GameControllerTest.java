@@ -2,7 +2,6 @@ package controller;
 
 import model.Game;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
@@ -66,7 +65,7 @@ class GameControllerTest
         verify(sut).play();
     }
     
-    @Disabled
+    
     @Test
     public void takeAction_whenPlay_shouldCallPrintBoard()
     {
@@ -76,6 +75,7 @@ class GameControllerTest
         {
             houses.add(6);
         }
+        
         verify(view).drawBoard(0,0,houses.iterator(),houses.iterator());
         
     }
