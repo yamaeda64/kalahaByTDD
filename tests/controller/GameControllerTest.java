@@ -5,8 +5,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import view.ConsoleView;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.*;
-import static view.UserInteraction.*;
+import static view.UserInteraction.PLAY;
+import static view.UserInteraction.QUIT;
 
 
 class GameControllerTest
@@ -63,6 +66,19 @@ class GameControllerTest
     }
     
     @Test
+    public void takeAction_whenPlay_shouldCallPrintBoard()
+    {
+        sut.play();
+        ArrayList<Integer> houses =new ArrayList<>();
+        for(int i= 0; i<6; i++)
+        {
+            houses.add(6);
+        }
+        verify(view).drawBoard(0,0,houses.iterator(),houses.iterator());
+        
+    }
+    
+    @Test
     public void start_getUserCommand_ShouldCallCollectEvent()
     {
         sut.start();
@@ -87,6 +103,7 @@ class GameControllerTest
         
         verify(sut).takeAction(QUIT);
     }
+    
     
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
