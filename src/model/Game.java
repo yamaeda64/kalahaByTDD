@@ -40,20 +40,7 @@ public class Game
     
     public Iterator<Integer> getPlayerHouses()
     {
-        Iterator<Integer> faultyIterator = new Iterator<Integer>()
-        {
-            @Override
-            public boolean hasNext()
-            {
-                return false;
-            }
-    
-            @Override
-            public Integer next()
-            {
-                return -1;
-            }
-        };
-        return faultyIterator;
+        return board.getPlayerHouses();
     }
+    
 }
