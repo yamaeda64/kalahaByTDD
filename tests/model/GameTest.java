@@ -48,4 +48,15 @@ class GameTest
         sut.playerTakesBallsFrom(3);
         Mockito.verify(sut.getBoard()).playerTakesBallsFrom(3);
     }
+    
+    @Test
+    void GameTest_getPlayerStore()
+    {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        when(board.getPlayerStore()).thenReturn(12);
+        sut.startNewGame();
+        int actual = sut.getPlayerStore();
+        assertEquals(12, actual);
+    }
 }

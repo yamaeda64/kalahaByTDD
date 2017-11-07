@@ -25,4 +25,9 @@ public class Game
     {
         board.playerTakesBallsFrom(i);
     }
+    
+    public int getPlayerStore()
+    {
+        return -1;
+    }
 }
