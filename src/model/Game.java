@@ -45,19 +45,6 @@ public class Game
     
     public Iterator<Integer> getComputerHouses()
     {
-        return new Iterator<Integer>()
-        {
-            @Override
-            public boolean hasNext()
-            {
-                return false;
-            }
-    
-            @Override
-            public Integer next()
-            {
-                return -1;
-            }
-        };
+        return board.getComputerHouses();
     }
 }

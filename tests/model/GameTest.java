@@ -109,7 +109,6 @@ class GameTest
         sut.startNewGame();
         Iterator<Integer> actual = sut.getComputerHouses();
     
-    
         for(int i = 4; i <= 6; i++)
         {
             assertEquals(i, actual.next().intValue());
