@@ -28,6 +28,6 @@ public class Game
     
     public int getPlayerStore()
     {
-        return -1;
+        return board.getPlayerStore();
     }
 }
