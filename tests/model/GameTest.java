@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -70,4 +73,26 @@ class GameTest
         int actual = sut.getComputerStore();
         assertEquals(10, actual);
     }
+    
+    @Test
+    void GameTest_getPlayerHouses()
+    {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        ArrayList<Integer> numberList = new ArrayList<>();
+        numberList.add(1);
+        numberList.add(2);
+        numberList.add(3);
+    
+        when(board.getPlayerHouses()).thenReturn(numberList.iterator());
+        sut.startNewGame();
+        Iterator<Integer> actual = sut.getPlayerHouses();
+    
+    
+        for(int i = 1; i <= 3; i++)
+        {
+            assertEquals(i, actual.next().intValue());
+        }
+    }
+        
 }
