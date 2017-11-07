@@ -65,7 +65,7 @@ class GameTest
     {
         Board board = mock(Board.class);
         when(bf.getKalahaBoard()).thenReturn(board);
-        when(board.getPlayerStore()).thenReturn(10);
+        when(board.getComputerStore()).thenReturn(10);
         sut.startNewGame();
         int actual = sut.getComputerStore();
         assertEquals(10, actual);

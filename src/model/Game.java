@@ -33,6 +33,6 @@ public class Game
     
     public int getComputerStore()
     {
-        return -1;
+        return board.getComputerStore();
     }
 }
