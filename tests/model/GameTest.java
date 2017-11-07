@@ -59,4 +59,15 @@ class GameTest
         int actual = sut.getPlayerStore();
         assertEquals(12, actual);
     }
+    
+    @Test
+    void GameTest_getComputerStore()
+    {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        when(board.getPlayerStore()).thenReturn(10);
+        sut.startNewGame();
+        int actual = sut.getComputerStore();
+        assertEquals(10, actual);
+    }
 }

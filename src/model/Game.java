@@ -30,4 +30,9 @@ public class Game
     {
         return board.getPlayerStore();
     }
+    
+    public int getComputerStore()
+    {
+        return -1;
+    }
 }
