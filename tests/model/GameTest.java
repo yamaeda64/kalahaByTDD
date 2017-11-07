@@ -95,6 +95,25 @@ class GameTest
         }
     }
     
+    @Test
+    public void GameTest_getComputerHouses()
+    {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        ArrayList<Integer> numberList = new ArrayList<>();
+        numberList.add(4);
+        numberList.add(5);
+        numberList.add(6);
     
+        when(board.getComputerHouses()).thenReturn(numberList.iterator());
+        sut.startNewGame();
+        Iterator<Integer> actual = sut.getComputerHouses();
+    
+    
+        for(int i = 4; i <= 6; i++)
+        {
+            assertEquals(i, actual.next().intValue());
+        }
+    }
         
 }

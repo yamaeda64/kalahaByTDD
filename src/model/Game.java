@@ -43,4 +43,21 @@ public class Game
         return board.getPlayerHouses();
     }
     
+    public Iterator<Integer> getComputerHouses()
+    {
+        return new Iterator<Integer>()
+        {
+            @Override
+            public boolean hasNext()
+            {
+                return false;
+            }
+    
+            @Override
+            public Integer next()
+            {
+                return -1;
+            }
+        };
+    }
 }

@@ -88,6 +88,7 @@ class ConsoleViewTest
         char actual = sut.getInput();
         assertEquals('5', actual);
     }
+    
     private void setFakeInputStream(String input)
     {
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -117,7 +118,7 @@ class ConsoleViewTest
     public void consoleView_collectEvent_ShouldReturnPickBallsFromHouse()
     {
         char input = '4';
-        setFakeInputStream("" +input);
+        setFakeInputStream("" + input);
         UserInteraction actual = sut.collectEvent();
         assertEquals(UserInteraction.PICK_BALLS_FROM_HOUSE, actual);
     }
@@ -126,10 +127,10 @@ class ConsoleViewTest
     public void consoleView_collectNumberAfterEvent_ShouldReturn6()
     {
         char input = '6';
-        setFakeInputStream("" +input);
+        setFakeInputStream("" + input);
         sut.collectEvent();
         int actual = sut.getNumberAfterInput();
-        assertEquals(6,actual);
+        assertEquals(6, actual);
         
     }
     
@@ -140,7 +141,7 @@ class ConsoleViewTest
         int computerStore = 0;
         ArrayList<Integer> playerHouses = new ArrayList<Integer>();
         ArrayList<Integer> computerHouses = new ArrayList<Integer>();
-        for(int i = 0; i<6; i++)
+        for(int i = 0; i < 6; i++)
         {
             playerHouses.add(6);
             computerHouses.add(6);
@@ -148,12 +149,12 @@ class ConsoleViewTest
         
         String actual = sut.drawBoard(playerStore, computerStore, playerHouses.iterator(), computerHouses.iterator());
         
-        String expected =   "             (06)(06)(06)(06)(06)(06)\n" +
-                            "computer (00)                        (00) player\n" +
-                            "             (06)(06)(06)(06)(06)(06)\n" +
-                            "               1   2   3   4   5   6";
+        String expected = "             (06)(06)(06)(06)(06)(06)\n" +
+                "computer (00)                        (00) player\n" +
+                "             (06)(06)(06)(06)(06)(06)\n" +
+                "               1   2   3   4   5   6";
         
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
     
     @Test
@@ -163,19 +164,20 @@ class ConsoleViewTest
         int computerStore = 12;
         ArrayList<Integer> playerHouses = new ArrayList<Integer>();
         ArrayList<Integer> computerHouses = new ArrayList<Integer>();
-        for(int i = 0; i<6; i++)
+        for(int i = 0; i < 6; i++)
         {
             playerHouses.add(i);
-            computerHouses.add(i+6);
+            computerHouses.add(i + 6);
         }
         
         String actual = sut.drawBoard(playerStore, computerStore, playerHouses.iterator(), computerHouses.iterator());
         
-        String expected =   "             (06)(07)(08)(09)(10)(11)\n" +
+        String expected = "             (06)(07)(08)(09)(10)(11)\n" +
                 "computer (12)                        (16) player\n" +
                 "             (00)(01)(02)(03)(04)(05)\n" +
                 "               1   2   3   4   5   6";
         
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+    
 }
