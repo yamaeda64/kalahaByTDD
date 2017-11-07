@@ -16,6 +16,7 @@ public class Game
     public void startNewGame()
     {
         board = boardFactory.getKalahaBoard();
+        board.createHouseAndStores();
     }
     
     public Board getBoard()

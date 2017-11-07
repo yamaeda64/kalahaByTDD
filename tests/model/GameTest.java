@@ -27,6 +27,8 @@ class GameTest
     @Test
     void GameTest_startNewGame_shouldCreateBoard()
     {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
         sut.startNewGame();
         Mockito.verify(bf).getKalahaBoard();
     }
