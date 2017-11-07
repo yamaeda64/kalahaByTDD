@@ -14,11 +14,6 @@ public class Board
     private ArrayList<Integer> ballHolder;
     
     
-    public void Board()
-    {
-        
-    }
-    
     public int getBoardRows()
     {
         return BOARD_ROWS;

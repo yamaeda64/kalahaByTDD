@@ -32,6 +32,16 @@ class GameTest
     }
     
     @Test
+    void GameTest_startNewGame_shouldCallCreateHouseAndStores()
+    {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        sut.startNewGame();
+        
+        Mockito.verify(board).createHouseAndStores();
+    }
+    
+    @Test
     void GameTest_getBoard_shouldReturnBoard()
     {
         when(bf.getKalahaBoard()).thenReturn(new Board());
