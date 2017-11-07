@@ -36,7 +36,7 @@ public class GameController
     public void play()
     {
         game.startNewGame();
-       
+        view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
     }
     
     public boolean exitApplication()
