@@ -126,5 +126,13 @@ class GameTest
             assertEquals(i, actual.next().intValue());
         }
     }
+    
+    @Test
+    public void GameTest_isGameActive_shouldReturnFalseBeforeStart()
+    {
+        boolean actual = sut.isGame();
+        
+        assertEquals(false, actual);
+    }
         
 }
