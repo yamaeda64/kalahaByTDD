@@ -17,6 +17,7 @@ class BoardTest
     public void setUp()
     {
         sut = new Board();
+        sut.createHouseAndStores();
     }
     
     @Test
@@ -44,7 +45,6 @@ class BoardTest
     @Test
     public void Board_creteHouseAndStoreArray_shouldCreateArrayList()
     {
-        sut.createHouseAndStores();
         int actual = 0;
         Iterator<Integer> iterator = sut.getHousesAndStores();
         int expected = sut.getBoardRows()*sut.getBoardHousesPerSide() + sut.getStoreSize();
@@ -59,7 +59,6 @@ class BoardTest
     @Test
     public void Board_fillArrayWithBalls_sumOfBallsShouldBeEqual()
     {
-        sut.createHouseAndStores();
         int actual = 0;
         Iterator<Integer> iterator = sut.getHousesAndStores();
         while(iterator.hasNext())
@@ -73,7 +72,6 @@ class BoardTest
     @Test
     public void boardTest_getPlayerHouses_shouldBe36()  // TODO, need more testing when move balls functionality is added
     {
-        sut.createHouseAndStores();
         int actual = 0;
         Iterator<Integer> iterator = sut.getPlayerHouses();
         while(iterator.hasNext())
@@ -88,7 +86,6 @@ class BoardTest
     @Test
     public void boardTest_getPlayerStore_shouldBe0()       // TODO, need more testing when move balls functionality added
     {
-        sut.createHouseAndStores();
         int actual = sut.getPlayerStore();
         assertEquals(0,actual);
     }
@@ -96,7 +93,6 @@ class BoardTest
     @Test
     public void boardTest_getComputerHouses_shouldBe36()  // TODO, need more testing when move balls functionality is added
     {
-        sut.createHouseAndStores();
         int actual = 0;
         Iterator<Integer> iterator = sut.getComputerHouses();
         while(iterator.hasNext())
@@ -111,7 +107,6 @@ class BoardTest
     @Test
     public void boardTest_getComputerStore_shouldBe0()       // TODO, need more testing when move balls functionality added
     {
-        sut.createHouseAndStores();
         int actual = sut.getComputerStore();
         assertEquals(0,actual);
     }
@@ -120,7 +115,6 @@ class BoardTest
     @Test
     public void boardTest_TakeAndDistribute_House1ShouldBeEmpty()
     {
-        sut.createHouseAndStores();
         int inputHouse = 1;
         sut.playerTakesBallsFrom(inputHouse);
         int actual;
@@ -133,7 +127,6 @@ class BoardTest
     @Test
     public void boardTest_TakeAndDistribute_House2ShouldBe7()
     {
-        sut.createHouseAndStores();
         int inputHouse = 1;
         sut.playerTakesBallsFrom(inputHouse);
         int actual = -1;
@@ -148,7 +141,6 @@ class BoardTest
     @Test
     public void boardTest_TakeAndDistributeOverComputerStore_computerStoreShouldBe0()
     {
-        sut.createHouseAndStores();
         sut.playerTakesBallsFrom(1);
         sut.playerTakesBallsFrom(3);
         sut.playerTakesBallsFrom(6);
@@ -159,7 +151,6 @@ class BoardTest
     @Test
     public void boardTest_TakeAndDistributeLoopBackToPlayerHouses_firstPlayerHouseShouldBe1()
     {
-        sut.createHouseAndStores();
         sut.playerTakesBallsFrom(1);
         sut.playerTakesBallsFrom(3);
         sut.playerTakesBallsFrom(2);
@@ -174,7 +165,6 @@ class BoardTest
     @Test
     public void boardTest_TakeBallsFromComputerHouse_ComputerHouse1ShouldBeEmpty()
     {
-        sut.createHouseAndStores();
         int inputHouse = 1;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
@@ -187,7 +177,6 @@ class BoardTest
     @Test
     public void boardTest_TakeBallsFromComputerHouse_ComputerHouse5ShouldHave7()
     {
-        sut.createHouseAndStores();
         int inputHouse = 1;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
@@ -204,7 +193,6 @@ class BoardTest
     @Test
     public void boardTest_TakeBallsFromComputerHouse_PlayerHouse1ShouldHave7()
     {
-        sut.createHouseAndStores();
         int inputHouse = 5;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
@@ -214,4 +202,5 @@ class BoardTest
         
         assertEquals(7,actual);
     }
+    
 }
