@@ -188,7 +188,7 @@ class BoardTest
     public void boardTest_TakeBallsFromComputerHouse_ComputerHouse5ShouldHave7()
     {
         sut.createHouseAndStores();
-        int inputHouse = 5;
+        int inputHouse = 1;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
         Iterator<Integer> iterator = sut.getComputerHouses();
@@ -205,7 +205,7 @@ class BoardTest
     public void boardTest_TakeBallsFromComputerHouse_PlayerHouse1ShouldHave7()
     {
         sut.createHouseAndStores();
-        int inputHouse = 1;
+        int inputHouse = 5;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
         Iterator<Integer> iterator = sut.getPlayerHouses();

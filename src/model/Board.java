@@ -125,12 +125,19 @@ public class Board
     {
         int i = house + BOARD_HOUSES;
         int hand = ballHolder.get(i);
+        
         ballHolder.set(i,0);
         while(hand!=0)
         {
             i++;
+            if(i==14)
+            {
+                i=0;
+            }
             ballHolder.set(i,ballHolder.get(i)+1);
             hand--;
         }
+        
+        
     }
 }
