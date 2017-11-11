@@ -172,7 +172,7 @@ class BoardTest
     }
     
     @Test
-    public void boardTest_TakeBallsFromComputerHouse_ComputerHouse2ShouldBeEmpty()
+    public void boardTest_TakeBallsFromComputerHouse_ComputerHouse1ShouldBeEmpty()
     {
         sut.createHouseAndStores();
         int inputHouse = 1;
@@ -188,7 +188,7 @@ class BoardTest
     public void boardTest_TakeBallsFromComputerHouse_ComputerHouse5ShouldHave7()
     {
         sut.createHouseAndStores();
-        int inputHouse = 1;
+        int inputHouse = 5;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
         Iterator<Integer> iterator = sut.getComputerHouses();
@@ -196,6 +196,20 @@ class BoardTest
         iterator.next();
         iterator.next();
         iterator.next(); // waste fourth
+        actual = iterator.next();
+        
+        assertEquals(7,actual);
+    }
+    
+    @Test
+    public void boardTest_TakeBallsFromComputerHouse_PlayerHouse1ShouldHave7()
+    {
+        sut.createHouseAndStores();
+        int inputHouse = 1;
+        sut.computerTakesBallsFrom(inputHouse);
+        int actual;
+        Iterator<Integer> iterator = sut.getPlayerHouses();
+       
         actual = iterator.next();
         
         assertEquals(7,actual);
