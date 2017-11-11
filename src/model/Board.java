@@ -123,6 +123,9 @@ public class Board
     
     public void computerTakesBallsFrom(int house)
     {
-        
+        int i = house + BOARD_HOUSES;
+        int hand = ballHolder.get(i);
+        ballHolder.set(i,0);
+       
     }
 }
