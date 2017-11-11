@@ -23,9 +23,9 @@ public class Game
     }
     
     public Board getBoard()
-    {
-        return board;
-    }
+{
+    return board;
+}
     
     public void playerTakesBallsFrom(int i)
     {

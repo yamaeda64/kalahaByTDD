@@ -144,5 +144,6 @@ class GameTest
         boolean actual = sut.isGameActive();
         assertTrue(actual);
     }
-        
+    
+    
 }

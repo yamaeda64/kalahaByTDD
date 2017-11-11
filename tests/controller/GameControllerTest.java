@@ -107,10 +107,12 @@ class GameControllerTest
     }
     
     
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
         doReturn(true).when(sut).exitApplication();
     }
+
 }
 

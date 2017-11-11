@@ -171,4 +171,17 @@ class BoardTest
         assertEquals(1,actual);
     }
     
+    @Test
+    public void boardTest_TakeAndDistribute_ComputerHouse2ShouldBeEmpty()
+    {
+        sut.createHouseAndStores();
+        int inputHouse = 2;
+        sut.computerTakesBallsFrom(inputHouse);
+        int actual;
+        Iterator<Integer> iterator = sut.getComputerHouses();
+        iterator.next();                // waste first to check second
+        actual = iterator.next();
+        
+        assertEquals(0,actual);
+    }
 }

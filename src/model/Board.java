@@ -120,4 +120,9 @@ public class Board
             hand--;
         }
     }
+    
+    public void computerTakesBallsFrom(int house)
+    {
+        
+    }
 }
