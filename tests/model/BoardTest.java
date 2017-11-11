@@ -203,4 +203,16 @@ class BoardTest
         assertEquals(7,actual);
     }
     
+    @Test
+    public void boardTest_takeBallsFromComputerHouse_PlayerStoreShouldBeEmpty()
+    {
+        sut.computerTakesBallsFrom(1);
+        sut.computerTakesBallsFrom(2);
+        sut.computerTakesBallsFrom(6);
+        
+        int actual = sut.getPlayerStore();
+        assertEquals(0,actual);
+    }
+    
+    
 }
