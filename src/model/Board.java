@@ -134,6 +134,10 @@ public class Board
             {
                 i=0;
             }
+            else if(i == BOARD_HOUSES)
+            {
+                i++;
+            }
             ballHolder.set(i,ballHolder.get(i)+1);
             hand--;
         }
