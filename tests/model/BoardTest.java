@@ -175,11 +175,10 @@ class BoardTest
     public void boardTest_TakeBallsFromComputerHouse_ComputerHouse2ShouldBeEmpty()
     {
         sut.createHouseAndStores();
-        int inputHouse = 2;
+        int inputHouse = 1;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
         Iterator<Integer> iterator = sut.getComputerHouses();
-        iterator.next();                // waste first to check second
         actual = iterator.next();
         
         assertEquals(0,actual);
@@ -189,7 +188,7 @@ class BoardTest
     public void boardTest_TakeBallsFromComputerHouse_ComputerHouse5ShouldHave7()
     {
         sut.createHouseAndStores();
-        int inputHouse = 3;
+        int inputHouse = 1;
         sut.computerTakesBallsFrom(inputHouse);
         int actual;
         Iterator<Integer> iterator = sut.getComputerHouses();
