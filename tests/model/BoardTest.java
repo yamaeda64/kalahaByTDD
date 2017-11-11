@@ -184,4 +184,21 @@ class BoardTest
         
         assertEquals(0,actual);
     }
+    
+    @Test
+    public void boardTest_TakeBallsFromComputerHouse_ComputerHouse5ShouldHave7()
+    {
+        sut.createHouseAndStores();
+        int inputHouse = 3;
+        sut.computerTakesBallsFrom(inputHouse);
+        int actual;
+        Iterator<Integer> iterator = sut.getComputerHouses();
+        iterator.next(); //waste first
+        iterator.next();
+        iterator.next();
+        iterator.next(); // waste fourth
+        actual = iterator.next();
+        
+        assertEquals(7,actual);
+    }
 }
