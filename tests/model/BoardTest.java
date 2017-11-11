@@ -172,7 +172,7 @@ class BoardTest
     }
     
     @Test
-    public void boardTest_TakeAndDistribute_ComputerHouse2ShouldBeEmpty()
+    public void boardTest_TakeBallsFromComputerHouse_ComputerHouse2ShouldBeEmpty()
     {
         sut.createHouseAndStores();
         int inputHouse = 2;
