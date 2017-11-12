@@ -30,7 +30,7 @@ public class Game
     public void playerTakesBallsFrom(int i)
     {
         board.playerTakesBallsFrom(i);
-     /*   boolean isGameActiveChanger = false;
+        boolean isGameActiveChanger = false;
         Iterator<Integer> iterator = board.getPlayerHouses();
         while(board.getPlayerHouses().hasNext())
         {
@@ -40,7 +40,7 @@ public class Game
             }
         }
         isGameActive = isGameActiveChanger;
-        */
+        
     }
     
     public int getPlayerStore()
