@@ -106,7 +106,14 @@ class GameControllerTest
         verify(sut).takeAction(QUIT);
     }
     
-    
+    @Test
+    public void whenShowWelcomeScreen_ShouldClearScreen()
+    {
+        sut.start();
+        
+        verify(view).clearScreen();
+        
+    }
     
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
