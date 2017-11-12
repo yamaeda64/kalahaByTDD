@@ -22,8 +22,9 @@ public class GameController
     
     public void start()
     {
-        view.clearScreen();
+        
         view.showMenu();
+        view.clearScreen();
         UserInteraction currentInteraction = view.collectEvent();
         takeAction(currentInteraction);
     }

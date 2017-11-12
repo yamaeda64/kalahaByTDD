@@ -3,6 +3,7 @@ package controller;
 import model.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
 import view.ConsoleView;
 
 import java.util.ArrayList;
@@ -111,7 +112,10 @@ class GameControllerTest
     {
         sut.start();
         
-        verify(view).clearScreen();
+        InOrder rightOrder = inOrder(view);
+    
+        rightOrder.verify(view).clearScreen();
+        rightOrder.verify(view).showMenu();
         
     }
     
