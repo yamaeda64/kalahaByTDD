@@ -54,12 +54,23 @@ class GameTest
         assertEquals(new Board().getClass(), actual.getClass());
     }
     
-    
+
     @Test
     void GameTest_takeBallsFrom3_house3ShouldBeEmpty()
     {
-        when(bf.getKalahaBoard()).thenReturn(mock(Board.class));
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
         sut.startNewGame();
+        
+        ArrayList<Integer> startPos = new ArrayList<>();
+        startPos.add(6);
+        startPos.add(6);
+        startPos.add(6);
+        startPos.add(6);
+        startPos.add(6);
+        startPos.add(6);
+        when(board.getPlayerHouses()).thenReturn(startPos.iterator());
+    
         sut.playerTakesBallsFrom(3);
         Mockito.verify(sut.getBoard()).playerTakesBallsFrom(3);
     }
@@ -159,6 +170,7 @@ class GameTest
         playerHouses.add(0);
         playerHouses.add(0);
         when(board.getPlayerHouses()).thenReturn(playerHouses.iterator());
+        
         sut.startNewGame();
         sut.playerTakesBallsFrom(6);
         boolean actual = sut.isGameActive();
