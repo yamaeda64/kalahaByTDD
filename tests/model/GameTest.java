@@ -145,5 +145,27 @@ class GameTest
         assertTrue(actual);
     }
     
+    @Test
+    public void GameTest_isGameActiveWhenHousesIsEmpty_shouldBeFalse()
+    {
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        
+        ArrayList<Integer> playerHouses = new ArrayList<>();
+        playerHouses.add(0);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        when(board.getPlayerHouses()).thenReturn(playerHouses.iterator());
+        sut.startNewGame();
+        sut.playerTakesBallsFrom(6);
+        boolean actual = sut.isGameActive();
+        
+        assertEquals(false,actual);
+        
+        
+    }
     
 }
