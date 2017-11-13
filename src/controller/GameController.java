@@ -39,6 +39,8 @@ public class GameController
     {
         game.startNewGame();
         view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+        view.collectEvent();
+        
     }
     
     public boolean exitApplication()
