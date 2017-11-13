@@ -21,7 +21,7 @@ public class Game
     public void startNewGame()
     {
         
-       // mediumComputer = computerFactory.getMediumComputer();
+        mediumComputer = computerFactory.getMediumComputer();
         board = boardFactory.getKalahaBoard();
         isGameActive = true;
         board.createHouseAndStores();
