@@ -39,13 +39,8 @@ public class GameController
     {
         game.startNewGame();
         view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
-        UserInteraction userInteraction = view.collectEvent();
-        int houseNumberToPickFrom;
-        if(userInteraction == UserInteraction.PICK_BALLS_FROM_HOUSE)
-        {
-            houseNumberToPickFrom = view.getNumberAfterInput();
-            game.playerTakesBallsFrom(houseNumberToPickFrom);
-        }
+        takeActionWhenPlay(view.collectEvent());
+        
     }
     
     public boolean exitApplication()
@@ -63,6 +58,17 @@ public class GameController
         else if(userInteraction == PLAY)
         {
             play();
+        }
+    }
+    
+    private void takeActionWhenPlay(UserInteraction userInteraction)
+    {
+        int houseNumberToPickFrom;
+        
+        if(userInteraction == UserInteraction.PICK_BALLS_FROM_HOUSE)
+        {
+            houseNumberToPickFrom = view.getNumberAfterInput();
+            game.playerTakesBallsFrom(houseNumberToPickFrom);
         }
     }
 }
