@@ -8,15 +8,20 @@ public class Game
     private Board board;
     private BoardFactory boardFactory;
     private boolean isGameActive;
+    private MediumComputer mediumComputer;
+    private ComputerFactory computerFactory;
     
-    public Game (BoardFactory boardFactory)
+    public Game (BoardFactory boardFactory, ComputerFactory computerFactory)
     {
+        this.computerFactory = computerFactory;
         this.boardFactory = boardFactory;
         isGameActive = false;
     }
     
     public void startNewGame()
     {
+        
+       // mediumComputer = computerFactory.getMediumComputer();
         board = boardFactory.getKalahaBoard();
         isGameActive = true;
         board.createHouseAndStores();

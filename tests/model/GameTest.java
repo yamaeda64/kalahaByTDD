@@ -16,13 +16,15 @@ class GameTest
 {
     
     private BoardFactory bf;
+    private ComputerFactory computerFactory;
     private Game sut;
     
     @BeforeEach
     void setUp()
     {
         bf = mock(BoardFactory.class);
-        sut = new Game(bf);
+        computerFactory = mock(ComputerFactory.class);
+        sut = new Game(bf,computerFactory);
     }
     
     @Test
@@ -183,13 +185,11 @@ class GameTest
     @Test
     public void GameTest_whenStartGame_shouldCallGetMediumComputer()
     {
-        ComputerFactory factory =mock(ComputerFactory.class);
-        
         Board board = mock(Board.class);
         when(bf.getKalahaBoard()).thenReturn(board);
         
         sut.startNewGame();
-        verify(factory).getMediumComputer();
+        verify(computerFactory).getMediumComputer();
         
     }
 }
