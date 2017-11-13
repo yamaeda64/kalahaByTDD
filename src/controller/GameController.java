@@ -39,8 +39,13 @@ public class GameController
     {
         game.startNewGame();
         view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
-        view.collectEvent();
-        
+        UserInteraction userInteraction = view.collectEvent();
+        int houseNumberToPickFrom;
+        if(userInteraction == UserInteraction.PICK_BALLS_FROM_HOUSE)
+        {
+            houseNumberToPickFrom = view.getNumberAfterInput();
+            game.playerTakesBallsFrom(houseNumberToPickFrom);
+        }
     }
     
     public boolean exitApplication()
