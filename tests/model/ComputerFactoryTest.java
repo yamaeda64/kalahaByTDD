@@ -14,6 +14,4 @@ class ComputerFactoryTest
         MediumComputer mediumComputer = sut.getMediumComputer();
         assertNotNull(mediumComputer);
     }
-    
-    
 }

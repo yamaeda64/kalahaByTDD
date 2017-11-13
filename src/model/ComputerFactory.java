@@ -6,6 +6,6 @@ public class ComputerFactory
     
     public MediumComputer getMediumComputer()
     {
-        return null;
+        return new MediumComputer();
     }
 }
