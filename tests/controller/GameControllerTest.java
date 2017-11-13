@@ -119,6 +119,12 @@ class GameControllerTest
         
     }
     
+    @Test
+    public void GameController_whenPlay_ShouldAskForUserInput()
+    {
+        sut.play();
+        verify(view).collectEvent();
+    }
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
