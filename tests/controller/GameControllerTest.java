@@ -136,6 +136,19 @@ class GameControllerTest
         verify(game).playerTakesBallsFrom(1);
         
     }
+    
+    @Test
+    public void GameController_whenHouse4IsChosenDuringPlay_shouldUpdateView()
+    {
+        when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
+        when(view.getNumberAfterInput()).thenReturn(4);
+        sut.play();
+        InOrder rightOrder = inOrder(view);
+    
+        rightOrder.verify(view).clearScreen();
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+    }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
