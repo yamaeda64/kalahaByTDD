@@ -83,9 +83,9 @@ public class ConsoleView
         
         while(computerHouses.hasNext())
         {
-            board.append("(");
-            board.append(df.format(computerHouses.next().intValue()));
-            board.append(")");
+            String  house = "(" + df.format(computerHouses.next().intValue()) + ")";
+            board.insert(13,house);
+           
         }
         board.append("\n");
         
