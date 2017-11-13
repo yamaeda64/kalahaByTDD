@@ -69,6 +69,8 @@ public class GameController
         {
             houseNumberToPickFrom = view.getNumberAfterInput();
             game.playerTakesBallsFrom(houseNumberToPickFrom);
+            view.clearScreen();
+            view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
         }
     }
 }
