@@ -9,6 +9,7 @@ import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class GameTest
@@ -179,5 +180,16 @@ class GameTest
         
         
     }
-    
+    @Test
+    public void GameTest_whenStartGame_shouldCallGetMediumComputer()
+    {
+        ComputerFactory factory =mock(ComputerFactory.class);
+        
+        Board board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        
+        sut.startNewGame();
+        verify(factory).getMediumComputer();
+        
+    }
 }
