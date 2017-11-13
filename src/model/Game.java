@@ -29,17 +29,20 @@ public class Game
     
     public void playerTakesBallsFrom(int i)
     {
+        
         board.playerTakesBallsFrom(i);
         boolean isGameActiveChanger = false;
         Iterator<Integer> iterator = board.getPlayerHouses();
-        while(board.getPlayerHouses().hasNext())
+        while(iterator.hasNext())
         {
-            if(board.getPlayerHouses().next() != 0)
+           
+            if(iterator.next() != 0)
             {
                 isGameActiveChanger = true;
             }
         }
         isGameActive = isGameActiveChanger;
+        
         
     }
     

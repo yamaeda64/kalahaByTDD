@@ -38,7 +38,7 @@ public class GameController
     public void play()
     {
         game.startNewGame();
-        view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+        askViewToDrawBoard();
         takeActionWhenPlay(view.collectEvent());
         
     }
@@ -64,13 +64,18 @@ public class GameController
     private void takeActionWhenPlay(UserInteraction userInteraction)
     {
         int houseNumberToPickFrom;
-        
         if(userInteraction == UserInteraction.PICK_BALLS_FROM_HOUSE)
         {
             houseNumberToPickFrom = view.getNumberAfterInput();
             game.playerTakesBallsFrom(houseNumberToPickFrom);
+            
             view.clearScreen();
-            view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+            askViewToDrawBoard();
         }
+    }
+    
+    private void askViewToDrawBoard()
+    {
+        view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
     }
 }
