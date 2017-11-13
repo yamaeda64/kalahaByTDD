@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import view.ConsoleView;
+import view.UserInteraction;
 
 import java.util.ArrayList;
 
@@ -124,6 +125,16 @@ class GameControllerTest
     {
         sut.play();
         verify(view).collectEvent();
+    }
+    
+    @Test
+    public void GameController_whenHouse1IsChosenDuringPlay_shouldCallTakeBallsFromHouse1()
+    {
+        when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
+        when(view.getNumberAfterInput()).thenReturn(1);
+        sut.play();
+        verify(game).playerTakesBallsFrom(1);
+        
     }
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
