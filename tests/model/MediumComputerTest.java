@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
 
 
 class MediumComputerTest
@@ -15,8 +16,10 @@ class MediumComputerTest
         Game game = mock(Game.class);
         Board board = mock(Board.class);
         MediumComputer sut = new MediumComputer(game);
-        
+        when(game.getBoard()).thenReturn(board);
+                
         sut.setBoard(game.getBoard());
+        
         assertNotNull(sut.getBoard());
     }
     

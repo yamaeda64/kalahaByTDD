@@ -15,7 +15,7 @@ public class MediumComputer
     
     public void setBoard(Board board)
     {
-        
+        this.board = board;
     }
     
     public Board getBoard()
