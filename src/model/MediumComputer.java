@@ -63,6 +63,7 @@ public class MediumComputer
             {
                 board.computerTakesBallsFrom(chosenNumber);
             }
+            
         }
         
        

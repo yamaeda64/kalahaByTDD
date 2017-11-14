@@ -93,4 +93,27 @@ class MediumComputerTest
         sut.chooseNextHouse();
         verify(board).computerTakesBallsFrom(3);
     }
+    
+    @Test
+    public void mediumComputer_whenNoOptionGoToStore_takeOneThatGoToStoreNextTurn()
+    {
+        ArrayList<Integer> mockedInput = new ArrayList<>();
+        mockedInput.add(8);
+        mockedInput.add(4);
+        mockedInput.add(1);
+        mockedInput.add(2);
+        mockedInput.add(4);
+        mockedInput.add(0);
+    
+    
+        when(game.getComputerHouses()).thenAnswer(new Answer<Iterator<Integer>>() {
+            @Override
+            public Iterator<Integer> answer(final InvocationOnMock invocation) throws Throwable {
+                return mockedInput.iterator();
+            }
+        });
+        
+        sut.chooseNextHouse();
+        verify(board).computerTakesBallsFrom(1);
+    }
 }
