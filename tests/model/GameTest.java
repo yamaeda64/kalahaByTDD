@@ -24,7 +24,7 @@ class GameTest
     {
         bf = mock(BoardFactory.class);
         computerFactory = mock(ComputerFactory.class);
-        sut = new Game(bf,computerFactory);
+        sut = new Game(bf, computerFactory);
     }
     
     @Test

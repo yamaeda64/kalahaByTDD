@@ -5,5 +5,21 @@ package model;
  */
 public class MediumComputer
 {
+    private Board board;
+    private Game game;
     
+    public MediumComputer(Game game)
+    {
+        this.game = game;
+    }
+    
+    public void setBoard(Board board)
+    {
+        
+    }
+    
+    public Board getBoard()
+    {
+        return null;
+    }
 }
