@@ -3,8 +3,11 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.mock;
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
@@ -23,13 +26,15 @@ class MediumComputerTest
         assertNotNull(sut.getBoard());
     }
     
-    /*
+    
     @Test
     public void chooseNextHouse()
     {
+        Game game = mock(Game.class);
         Board board = mock(Board.class);
-        MediumComputer sut = new MediumComputer();
-        
+        when(game.getBoard()).thenReturn(board);
+        MediumComputer sut = new MediumComputer(game);
+        sut.setBoard(game.getBoard());
         ArrayList<Integer> mockedInput = new ArrayList<>();
         mockedInput.add(1);
         mockedInput.add(2);
@@ -41,6 +46,8 @@ class MediumComputerTest
         
         verify(board).computerTakesBallsFrom(1);
     }
-    */
+    
+    
+    
     
 }
