@@ -47,4 +47,24 @@ class MediumComputerTest
         verify(board).computerTakesBallsFrom(1);
     }
     
+    @Test
+    public void mediumComputer_whenFirstHouseHas6AndnoSmallerLeadsToStore_shouldChooseSix()
+    {
+        Game game = mock(Game.class);
+        Board board = mock(Board.class);
+        when(game.getBoard()).thenReturn(board);
+        MediumComputer sut = new MediumComputer(game);
+        sut.setBoard(game.getBoard());
+        ArrayList<Integer> mockedInput = new ArrayList<>();
+        mockedInput.add(6);
+        mockedInput.add(4);
+        mockedInput.add(8);
+        mockedInput.add(4);
+        mockedInput.add(3);
+        mockedInput.add(5);
+        when(game.getComputerHouses()).thenReturn(mockedInput.iterator());
+        sut.chooseNextHouse();
+        verify(board).computerTakesBallsFrom(6);
+    }
+    
 }
