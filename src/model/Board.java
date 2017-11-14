@@ -77,7 +77,6 @@ public class Board
     
     private Iterator<Integer> getIterator(int start, int stop)
     {
-    
         return new Iterator<Integer>()
         {
             int i = start;
@@ -141,7 +140,5 @@ public class Board
             ballHolder.set(i,ballHolder.get(i)+1);
             hand--;
         }
-        
-        
     }
 }

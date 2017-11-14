@@ -2,9 +2,7 @@ package model;
 
 import java.util.Iterator;
 
-/**
- * Created by joakimbergqvist on 2017-11-13.
- */
+
 public class MediumComputer
 {
     private Board board;
@@ -36,7 +34,7 @@ public class MediumComputer
             int currentHouse = iterator.next();
             if(currentHouse == chooser)
             {
-                chosenNumber = currentHouse;
+                chosenNumber = chooser;
                 hasChoosen = true;
             }
             chooser--;
@@ -46,6 +44,28 @@ public class MediumComputer
         {
             board.computerTakesBallsFrom(chosenNumber);
         }
+        else
+        {
+            iterator = game.getComputerHouses();
+            chooser = 6;
+            while(iterator.hasNext())
+            {
+                int currentHouse = iterator.next();
+                
+                if(currentHouse == (chooser + 13))
+                {
+                    chosenNumber = chooser;
+                    hasChoosen = true;
+                }
+                chooser--;
+            }
+            if(hasChoosen)
+            {
+                board.computerTakesBallsFrom(chosenNumber);
+            }
+        }
         
+       
+    
     }
 }

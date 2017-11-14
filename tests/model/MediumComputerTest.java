@@ -3,8 +3,11 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
@@ -77,7 +80,16 @@ class MediumComputerTest
         mockedInput.add(16);
         mockedInput.add(3);
         mockedInput.add(5);
-        when(game.getComputerHouses()).thenReturn(mockedInput.iterator());
+        
+       
+        when(game.getComputerHouses()).thenAnswer(new Answer<Iterator<Integer>>() {
+            @Override
+            public Iterator<Integer> answer(final InvocationOnMock invocation) throws Throwable {
+                return mockedInput.iterator();
+            }
+        });
+        
+        
         sut.chooseNextHouse();
         verify(board).computerTakesBallsFrom(3);
     }
