@@ -20,6 +20,6 @@ public class MediumComputer
     
     public Board getBoard()
     {
-        return null;
+        return board;
     }
 }
