@@ -28,7 +28,7 @@ class MediumComputerTest
     
     
     @Test
-    public void chooseNextHouse()
+    public void mediumComputer_whenLastHouseHasOne_shouldChooseOne()
     {
         Game game = mock(Game.class);
         Board board = mock(Board.class);
@@ -46,8 +46,5 @@ class MediumComputerTest
         sut.chooseNextHouse();
         verify(board).computerTakesBallsFrom(1);
     }
-    
-    
-    
     
 }
