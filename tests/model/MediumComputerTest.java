@@ -36,13 +36,13 @@ class MediumComputerTest
         MediumComputer sut = new MediumComputer(game);
         sut.setBoard(game.getBoard());
         ArrayList<Integer> mockedInput = new ArrayList<>();
-        mockedInput.add(1);
-        mockedInput.add(2);
-        mockedInput.add(3);
-        mockedInput.add(4);
-        mockedInput.add(5);
         mockedInput.add(6);
-        when(board.getComputerHouses()).thenReturn(mockedInput.iterator());
+        mockedInput.add(5);
+        mockedInput.add(4);
+        mockedInput.add(3);
+        mockedInput.add(2);
+        mockedInput.add(1);
+        when(game.getComputerHouses()).thenReturn(mockedInput.iterator());
         sut.chooseNextHouse();
         verify(board).computerTakesBallsFrom(1);
     }
