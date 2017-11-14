@@ -66,4 +66,19 @@ class MediumComputerTest
         verify(board).computerTakesBallsFrom(6);
     }
     
+    @Test
+    public void mediumComputer_when3rdHouseGoesEvenRoundBoard_shouldChoose3()
+    {
+    
+        ArrayList<Integer> mockedInput = new ArrayList<>();
+        mockedInput.add(8);
+        mockedInput.add(4);
+        mockedInput.add(8);
+        mockedInput.add(16);
+        mockedInput.add(3);
+        mockedInput.add(5);
+        when(game.getComputerHouses()).thenReturn(mockedInput.iterator());
+        sut.chooseNextHouse();
+        verify(board).computerTakesBallsFrom(3);
+    }
 }
