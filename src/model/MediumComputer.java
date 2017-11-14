@@ -22,4 +22,9 @@ public class MediumComputer
     {
         return board;
     }
+    
+    public void chooseNextHouse()
+    {
+        
+    }
 }

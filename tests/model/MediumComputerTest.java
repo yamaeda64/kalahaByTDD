@@ -43,7 +43,7 @@ class MediumComputerTest
         mockedInput.add(5);
         mockedInput.add(6);
         when(board.getComputerHouses()).thenReturn(mockedInput.iterator());
-        
+        sut.chooseNextHouse();
         verify(board).computerTakesBallsFrom(1);
     }
     
