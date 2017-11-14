@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Iterator;
+
 /**
  * Created by joakimbergqvist on 2017-11-13.
  */
@@ -25,7 +27,7 @@ public class MediumComputer
     
     public void chooseNextHouse()
     {
-   /*     Iterator<Integer> iterator = game.getComputerHouses();
+        Iterator<Integer> iterator = game.getComputerHouses();
         int chooser = 6;
         int chosenNumber = -1;
         boolean hasChoosen = false;
@@ -44,6 +46,6 @@ public class MediumComputer
         {
             board.computerTakesBallsFrom(chosenNumber);
         }
-        */
+        
     }
 }
