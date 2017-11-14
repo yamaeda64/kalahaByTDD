@@ -1,27 +1,34 @@
 package model;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 class MediumComputerTest
 {
+    private Game game;
+    private Board board;
+    private MediumComputer sut;
+    
+    @BeforeEach
+    void setup()
+    {
+        game = mock(Game.class);
+        board = mock(Board.class);
+        sut = new MediumComputer(game);
+        when(game.getBoard()).thenReturn(board);
+        sut.setBoard(game.getBoard());
+    }
+    
     @Test
     public void mediumComputer_whenSetBoard_boardShouldNotBeNULL()
     {
-        Game game = mock(Game.class);
-        Board board = mock(Board.class);
-        MediumComputer sut = new MediumComputer(game);
-        when(game.getBoard()).thenReturn(board);
-                
-        sut.setBoard(game.getBoard());
         
         assertNotNull(sut.getBoard());
     }
@@ -30,11 +37,7 @@ class MediumComputerTest
     @Test
     public void mediumComputer_whenLastHouseHasOne_shouldChooseOne()
     {
-        Game game = mock(Game.class);
-        Board board = mock(Board.class);
-        when(game.getBoard()).thenReturn(board);
-        MediumComputer sut = new MediumComputer(game);
-        sut.setBoard(game.getBoard());
+        
         ArrayList<Integer> mockedInput = new ArrayList<>();
         mockedInput.add(6);
         mockedInput.add(5);
@@ -50,11 +53,7 @@ class MediumComputerTest
     @Test
     public void mediumComputer_whenFirstHouseHas6AndnoSmallerLeadsToStore_shouldChooseSix()
     {
-        Game game = mock(Game.class);
-        Board board = mock(Board.class);
-        when(game.getBoard()).thenReturn(board);
-        MediumComputer sut = new MediumComputer(game);
-        sut.setBoard(game.getBoard());
+       
         ArrayList<Integer> mockedInput = new ArrayList<>();
         mockedInput.add(6);
         mockedInput.add(4);
