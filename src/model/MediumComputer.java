@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 
@@ -34,7 +35,7 @@ public class MediumComputer
             int currentHouse = iterator.next();
             if(currentHouse == chooser)
             {
-                chosenNumber = chooser;
+                chosenNumber = 7-chooser; // convert to actual houseNumber
                 hasChoosen = true;
             }
             chooser--;
@@ -54,7 +55,7 @@ public class MediumComputer
                 
                 if(currentHouse == (chooser + 13))
                 {
-                    chosenNumber = chooser;
+                    chosenNumber = 7- chooser;      // convert to actual house number
                     hasChoosen = true;
                 }
                 chooser--;
@@ -63,10 +64,57 @@ public class MediumComputer
             {
                 board.computerTakesBallsFrom(chosenNumber);
             }
+            else
+            {
+                ArrayList<Integer> oneLessHouses = new ArrayList<>();
+                ArrayList<Integer> numberOfHits = new ArrayList<>();
+                iterator = game.getComputerHouses();
+                chooser = 6;
+                while(iterator.hasNext())
+                {
+                    int currentHouse = iterator.next();
+        
+                    if(currentHouse == (chooser -1))
+                    {
+                        oneLessHouses.add(7-chooser);
+                    }
+                    chooser--;
+                }
+                iterator = game.getComputerHouses();
+                chooser = 6;
+                while(iterator.hasNext())
+                {
+                    int high = chooser - 1;
+                    int low = chooser - iterator.next();
+                    int hitCounter = 0;
+                    for(int number :oneLessHouses)
+                    {
+                        if(number >= low && number <= high)
+                        {
+                            hitCounter++;
+                        }
+                    }
+                    numberOfHits.add(hitCounter);
+                }
+                chooser = 1;
+                int maxHits = 0;
+                for(int number : numberOfHits)
+                {
+                    if(number > maxHits)
+                    {
+                        maxHits = number;
+                        chosenNumber = chooser;
+                        hasChoosen = true;
+                    }
+                    chooser++;
+                }
+                if(hasChoosen)
+                {
+                    board.computerTakesBallsFrom(chosenNumber);
+                }
+            }
             
         }
         
-       
-    
     }
 }
