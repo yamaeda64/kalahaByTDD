@@ -117,4 +117,27 @@ class MediumComputerTest
         verify(board).computerTakesBallsFrom(1);
         
     }
+    
+    @Test
+    public void mediumComputer_pickLowestHouseNumberWhenNoOtherGoodOption()
+    {
+        ArrayList<Integer> mockedInput = new ArrayList<>();
+        mockedInput.add(1);
+        mockedInput.add(8);
+        mockedInput.add(5);
+        mockedInput.add(8);
+        mockedInput.add(4);
+        mockedInput.add(2);
+    
+    
+        when(game.getComputerHouses()).thenAnswer(new Answer<Iterator<Integer>>() {
+            @Override
+            public Iterator<Integer> answer(final InvocationOnMock invocation) throws Throwable {
+                return mockedInput.iterator();
+            }
+        });
+    
+        sut.chooseNextHouse();
+        verify(board).computerTakesBallsFrom(2);
+    }
 }
