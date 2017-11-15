@@ -40,6 +40,12 @@ class ConsoleViewTest
         assertEquals(menuText, expected);
     }
     
+    @Test
+    public void shouldAskUserForNumber()
+    {
+        sut.showChooseHouseText();
+        verify(printStream).println("Choose what house to take balls from");
+    }
     
     @Test
     public void shouldShowQuitMessage()

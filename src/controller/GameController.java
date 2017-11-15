@@ -39,9 +39,14 @@ public class GameController
     {
         game.startNewGame();
         askViewToDrawBoard();
-        takeActionWhenPlay(view.collectEvent());
         
+        takeActionWhenPlay(view.collectEvent());
         game.getMediumComputer().chooseNextHouse();
+        
+        view.clearScreen();
+        askViewToDrawBoard();
+        
+        
         
     }
     

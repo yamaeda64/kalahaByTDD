@@ -113,4 +113,8 @@ public class ConsoleView
         return board.toString();
     }
     
+    public void showChooseHouseText()
+    {
+        
+    }
 }
