@@ -1,5 +1,6 @@
 package controller;
 
+import model.ComputerFactory;
 import model.Game;
 import model.MediumComputer;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +21,8 @@ class GameControllerTest
     private GameController sut;
     private ConsoleView view;
     private Game game;
-    
+    private MediumComputer mediumComputer;
+    private ComputerFactory computerFactory;
     
     @BeforeEach
     public void setUp()
@@ -28,6 +30,11 @@ class GameControllerTest
         view = mock(ConsoleView.class);
         game = mock(Game.class);
         sut = new GameController(view, game);
+        mediumComputer = mock(MediumComputer.class);
+        when(game.getMediumComputer()).thenReturn(mediumComputer);
+        computerFactory = mock(ComputerFactory.class);
+       
+        
     }
     
     @Test
@@ -153,17 +160,14 @@ class GameControllerTest
     @Test
     public void GameController_playerTakeBallAndGameIsNotOver_computerShouldTakeBalls()
     {
-        MediumComputer mediumComputer = mock(MediumComputer.class);
-        
-        when(game.getMediumComputer()).thenReturn(mediumComputer);
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         when(view.getNumberAfterInput()).thenReturn(3);
+        
         sut.play();
+        
         verify(mediumComputer).chooseNextHouse();
-        
-        
-        
     }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));

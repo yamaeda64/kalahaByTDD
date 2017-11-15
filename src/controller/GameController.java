@@ -41,6 +41,8 @@ public class GameController
         askViewToDrawBoard();
         takeActionWhenPlay(view.collectEvent());
         
+        game.getMediumComputer().chooseNextHouse();
+        
     }
     
     public boolean exitApplication()
