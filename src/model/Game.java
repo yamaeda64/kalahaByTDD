@@ -75,4 +75,9 @@ public class Game
     {
         return isGameActive;
     }
+    
+    public MediumComputer getMediumComputer()
+    {
+        return mediumComputer;
+    }
 }

@@ -70,7 +70,7 @@ class MediumComputerTest
     }
     
     @Test
-    public void mediumComputer_when3rdHouseGoesEvenRoundBoard_shouldChoose3()
+    public void mediumComputer_when4thHouseGoesEvenRoundBoard_shouldChoose4()
     {
     
         ArrayList<Integer> mockedInput = new ArrayList<>();

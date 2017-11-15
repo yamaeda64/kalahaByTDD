@@ -27,46 +27,37 @@ public class MediumComputer
     
     public void chooseNextHouse()
     {
-        hasChosen = false;
-        
-        int chosenNumber = getEvenToStoreHouse();
+        int chosenNumber = getNextHouseNumber();
         
         if(hasChosen)
         {
             board.computerTakesBallsFrom(chosenNumber);
         }
+    }
+    
+    public int getNextHouseNumber()
+    {
+        hasChosen = false;
+        
+        int chosenNumber = getEvenToStoreHouse();
+        
         if(!hasChosen)
         {
             chosenNumber = getEvenToStoreAroundTheBoard();
             
-            if(hasChosen)
-            {
-                board.computerTakesBallsFrom(chosenNumber);
-            }
         }
         
         if(!hasChosen)
         {
             chosenNumber = getHouseThatMakeEvenForNextRound();
-    
-            if(hasChosen)
-            {
-                board.computerTakesBallsFrom(chosenNumber);
-            }
         }
         
         if(!hasChosen)
         {
             chosenNumber = getHouseNumberOfHighestNumberOfBalls();
-    
-    
-            if(hasChosen)      // should always be true
-            {
-                board.computerTakesBallsFrom(chosenNumber);
-            }
         }
         
-        hasChosen = false;
+        return chosenNumber;
     }
     
     

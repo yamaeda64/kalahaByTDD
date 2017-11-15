@@ -1,6 +1,7 @@
 package controller;
 
 import model.Game;
+import model.MediumComputer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
@@ -149,11 +150,27 @@ class GameControllerTest
         rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
     }
     
+    @Test
+    public void GameController_playerTakeBallAndGameIsNotOver_computerShouldTakeBalls()
+    {
+        MediumComputer mediumComputer = mock(MediumComputer.class);
+        
+        when(game.getMediumComputer()).thenReturn(mediumComputer);
+        when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
+        when(view.getNumberAfterInput()).thenReturn(3);
+        
+        sut.play();
+        //verify(game)
+        
+        
+        
+    }
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
         doReturn(true).when(sut).exitApplication();
     }
 
+    
 }
 
