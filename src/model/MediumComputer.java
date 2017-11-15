@@ -8,6 +8,7 @@ public class MediumComputer
 {
     private Board board;
     private Game game;
+    private boolean hasChosen;
     
     public MediumComputer(Game game)
     {
@@ -26,117 +27,156 @@ public class MediumComputer
     
     public void chooseNextHouse()
     {
-        Iterator<Integer> iterator = game.getComputerHouses();
-        int chooser = 6;
-        int chosenNumber = -1;
-        boolean hasChoosen = false;
-        while(iterator.hasNext())
-        {
-            int currentHouse = iterator.next();
-            if(currentHouse == chooser)
-            {
-                chosenNumber = 7-chooser; // convert to actual houseNumber
-                hasChoosen = true;
-            }
-            chooser--;
-        }
+        hasChosen = false;
         
-        if(hasChoosen)
+        int chosenNumber = getEvenToStoreHouse();
+        
+        if(hasChosen)
         {
             board.computerTakesBallsFrom(chosenNumber);
         }
-        else
+        if(!hasChosen)
         {
-            iterator = game.getComputerHouses();
-            chooser = 6;
-            while(iterator.hasNext())
-            {
-                int currentHouse = iterator.next();
-                
-                if(currentHouse == (chooser + 13))
-                {
-                    chosenNumber = 7- chooser;      // convert to actual house number
-                    hasChoosen = true;
-                }
-                chooser--;
-            }
-            if(hasChoosen)
+            chosenNumber = getEvenToStoreAroundTheBoard();
+            
+            if(hasChosen)
             {
                 board.computerTakesBallsFrom(chosenNumber);
             }
-            else
-            {
-                ArrayList<Integer> oneLessHouses = new ArrayList<>();
-                ArrayList<Integer> numberOfHits = new ArrayList<>();
-                iterator = game.getComputerHouses();
-                chooser = 6;
-                while(iterator.hasNext())
-                {
-                    int currentHouse = iterator.next();
-        
-                    if(currentHouse == (chooser -1))
-                    {
-                        oneLessHouses.add(7-chooser);
-                    }
-                    chooser--;
-                }
-                iterator = game.getComputerHouses();
-                chooser = 6;
-                while(iterator.hasNext())
-                {
-                    int high = chooser - 1;
-                    int low = chooser - iterator.next();
-                    int hitCounter = 0;
-                    for(int number :oneLessHouses)
-                    {
-                        if(number >= low && number <= high)
-                        {
-                            hitCounter++;
-                        }
-                    }
-                    numberOfHits.add(hitCounter);
-                }
-                chooser = 1;
-                int maxHits = 0;
-                for(int number : numberOfHits)
-                {
-                    if(number > maxHits)
-                    {
-                        maxHits = number;
-                        chosenNumber = chooser;
-                        hasChoosen = true;
-                    }
-                    chooser++;
-                }
-                if(hasChoosen)
-                {
-                    board.computerTakesBallsFrom(chosenNumber);
-                }
-                else
-                {
-                    int maxBallCount = 0;
-                    chooser = 1;
-    
-                    iterator = game.getComputerHouses();
-                    while(iterator.hasNext())
-                    {
-                        int currentHouse = iterator.next();
-                        if(currentHouse > maxBallCount)
-                        {
-                            maxBallCount = currentHouse;
-                            chosenNumber = chooser;
-                            hasChoosen = true;
-                        }
-                        chooser++;
-                    }
-                    if(hasChoosen)      // should always be true
-                    {
-                        board.computerTakesBallsFrom(chosenNumber);
-                    }
-                }
-            }
-            
         }
         
+        if(!hasChosen)
+        {
+            chosenNumber = getHouseThatMakeEvenForNextRound();
+    
+            if(hasChosen)
+            {
+                board.computerTakesBallsFrom(chosenNumber);
+            }
+        }
+        
+        if(!hasChosen)
+        {
+            chosenNumber = getHouseNumberOfHighestNumberOfBalls();
+    
+    
+            if(hasChosen)      // should always be true
+            {
+                board.computerTakesBallsFrom(chosenNumber);
+            }
+        }
+        
+        hasChosen = false;
+    }
+    
+    
+    
+    
+    private int getEvenToStoreHouse()
+    {
+        Iterator<Integer> iterator = game.getComputerHouses();
+        
+        int chooser = 1;
+        int chosenNumber = -1;
+        while(iterator.hasNext())
+        {
+            int currentHouse = iterator.next();
+            if(currentHouse == 7-chooser)
+            {
+                chosenNumber = chooser;
+                hasChosen = true;
+            }
+            chooser++;
+        }
+        return chosenNumber;
+    }
+    
+    private int getEvenToStoreAroundTheBoard()
+    {
+        
+        Iterator<Integer> iterator = game.getComputerHouses();
+        int chooser = 1;
+        int chosenNumber = -1;
+        while(iterator.hasNext())
+        {
+            int currentHouse = iterator.next();
+            
+            if(currentHouse == (7-chooser + 13))
+            {
+                chosenNumber = chooser;      // convert to actual house number
+                hasChosen = true;
+            }
+            chooser++;
+        }
+        return chosenNumber;
+    }
+    
+    private int getHouseThatMakeEvenForNextRound()
+    {
+        ArrayList<Integer> oneLessHouses = new ArrayList<>();
+        ArrayList<Integer> numberOfHits = new ArrayList<>();
+        Iterator<Integer> iterator = game.getComputerHouses();
+        int chooser = 1;
+        while(iterator.hasNext())
+        {
+            int currentHouse = iterator.next();
+            
+            if(currentHouse == (7-chooser -1))
+            {
+                oneLessHouses.add(chooser);
+            }
+            chooser++;
+        }
+        iterator = game.getComputerHouses();
+        chooser = 1;
+        while(iterator.hasNext())
+        {
+            int high = 7 - chooser - 1;
+            int low = 7 - chooser - iterator.next();
+            int hitCounter = 0;
+            for(int number :oneLessHouses)
+            {
+                if(number >= low && number <= high)
+                {
+                    hitCounter++;
+                }
+            }
+            numberOfHits.add(hitCounter);
+            chooser++;
+        }
+        chooser = 1;
+        int maxHits = 0;
+        int chosenNumber = -1;
+        for(int number : numberOfHits)
+        {
+            if(number > maxHits)
+            {
+                maxHits = number;
+                chosenNumber = chooser;
+                hasChosen = true;
+            }
+            chooser++;
+        }
+        return chosenNumber;
+    }
+    
+    private int getHouseNumberOfHighestNumberOfBalls()
+    {
+        int maxBallCount = 0;
+        int chooser = 1;
+        int chosenNumber = -1;
+        Iterator<Integer> iterator = game.getComputerHouses();
+        while(iterator.hasNext())
+        {
+            int currentHouse = iterator.next();
+            if(currentHouse > maxBallCount)
+            {
+                maxBallCount = currentHouse;
+                chosenNumber = chooser;
+                hasChosen = true;
+            }
+            chooser++;
+        }
+        return chosenNumber;
     }
 }
