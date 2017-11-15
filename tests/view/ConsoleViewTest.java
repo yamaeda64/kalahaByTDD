@@ -65,7 +65,7 @@ class ConsoleViewTest
     public void shouldClearScreen()
     {
         sut.clearScreen();
-        verify(printStream, times(50)).println();
+        verify(printStream, times(70)).println();
     }
     
     @Test
