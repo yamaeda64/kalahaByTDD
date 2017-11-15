@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class GameTest
 {
@@ -18,20 +16,28 @@ class GameTest
     private BoardFactory bf;
     private ComputerFactory computerFactory;
     private Game sut;
+    private Board board;
+    private MediumComputer mediumComputer;
     
     @BeforeEach
     void setUp()
     {
         bf = mock(BoardFactory.class);
         computerFactory = mock(ComputerFactory.class);
+        board = mock(Board.class);
+        when(bf.getKalahaBoard()).thenReturn(board);
+        
+        mediumComputer = mock(MediumComputer.class);
+        when(computerFactory.getMediumComputer()).thenReturn(mediumComputer);
+        
         sut = new Game(bf, computerFactory);
+        
     }
     
     @Test
     void GameTest_startNewGame_shouldCreateBoard()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
+        
         sut.startNewGame();
         Mockito.verify(bf).getKalahaBoard();
     }
@@ -39,30 +45,29 @@ class GameTest
     @Test
     void GameTest_startNewGame_shouldCallCreateHouseAndStores()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
+       
         sut.startNewGame();
         
         Mockito.verify(board).createHouseAndStores();
     }
     
+   
     @Test
     void GameTest_getBoard_shouldReturnBoard()
     {
-        when(bf.getKalahaBoard()).thenReturn(new Board());
+        
         sut.startNewGame();
         
         Board actual = sut.getBoard();
-        
-        assertEquals(new Board().getClass(), actual.getClass());
+        Board expected = mock(Board.class);
+        assertEquals(expected.getClass(), actual.getClass());
     }
     
 
     @Test
     void GameTest_takeBallsFrom3_house3ShouldBeEmpty()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
+        
         sut.startNewGame();
         
         ArrayList<Integer> startPos = new ArrayList<>();
@@ -81,8 +86,6 @@ class GameTest
     @Test
     void GameTest_getPlayerStore()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
         when(board.getPlayerStore()).thenReturn(12);
         sut.startNewGame();
         int actual = sut.getPlayerStore();
@@ -92,8 +95,7 @@ class GameTest
     @Test
     void GameTest_getComputerStore()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
+       
         when(board.getComputerStore()).thenReturn(10);
         sut.startNewGame();
         int actual = sut.getComputerStore();
@@ -103,8 +105,7 @@ class GameTest
     @Test
     void GameTest_getPlayerHouses()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
+        
         ArrayList<Integer> numberList = new ArrayList<>();
         numberList.add(1);
         numberList.add(2);
@@ -124,8 +125,7 @@ class GameTest
     @Test
     public void GameTest_getComputerHouses()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
+       
         ArrayList<Integer> numberList = new ArrayList<>();
         numberList.add(4);
         numberList.add(5);
@@ -162,9 +162,6 @@ class GameTest
     @Test
     public void GameTest_isGameActiveWhenHousesIsEmpty_shouldBeFalse()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
-        
         ArrayList<Integer> playerHouses = new ArrayList<>();
         playerHouses.add(0);
         playerHouses.add(0);
@@ -185,8 +182,6 @@ class GameTest
     @Test
     public void GameTest_whenStartGame_shouldCallGetMediumComputer()
     {
-        Board board = mock(Board.class);
-        when(bf.getKalahaBoard()).thenReturn(board);
         
         sut.startNewGame();
         verify(computerFactory).getMediumComputer();

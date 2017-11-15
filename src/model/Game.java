@@ -14,15 +14,17 @@ public class Game
     public Game (BoardFactory boardFactory, ComputerFactory computerFactory)
     {
         this.computerFactory = computerFactory;
+        computerFactory.setGame(this);
         this.boardFactory = boardFactory;
         isGameActive = false;
+        mediumComputer = this.computerFactory.getMediumComputer();
+        board = this.boardFactory.getKalahaBoard();
+       
+        mediumComputer.setBoard(board);
     }
     
     public void startNewGame()
     {
-        
-        mediumComputer = computerFactory.getMediumComputer();
-        board = boardFactory.getKalahaBoard();
         isGameActive = true;
         board.createHouseAndStores();
     }

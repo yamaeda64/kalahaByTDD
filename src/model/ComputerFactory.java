@@ -16,4 +16,9 @@ public class ComputerFactory
     {
         return new MediumComputer(game);
     }
+    
+    public void setGame(Game game)
+    {
+        this.game = game;
+    }
 }
