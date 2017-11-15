@@ -36,7 +36,7 @@ public class ConsoleView
     
     public void clearScreen()
     {
-        for(int i = 0; i<50; i++)
+        for(int i = 0; i<70; i++)
         {
             out.println();
         }
