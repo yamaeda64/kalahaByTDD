@@ -112,6 +112,28 @@ public class MediumComputer
                 {
                     board.computerTakesBallsFrom(chosenNumber);
                 }
+                else
+                {
+                    int maxBallCount = 0;
+                    chooser = 1;
+    
+                    iterator = game.getComputerHouses();
+                    while(iterator.hasNext())
+                    {
+                        int currentHouse = iterator.next();
+                        if(currentHouse > maxBallCount)
+                        {
+                            maxBallCount = currentHouse;
+                            chosenNumber = chooser;
+                            hasChoosen = true;
+                        }
+                        chooser++;
+                    }
+                    if(hasChoosen)      // should always be true
+                    {
+                        board.computerTakesBallsFrom(chosenNumber);
+                    }
+                }
             }
             
         }
