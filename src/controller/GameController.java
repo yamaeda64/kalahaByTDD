@@ -41,12 +41,9 @@ public class GameController
         askViewToDrawBoard();
         
         takeActionWhenPlay(view.collectEvent());
-        game.getMediumComputer().chooseNextHouse();
-        
         view.clearScreen();
         askViewToDrawBoard();
-        
-        
+        game.getMediumComputer().chooseNextHouse();
         
     }
     
@@ -75,9 +72,6 @@ public class GameController
         {
             houseNumberToPickFrom = view.getNumberAfterInput();
             game.playerTakesBallsFrom(houseNumberToPickFrom);
-            
-            view.clearScreen();
-            askViewToDrawBoard();
         }
     }
     

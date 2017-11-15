@@ -115,6 +115,6 @@ public class ConsoleView
     
     public void showChooseHouseText()
     {
-        
+        out.println("Choose what house to take balls from");
     }
 }

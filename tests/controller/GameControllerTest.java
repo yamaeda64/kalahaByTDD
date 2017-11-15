@@ -85,8 +85,11 @@ class GameControllerTest
         {
             houses.add(6);
         }
-        
-        verify(view).drawBoard(anyInt(),anyInt(),anyObject(),anyObject());
+        InOrder rightOrder = inOrder(view);
+    
+        rightOrder.verify(view).clearScreen();
+        rightOrder.verify(view).drawBoard(anyInt(),anyInt(),anyObject(),anyObject());
+                           
         
     }
     
