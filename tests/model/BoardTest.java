@@ -235,9 +235,9 @@ class BoardTest
     @Test
     public void boardTest_computerSwitchTurn_shouldBeTrue()
     {
-        sut.playerTakesBallsFrom(2);
+        sut.computerTakesBallsFrom(2);
         boolean actual = sut.getSwitchTurn();
-        assertFalse(actual);
+        assertTrue(actual);
     }
     
 }

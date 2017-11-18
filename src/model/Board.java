@@ -149,6 +149,14 @@ public class Board
             ballHolder.set(i,ballHolder.get(i)+1);
             hand--;
         }
+        if(i == BOARD_HOUSES*2 +1)
+        {
+            switchTurn = true; // should be false
+        }
+        else
+        {
+            switchTurn = true;
+        }
     }
     
     public boolean getSwitchTurn()
