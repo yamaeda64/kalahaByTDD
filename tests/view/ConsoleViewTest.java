@@ -44,7 +44,7 @@ class ConsoleViewTest
     public void shouldAskUserForNumber()
     {
         sut.showChooseHouseText();
-        verify(printStream).println("Choose what house to take balls from");
+        verify(printStream).print("\nChoose what house to take balls from: ");
     }
     
     @Test
