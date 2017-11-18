@@ -49,6 +49,10 @@ public class Game
                 isGameActiveChanger = true;
             }
         }
+        if(board.getSwitchTurn())
+        {
+            playerTurn = false;
+        }
         isGameActive = isGameActiveChanger;
         
         
