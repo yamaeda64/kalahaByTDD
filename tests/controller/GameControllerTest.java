@@ -171,6 +171,18 @@ class GameControllerTest
         verify(mediumComputer).chooseNextHouse();
     }
     
+    @Test
+    public void GameController_startNewGame_shouldClearScreenAndShowInstructions()
+    {
+        when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
+        sut.start();
+        InOrder rightOrder = inOrder(view);
+    
+        rightOrder.verify(view).clearScreen();
+        rightOrder.verify(view).showChooseHouseText();
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+        
+    }
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
