@@ -14,6 +14,8 @@ public class ConsoleView
 {
     public static final String menuText = "Welcome to Kalaha, press 'N' for new game or 'Q' to Quit";
     public static final String quitText = "Thank you for playing Kalaha.";
+    public static final String wrongInputText = "You entered the wrong input, please try again!";
+    
     private int houseToPickFrom = -1;
     
     private PrintStream out;
@@ -120,5 +122,10 @@ public class ConsoleView
     public void showChooseHouseText()
     {
         out.print("\nChoose what house to take balls from: ");
+    }
+    
+    public void showWrongInputMessage()
+    {
+        
     }
 }

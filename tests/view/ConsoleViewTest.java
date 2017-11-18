@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.*;
-import static view.ConsoleView.menuText;
-import static view.ConsoleView.quitText;
-
+import static view.ConsoleView.*;
 
 class ConsoleViewTest
 {
@@ -202,6 +200,14 @@ class ConsoleViewTest
             assertEquals("Wrong input", e.getMessage());
         }
         
+    }
+    
+    @Test
+    public void consoleView_showWrongInputEror_shouldReturn()
+    {
+        sut.showWrongInputMessage();
+
+        verify(printStream).println(wrongInputText);
     }
     
 }
