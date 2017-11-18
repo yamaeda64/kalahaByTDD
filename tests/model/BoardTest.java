@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -222,4 +223,13 @@ class BoardTest
         boolean actual = sut.getSwitchTurn();
         assertTrue(actual);
     }
+    
+    @Test
+    public void boardTest_switchTurn_shouldBeFalse()
+    {
+        sut.playerTakesBallsFrom(1);
+        boolean actual = sut.getSwitchTurn();
+        assertFalse(actual);
+    }
+    
 }
