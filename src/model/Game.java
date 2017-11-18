@@ -10,6 +10,7 @@ public class Game
     private boolean isGameActive;
     private MediumComputer mediumComputer;
     private ComputerFactory computerFactory;
+    private boolean playerTurn = true; // TODO, remove true
     
     public Game (BoardFactory boardFactory, ComputerFactory computerFactory)
     {
@@ -102,6 +103,6 @@ public class Game
     
     public boolean isPlayersTurn()
     {
-        return true;
+        return playerTurn;
     }
 }

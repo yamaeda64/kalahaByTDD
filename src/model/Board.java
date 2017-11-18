@@ -10,6 +10,7 @@ public class Board
     private final int BOARD_HOUSES = 6;
     private final int BOARD_STORES = 2;
     private final int STARTING_BALLS_PER_HOUSE = 6;
+    private boolean switchTurn;
     
     private ArrayList<Integer> ballHolder;
     
@@ -140,5 +141,10 @@ public class Board
             ballHolder.set(i,ballHolder.get(i)+1);
             hand--;
         }
+    }
+    
+    public boolean getSwitchTurn()
+    {
+        return false;
     }
 }
