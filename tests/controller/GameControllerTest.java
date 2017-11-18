@@ -190,12 +190,22 @@ class GameControllerTest
         sut.start();
         verify(view).showWrongInputMessage();
     }
+    
+    @Test
+    public void GameController_whenPlaying_ShouldTakeEachSecondTurn()
+    {
+        when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
+        when(view.getNumberAfterInput()).thenReturn(1).thenReturn(2).thenReturn(3);
+        sut.play();
+        verify(view,times(3)).collectEvent();
+    }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
         doReturn(true).when(sut).exitApplication();
     }
-
     
+   
 }
 
