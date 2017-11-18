@@ -119,6 +119,14 @@ public class Board
             ballHolder.set(i,ballHolder.get(i)+1); // adds one ball for each house/store
             hand--;
         }
+        if(i != getBoardHousesPerSide())
+        {
+            switchTurn = true;
+        }
+        else
+        {
+            switchTurn = false;
+        }
     }
     
     public void computerTakesBallsFrom(int house)
@@ -145,6 +153,6 @@ public class Board
     
     public boolean getSwitchTurn()
     {
-        return false;
+        return switchTurn;
     }
 }
