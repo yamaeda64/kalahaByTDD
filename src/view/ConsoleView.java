@@ -66,7 +66,7 @@ public class ConsoleView
         }
         else
         {
-            return null;
+            throw new IllegalArgumentException("Wrong input");
         }
         
     }
