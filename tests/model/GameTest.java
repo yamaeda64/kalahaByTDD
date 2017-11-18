@@ -188,4 +188,19 @@ class GameTest
         
     }
     
+    @Test
+    public void GameTest_computerCheckIfGameIsActive_shouldReturnTrue()
+    {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(1);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
+        
+        boolean actual = sut.isGameOverAfterComputerMove();
+        
+    }
 }

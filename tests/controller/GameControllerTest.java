@@ -229,7 +229,6 @@ class GameControllerTest
                 {
                     return false;
                 }
-                
             }
         });
     }

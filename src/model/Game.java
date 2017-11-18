@@ -53,6 +53,11 @@ public class Game
         
     }
     
+    public boolean isGameOverAfterComputerMove()
+    {
+        return false;
+    }
+    
     public int getPlayerStore()
     {
         return board.getPlayerStore();
@@ -82,4 +87,6 @@ public class Game
     {
         return mediumComputer;
     }
+    
+    
 }
