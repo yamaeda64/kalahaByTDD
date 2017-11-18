@@ -59,12 +59,15 @@ public class ConsoleView
         {
             return PLAY;
         }
-        else if(input >= '0' || input <= '9')
+        else if(input >= '0' && input <= '9')
         {
             houseToPickFrom = Integer.parseInt(""+input);
             return PICK_BALLS_FROM_HOUSE;
         }
+        else
+        {
             return null;
+        }
         
     }
     

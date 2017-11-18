@@ -194,6 +194,7 @@ class ConsoleViewTest
         try
         {
             setFakeInputStream("" + input);
+            sut.collectEvent();
             fail("No Exception was thrown");
         }
         catch(IllegalArgumentException e)
