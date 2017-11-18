@@ -240,4 +240,12 @@ class BoardTest
         assertTrue(actual);
     }
     
+    @Test
+    public void boardTest_computerSwitchTurn_shouldBeFalse()
+    {
+        sut.computerTakesBallsFrom(1);
+        boolean actual = sut.getSwitchTurn();
+        assertFalse(actual);
+    }
+    
 }
