@@ -10,7 +10,7 @@ public class Game
     private boolean isGameActive;
     private MediumComputer mediumComputer;
     private ComputerFactory computerFactory;
-    private boolean playerTurn = true; // TODO, remove true
+    private boolean playerTurn;
     
     public Game (BoardFactory boardFactory, ComputerFactory computerFactory)
     {
@@ -52,6 +52,10 @@ public class Game
         if(board.getSwitchTurn())
         {
             playerTurn = false;
+        }
+        else
+        {
+            playerTurn = false; // should be true
         }
         isGameActive = isGameActiveChanger;
         
