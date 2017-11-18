@@ -220,4 +220,20 @@ class GameTest
         assertFalse(actual);
     }
     
+    @Test
+    public void GameTest_makeMove_playersTurnShouldBeFalse()
+    {
+        ArrayList<Integer> playerHouses = new ArrayList<>();
+        playerHouses.add(5);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        playerHouses.add(0);
+        when(board.getPlayerHouses()).thenReturn(playerHouses.iterator());
+        sut.startNewGame();
+        sut.playerTakesBallsFrom(6);
+        boolean actual = sut.isPlayersTurn();
+        assertFalse(actual);
+    }
 }

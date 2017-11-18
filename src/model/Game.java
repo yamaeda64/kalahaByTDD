@@ -100,4 +100,8 @@ public class Game
     }
     
     
+    public boolean isPlayersTurn()
+    {
+        return true;
+    }
 }
