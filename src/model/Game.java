@@ -55,18 +55,7 @@ public class Game
     
     public boolean isGameOverAfterComputerMove()
     {
-        boolean isGameActiveChanger = false;
-        Iterator<Integer> iterator = board.getComputerHouses();
-        while(iterator.hasNext())
-        {
-            if(iterator.next() != 0)
-            {
-                isGameActiveChanger = true;
-            }
-        }
-        isGameActive = isGameActiveChanger;
-    
-        return isGameActive;
+       return false;
     }
     
     public int getPlayerStore()
