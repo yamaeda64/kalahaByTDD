@@ -38,10 +38,10 @@ public class GameController
     public void play()
     {
         view.clearScreen();
-        view.showChooseHouseText();
+        
         game.startNewGame();
         askViewToDrawBoard();
-        
+        view.showChooseHouseText();
         takeActionWhenPlay(view.collectEvent());
         view.clearScreen();
         askViewToDrawBoard();
