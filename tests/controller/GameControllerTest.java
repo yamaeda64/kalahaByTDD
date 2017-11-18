@@ -179,9 +179,8 @@ class GameControllerTest
         InOrder rightOrder = inOrder(view);
     
         rightOrder.verify(view).clearScreen();
-        rightOrder.verify(view).showChooseHouseText();
         rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
-        
+        rightOrder.verify(view).showChooseHouseText();
     }
     private void exchangeGameControllerToSpyThatDoesntExit()
     {

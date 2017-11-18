@@ -37,6 +37,8 @@ public class GameController
     
     public void play()
     {
+        view.clearScreen();
+        view.showChooseHouseText();
         game.startNewGame();
         askViewToDrawBoard();
         
