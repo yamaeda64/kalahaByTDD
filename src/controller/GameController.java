@@ -24,9 +24,16 @@ public class GameController
     {
         view.clearScreen();
         view.showMenu();
+        try
+        {
+            UserInteraction currentInteraction = view.collectEvent();
+            takeAction(currentInteraction);
+        }
+        catch(IllegalArgumentException e)
+        {
+            view.showWrongInputMessage();
+        }
         
-        UserInteraction currentInteraction = view.collectEvent();
-        takeAction(currentInteraction);
     }
     
     public void quit()
