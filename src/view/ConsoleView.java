@@ -126,6 +126,6 @@ public class ConsoleView
     
     public void showWrongInputMessage()
     {
-        
+        out.println(wrongInputText);
     }
 }
