@@ -151,7 +151,7 @@ public class Board
         }
         if(i == BOARD_HOUSES*2 +1)
         {
-            switchTurn = true; // should be false
+            switchTurn = false;
         }
         else
         {
