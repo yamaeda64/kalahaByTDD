@@ -66,7 +66,7 @@ public class Game
         }
         isGameActive = isGameActiveChanger;
     
-        return true;
+        return isGameActive;
     }
     
     public int getPlayerStore()
