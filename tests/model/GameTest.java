@@ -232,6 +232,7 @@ class GameTest
         playerHouses.add(0);
         when(board.getPlayerHouses()).thenReturn(playerHouses.iterator());
         sut.startNewGame();
+        when(board.getSwitchTurn()).thenReturn(true);
         sut.playerTakesBallsFrom(6);
         boolean actual = sut.isPlayersTurn();
         assertFalse(actual);
