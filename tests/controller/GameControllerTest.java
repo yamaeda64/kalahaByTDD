@@ -182,6 +182,14 @@ class GameControllerTest
         rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
         rightOrder.verify(view).showChooseHouseText();
     }
+    
+    @Test
+    public void GameController_startNewGame_shouldShowWrongInputText()
+    {
+        when(view.collectEvent()).thenThrow(new IllegalArgumentException("Wrong Input"));
+        sut.start();
+        verify(view).showWrongInputMessage();
+    }
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));

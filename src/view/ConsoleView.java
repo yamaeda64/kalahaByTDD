@@ -31,6 +31,16 @@ public class ConsoleView
        out.println(menuText);
     }
     
+    public void showChooseHouseText()
+    {
+        out.print("\nChoose what house to take balls from: ");
+    }
+    
+    public void showWrongInputMessage()
+    {
+        out.println(wrongInputText);
+    }
+    
     public void showQuitMessage()
     {
         out.println(quitText);
@@ -119,13 +129,5 @@ public class ConsoleView
         return board.toString();
     }
     
-    public void showChooseHouseText()
-    {
-        out.print("\nChoose what house to take balls from: ");
-    }
     
-    public void showWrongInputMessage()
-    {
-        out.println(wrongInputText);
-    }
 }
