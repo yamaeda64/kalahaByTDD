@@ -55,7 +55,7 @@ public class Game
         }
         else
         {
-            playerTurn = false; // should be true
+            playerTurn = true;
         }
         isGameActive = isGameActiveChanger;
         
