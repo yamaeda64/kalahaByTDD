@@ -121,7 +121,7 @@ public class Board
         }
         if(i != getBoardHousesPerSide())
         {
-            switchTurn = true;
+            switchTurn = false;
         }
         else
         {
