@@ -204,7 +204,7 @@ class GameTest
         assertTrue(actual);
     }
     
-    /*@Test
+    @Test
     public void GameTest_computerCheckIfGameIsActive_shouldReturnFalse()
     {
         ArrayList<Integer> computerHouses = new ArrayList<>();
@@ -217,7 +217,7 @@ class GameTest
         when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
         
         boolean actual = sut.isGameOverAfterComputerMove();
-        
+        assertFalse(actual);
     }
-    */
+    
 }
