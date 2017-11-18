@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.*;
 import static view.ConsoleView.menuText;
 import static view.ConsoleView.quitText;
@@ -184,6 +185,22 @@ class ConsoleViewTest
                 "               1   2   3   4   5   6";
         
         assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void consoleView_wrongInput_shouldThrowException()
+    {
+        char input = 'f';
+        try
+        {
+            setFakeInputStream("" + input);
+            fail("No Exception was thrown");
+        }
+        catch(IllegalArgumentException e)
+        {
+            assertEquals("Wrong input", e.getMessage());
+        }
+        
     }
     
 }

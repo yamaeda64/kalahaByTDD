@@ -64,7 +64,8 @@ public class ConsoleView
             houseToPickFrom = Integer.parseInt(""+input);
             return PICK_BALLS_FROM_HOUSE;
         }
-        return null;
+            return null;
+        
     }
     
     public int getNumberAfterInput()
