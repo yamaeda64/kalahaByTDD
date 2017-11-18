@@ -48,11 +48,14 @@ public class GameController
         
         game.startNewGame();
         askViewToDrawBoard();
-        view.showChooseHouseText();
-        takeActionWhenPlay(view.collectEvent());
-        view.clearScreen();
-        askViewToDrawBoard();
-        game.getMediumComputer().chooseNextHouse();
+        while(game.isGameActive())
+        {
+            view.showChooseHouseText();
+            takeActionWhenPlay(view.collectEvent());
+            view.clearScreen();
+            askViewToDrawBoard();
+            game.getMediumComputer().chooseNextHouse();
+        }
         
     }
     

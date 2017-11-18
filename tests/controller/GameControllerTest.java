@@ -6,6 +6,8 @@ import model.MediumComputer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 import view.ConsoleView;
 import view.UserInteraction;
 
@@ -33,7 +35,7 @@ class GameControllerTest
         mediumComputer = mock(MediumComputer.class);
         when(game.getMediumComputer()).thenReturn(mediumComputer);
         computerFactory = mock(ComputerFactory.class);
-       
+        
         
     }
     
@@ -86,10 +88,10 @@ class GameControllerTest
             houses.add(6);
         }
         InOrder rightOrder = inOrder(view);
-    
+        
         rightOrder.verify(view).clearScreen();
         rightOrder.verify(view).drawBoard(anyInt(),anyInt(),anyObject(),anyObject());
-                           
+        
         
     }
     
@@ -125,7 +127,7 @@ class GameControllerTest
         sut.start();
         
         InOrder rightOrder = inOrder(view);
-    
+        
         rightOrder.verify(view).clearScreen();
         rightOrder.verify(view).showMenu();
         
@@ -134,6 +136,7 @@ class GameControllerTest
     @Test
     public void GameController_whenPlay_ShouldAskForUserInput()
     {
+        howManyRoundsGameShouldBeActive(1);
         sut.play();
         verify(view).collectEvent();
     }
@@ -143,6 +146,7 @@ class GameControllerTest
     {
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         when(view.getNumberAfterInput()).thenReturn(1);
+        howManyRoundsGameShouldBeActive(1);
         sut.play();
         verify(game).playerTakesBallsFrom(1);
         
@@ -155,7 +159,7 @@ class GameControllerTest
         when(view.getNumberAfterInput()).thenReturn(4);
         sut.play();
         InOrder rightOrder = inOrder(view);
-    
+        
         rightOrder.verify(view).clearScreen();
         rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
     }
@@ -163,6 +167,7 @@ class GameControllerTest
     @Test
     public void GameController_playerTakeBallAndGameIsNotOver_computerShouldTakeBalls()
     {
+        howManyRoundsGameShouldBeActive(1);
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         when(view.getNumberAfterInput()).thenReturn(3);
         
@@ -174,10 +179,11 @@ class GameControllerTest
     @Test
     public void GameController_startNewGame_shouldClearScreenAndShowInstructions()
     {
+        howManyRoundsGameShouldBeActive(1);
         when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
         sut.start();
         InOrder rightOrder = inOrder(view);
-    
+        
         rightOrder.verify(view).clearScreen();
         rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
         rightOrder.verify(view).showChooseHouseText();
@@ -196,6 +202,7 @@ class GameControllerTest
     {
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         when(view.getNumberAfterInput()).thenReturn(1).thenReturn(2).thenReturn(3);
+        howManyRoundsGameShouldBeActive(3);
         sut.play();
         verify(view,times(3)).collectEvent();
     }
@@ -206,6 +213,25 @@ class GameControllerTest
         doReturn(true).when(sut).exitApplication();
     }
     
-   
+    private void howManyRoundsGameShouldBeActive(int rounds)
+    {     
+        when(game.isGameActive()).thenAnswer(new Answer()
+        { 
+            private int counter = 0;
+            
+            public Boolean answer(InvocationOnMock invocation) throws Throwable
+            {
+                if(counter++ < rounds)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+        });
+    }
 }
 
