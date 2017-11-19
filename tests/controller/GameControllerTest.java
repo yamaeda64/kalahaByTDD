@@ -136,6 +136,7 @@ class GameControllerTest
     @Test
     public void GameController_whenPlay_ShouldAskForUserInput()
     {
+        when(game.isPlayersTurn()).thenReturn(true);
         howManyRoundsGameShouldBeActive(1);
         sut.play();
         verify(view).collectEvent();
@@ -144,6 +145,7 @@ class GameControllerTest
     @Test
     public void GameController_whenHouse1IsChosenDuringPlay_shouldCallTakeBallsFromHouse1()
     {
+        when(game.isPlayersTurn()).thenReturn(true); 
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         when(view.getNumberAfterInput()).thenReturn(1);
         howManyRoundsGameShouldBeActive(1);
@@ -179,6 +181,7 @@ class GameControllerTest
     @Test
     public void GameController_startNewGame_shouldClearScreenAndShowInstructions()
     {
+        when(game.isPlayersTurn()).thenReturn(true); 
         howManyRoundsGameShouldBeActive(1);
         when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
         sut.start();
@@ -200,9 +203,10 @@ class GameControllerTest
     @Test
     public void GameController_whenPlaying_ShouldTakeEachSecondTurn()
     {
+        when(game.isPlayersTurn()).thenReturn(true).thenReturn(false).thenReturn(true).thenReturn(false).thenReturn(true).thenReturn(false);
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         when(view.getNumberAfterInput()).thenReturn(1).thenReturn(2).thenReturn(3);
-        howManyRoundsGameShouldBeActive(3);
+        howManyRoundsGameShouldBeActive(6);
         sut.play();
         verify(view,times(3)).collectEvent();
     }

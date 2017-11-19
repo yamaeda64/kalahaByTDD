@@ -59,6 +59,31 @@ public class GameController
         
     }
     
+    /*
+    public void play()
+    {
+        view.clearScreen();
+        
+        game.startNewGame();
+        askViewToDrawBoard();
+        while(game.isGameActive())
+        {
+            if(game.isPlayersTurn())
+            {
+                view.showChooseHouseText();
+                takeActionWhenPlay(view.collectEvent());
+                view.clearScreen();
+                askViewToDrawBoard();
+            }
+            else
+            {
+                game.getMediumComputer().chooseNextHouse();
+            }
+        }
+        
+    }
+    */
+    
     public boolean exitApplication()
     {
         System.exit(0);
