@@ -31,7 +31,7 @@ public class MediumComputer
         
         if(hasChosen)
         {
-            board.computerTakesBallsFrom(chosenNumber);
+            game.computerTakesBallsFrom(chosenNumber);
         }
     }
     
