@@ -123,6 +123,6 @@ public class Game
         {
             playerTurn = false;
         }
-        
+        isGameOverAfterComputerMove();
     }
 }
