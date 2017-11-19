@@ -129,4 +129,9 @@ public class Game
     {
         return isGameActive;
     }
+    
+    public int getPlayerScoreWhenGameIsOver()
+    {
+        return 0;
+    }
 }

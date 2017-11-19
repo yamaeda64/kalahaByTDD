@@ -356,6 +356,24 @@ class GameTest
         boolean actual = sut.getIsGameActive();
         
         assertTrue(actual);
+    }
+    
+    @Test
+    public void GameTest_whenGameOver_playerScoreShouldBe41()
+    {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(4);
+        computerHouses.add(3);
+        computerHouses.add(2);
+        computerHouses.add(1);
+        computerHouses.add(6);
+        computerHouses.add(5);
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
         
+        when(board.getPlayerStore()).thenReturn(20);
+        int actual = sut.getPlayerScoreWhenGameIsOver();
+        
+    
+        assertEquals(41,actual);
     }
 }

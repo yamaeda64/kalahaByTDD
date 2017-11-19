@@ -33,7 +33,6 @@ public class GameController
         {
             view.showWrongInputMessage();
         }
-        
     }
     
     public void quit()
@@ -64,7 +63,6 @@ public class GameController
                 askViewToDrawBoard();
             }
         }
-        
     }
     
     
