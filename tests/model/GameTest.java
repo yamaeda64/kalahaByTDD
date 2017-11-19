@@ -192,15 +192,15 @@ class GameTest
     public void GameTest_computerCheckIfGameIsActive_shouldReturnTrue()
     {
         ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(2);
         computerHouses.add(1);
         computerHouses.add(0);
         computerHouses.add(0);
         computerHouses.add(0);
         computerHouses.add(0);
-        computerHouses.add(0);
         when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
-        
-        boolean actual = sut.isGameOverAfterComputerMove();
+        sut.computerTakesBallsFrom(2);
+        boolean actual = sut.getIsGameActive();
         assertTrue(actual);
     }
     
@@ -216,7 +216,7 @@ class GameTest
         computerHouses.add(0);
         when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
         
-        boolean actual = sut.isGameOverAfterComputerMove();
+        boolean actual = sut.getIsGameActive();
         assertFalse(actual);
     }
     
@@ -349,14 +349,13 @@ class GameTest
         computerHouses.add(0);
         computerHouses.add(0);
         computerHouses.add(0);
-        when(board.getPlayerHouses()).thenReturn(computerHouses.iterator());
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
         
         sut.startNewGame();
         sut.computerTakesBallsFrom(3);
         boolean actual = sut.getIsGameActive();
         
         assertTrue(actual);
-        
         
     }
 }

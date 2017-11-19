@@ -60,7 +60,7 @@ public class Game
         isGameActive = isGameActiveChanger;
     }
     
-    public boolean isGameOverAfterComputerMove()
+    public void isGameActiveAfterComputerMove()
     {
         boolean isGameActiveChanger = false;
         Iterator<Integer> iterator = board.getComputerHouses();
@@ -73,7 +73,6 @@ public class Game
         }
         isGameActive = isGameActiveChanger;
     
-        return isGameActive;
     }
     
     public int getPlayerStore()
@@ -123,7 +122,7 @@ public class Game
         {
             playerTurn = false;
         }
-        isGameOverAfterComputerMove();
+        isGameActiveAfterComputerMove();
     }
     
     public boolean getIsGameActive()
