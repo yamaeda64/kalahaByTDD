@@ -274,6 +274,7 @@ class GameTest
         computerHouses.add(0);
         computerHouses.add(0);
         when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
+        when(board.getSwitchTurn()).thenReturn(true);
         sut.computerTakesBallsFrom(4);
         boolean actual = sut.isPlayersTurn();
         assertTrue(actual);

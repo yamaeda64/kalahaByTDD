@@ -115,5 +115,9 @@ public class Game
     public void computerTakesBallsFrom(int i)
     {
         board.computerTakesBallsFrom(i);
+        if(board.getSwitchTurn())
+        {
+           // playerTurn = true;
+        }
     }
 }
