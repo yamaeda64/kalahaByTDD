@@ -50,7 +50,7 @@ class MediumComputerTest
         mockedInput.add(1);
         when(game.getComputerHouses()).thenReturn(mockedInput.iterator());
         sut.chooseNextHouse();
-        verify(board).computerTakesBallsFrom(6);
+        verify(game).computerTakesBallsFrom(6);
     }
     
     @Test

@@ -58,8 +58,6 @@ public class Game
             playerTurn = true;
         }
         isGameActive = isGameActiveChanger;
-        
-        
     }
     
     public boolean isGameOverAfterComputerMove()
@@ -112,5 +110,9 @@ public class Game
     public boolean isPlayersTurn()
     {
         return playerTurn;
+    }
+    
+    public void computerTakesBallsFrom(int i)
+    {
     }
 }
