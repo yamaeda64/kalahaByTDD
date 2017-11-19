@@ -318,7 +318,25 @@ class GameTest
         when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
         sut.computerTakesBallsFrom(1);
         
-        boolean actual = sut.isGameOverAfterComputerMove();
+        boolean actual = sut.getIsGameActive();
+        assertTrue(actual);
+    }
+    
+    @Test
+    public void GameTest_computerMakeMove_isGameActiveShouldBeFalse()
+    {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
+        sut.computerTakesBallsFrom(6);
+        
+        boolean actual = sut.isGameActive();
         assertFalse(actual);
     }
+
 }
