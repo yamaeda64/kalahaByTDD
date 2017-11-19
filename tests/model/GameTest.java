@@ -255,4 +255,11 @@ class GameTest
         boolean actual = sut.isPlayersTurn();
         assertTrue(actual);
     }
+    
+    @Test
+    public void GameTest_computerTakeBalls_shouldCallBoardComputerTakesBall()
+    {
+        sut.computerTakesBallsFrom(4);
+        verify(board).computerTakesBallsFrom(4);
+    }
 }
