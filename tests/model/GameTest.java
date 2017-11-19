@@ -259,6 +259,14 @@ class GameTest
     @Test
     public void GameTest_computerTakeBalls_shouldCallBoardComputerTakesBall()
     {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(2);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
         sut.computerTakesBallsFrom(4);
         verify(board).computerTakesBallsFrom(4);
     }
@@ -294,6 +302,23 @@ class GameTest
         when(board.getSwitchTurn()).thenReturn(false);
         sut.computerTakesBallsFrom(4);
         boolean actual = sut.isPlayersTurn();
+        assertFalse(actual);
+    }
+    
+    @Test
+    public void GameTest_computerMakeMove_isGameOverShouldBeFalse()
+    {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(1);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
+        sut.computerTakesBallsFrom(1);
+        
+        boolean actual = sut.isGameOverAfterComputerMove();
         assertFalse(actual);
     }
 }
