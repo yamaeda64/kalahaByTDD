@@ -94,7 +94,7 @@ public class MediumComputer
             
             if(currentHouse == (7-chooser + 13))
             {
-                chosenNumber = chooser;      // convert to actual house number
+                chosenNumber = chooser;
                 hasChosen = true;
             }
             chooser++;

@@ -82,15 +82,15 @@ class GameControllerTest
     public void takeAction_whenPlay_shouldCallPrintBoard()
     {
         sut.play();
-        ArrayList<Integer> houses =new ArrayList<>();
-        for(int i= 0; i<6; i++)
+        ArrayList<Integer> houses = new ArrayList<>();
+        for(int i = 0; i < 6; i++)
         {
             houses.add(6);
         }
         InOrder rightOrder = inOrder(view);
         
         rightOrder.verify(view).clearScreen();
-        rightOrder.verify(view).drawBoard(anyInt(),anyInt(),anyObject(),anyObject());
+        rightOrder.verify(view).drawBoard(anyInt(), anyInt(), anyObject(), anyObject());
         
         
     }
@@ -145,7 +145,7 @@ class GameControllerTest
     @Test
     public void GameController_whenHouse1IsChosenDuringPlay_shouldCallTakeBallsFromHouse1()
     {
-        when(game.isPlayersTurn()).thenReturn(true); 
+        when(game.isPlayersTurn()).thenReturn(true);
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         when(view.getNumberAfterInput()).thenReturn(1);
         howManyRoundsGameShouldBeActive(1);
@@ -163,9 +163,23 @@ class GameControllerTest
         InOrder rightOrder = inOrder(view);
         
         rightOrder.verify(view).clearScreen();
-        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(), game.getComputerStore(), game.getPlayerHouses(), game.getComputerHouses());
     }
     
+    @Test
+    public void GameController_whenComputersTurn_ShouldClearScreenAndDrawNewBoard()
+    {
+        when(game.isPlayersTurn()).thenReturn(false);
+        when(game.isGameActive()).thenReturn(true).thenReturn(false);
+       
+        sut.play();
+        InOrder rightOrder = inOrder(view);
+        
+        rightOrder.verify(view).clearScreen();
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(), game.getComputerHouses());
+        rightOrder.verify(view).clearScreen();                                                                                            
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(), game.getComputerHouses());
+    }
     @Test
     public void GameController_playerTakeBallAndGameIsNotOver_computerShouldTakeBalls()
     {
@@ -181,7 +195,7 @@ class GameControllerTest
     @Test
     public void GameController_startNewGame_shouldClearScreenAndShowInstructions()
     {
-        when(game.isPlayersTurn()).thenReturn(true); 
+        when(game.isPlayersTurn()).thenReturn(true);
         howManyRoundsGameShouldBeActive(1);
         when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
         sut.start();
@@ -211,6 +225,8 @@ class GameControllerTest
         verify(view,times(3)).collectEvent();
     }
     
+    
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
@@ -218,9 +234,9 @@ class GameControllerTest
     }
     
     private void howManyRoundsGameShouldBeActive(int rounds)
-    {     
+    {
         when(game.isGameActive()).thenAnswer(new Answer()
-        { 
+        {
             private int counter = 0;
             
             public Boolean answer(InvocationOnMock invocation) throws Throwable
