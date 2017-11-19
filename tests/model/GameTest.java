@@ -389,7 +389,7 @@ class GameTest
         playerHouses.add(5);
         when(board.getPlayerHouses()).thenReturn(playerHouses.iterator());
     
-        when(board.getPlayerStore()).thenReturn(19);
+        when(board.getComputerStore()).thenReturn(19);
         int actual = sut.geComputerScoreWhenGameIsOver();
     
     

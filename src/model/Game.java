@@ -143,6 +143,6 @@ public class Game
     
     public int geComputerScoreWhenGameIsOver()
     {
-        return 0;
+      return 0;
     }
 }
