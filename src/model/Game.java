@@ -114,6 +114,6 @@ public class Game
     
     public void computerTakesBallsFrom(int i)
     {
-        board.playerTakesBallsFrom(i);
+        board.computerTakesBallsFrom(i);
     }
 }
