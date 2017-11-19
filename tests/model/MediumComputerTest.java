@@ -38,7 +38,7 @@ class MediumComputerTest
     
     
     @Test
-    public void mediumComputer_whenLastHouseHasOne_shouldChooseOne()
+    public void mediumComputer_whenLastHouseHasOne_shouldChooseSixs()
     {
         
         ArrayList<Integer> mockedInput = new ArrayList<>();
