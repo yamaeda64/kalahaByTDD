@@ -117,11 +117,11 @@ public class Game
         board.computerTakesBallsFrom(i);
         if(board.getSwitchTurn())
         {
-            playerTurn = false; // should be true
+            playerTurn = true;
         }
         else
         {
-            playerTurn = true;  // shoule be false
+            playerTurn = false;
         }
         isGameOverAfterComputerMove();
     }
