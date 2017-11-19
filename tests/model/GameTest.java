@@ -376,4 +376,23 @@ class GameTest
     
         assertEquals(41,actual);
     }
+    
+    @Test
+    public void GameTest_whenGameOver_computerScoreShouldBe44()
+    {
+        ArrayList<Integer> playerHouses = new ArrayList<>();
+        playerHouses.add(5);
+        playerHouses.add(6);
+        playerHouses.add(2);
+        playerHouses.add(1);
+        playerHouses.add(6);
+        playerHouses.add(5);
+        when(board.getPlayerHouses()).thenReturn(playerHouses.iterator());
+    
+        when(board.getPlayerStore()).thenReturn(19);
+        int actual = sut.geComputerScoreWhenGameIsOver();
+    
+    
+        assertEquals(44,actual);
+    }
 }

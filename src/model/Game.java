@@ -140,4 +140,9 @@ public class Game
         }
         return score;
     }
+    
+    public int geComputerScoreWhenGameIsOver()
+    {
+        return 0;
+    }
 }
