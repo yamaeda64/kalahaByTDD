@@ -132,6 +132,12 @@ public class Game
     
     public int getPlayerScoreWhenGameIsOver()
     {
-        return 0;
+        int score = getPlayerStore();
+        Iterator<Integer> computerHouses = getComputerHouses();
+        while(computerHouses.hasNext())
+        {
+            score += computerHouses.next();
+        }
+        return score;
     }
 }
