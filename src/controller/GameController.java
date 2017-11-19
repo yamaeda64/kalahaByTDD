@@ -60,6 +60,8 @@ public class GameController
             else
             {
                 game.getMediumComputer().chooseNextHouse();
+                view.clearScreen();
+                askViewToDrawBoard();
             }
         }
         
