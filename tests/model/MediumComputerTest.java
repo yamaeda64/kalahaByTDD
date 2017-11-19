@@ -66,7 +66,7 @@ class MediumComputerTest
         mockedInput.add(5);
         when(game.getComputerHouses()).thenReturn(mockedInput.iterator());
         sut.chooseNextHouse();
-        verify(board).computerTakesBallsFrom(1);
+        verify(game).computerTakesBallsFrom(1);
     }
     
     @Test
@@ -91,7 +91,7 @@ class MediumComputerTest
         
         
         sut.chooseNextHouse();
-        verify(board).computerTakesBallsFrom(4);
+        verify(game).computerTakesBallsFrom(4);
     }
     
     @Test
@@ -114,7 +114,7 @@ class MediumComputerTest
         });
         
         sut.chooseNextHouse();
-        verify(board).computerTakesBallsFrom(1);
+        verify(game).computerTakesBallsFrom(1);
         
     }
     
@@ -138,6 +138,6 @@ class MediumComputerTest
         });
     
         sut.chooseNextHouse();
-        verify(board).computerTakesBallsFrom(2);
+        verify(game).computerTakesBallsFrom(2);
     }
 }
