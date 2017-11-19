@@ -338,5 +338,25 @@ class GameTest
         boolean actual = sut.isGameActive();
         assertFalse(actual);
     }
-
+    
+    @Test
+    public void GameTest_isGameActiveWhenFirstHouseIsEmpty_shouldBeTrue()
+    {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(0);
+        computerHouses.add(1);
+        computerHouses.add(2);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        when(board.getPlayerHouses()).thenReturn(computerHouses.iterator());
+        
+        sut.startNewGame();
+        sut.computerTakesBallsFrom(3);
+        boolean actual = sut.getIsGameActive();
+        
+        assertTrue(actual);
+        
+        
+    }
 }
