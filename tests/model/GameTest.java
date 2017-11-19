@@ -262,4 +262,20 @@ class GameTest
         sut.computerTakesBallsFrom(4);
         verify(board).computerTakesBallsFrom(4);
     }
+    
+    @Test
+    public void GameTest_compuerMakesMove_computersTurnShouldBeTrue()
+    {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(2);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
+        sut.computerTakesBallsFrom(4);
+        boolean actual = sut.isPlayersTurn();
+        assertTrue(actual);
+    }
 }
