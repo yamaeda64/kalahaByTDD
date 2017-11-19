@@ -117,7 +117,7 @@ public class Game
         board.computerTakesBallsFrom(i);
         if(board.getSwitchTurn())
         {
-           // playerTurn = true;
+            playerTurn = true;
         }
     }
 }
