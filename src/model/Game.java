@@ -121,7 +121,7 @@ public class Game
         }
         else
         {
-            playerTurn = true;  // should be false
+            playerTurn = false;
         }
     }
 }
