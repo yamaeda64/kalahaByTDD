@@ -279,4 +279,21 @@ class GameTest
         boolean actual = sut.isPlayersTurn();
         assertTrue(actual);
     }
+    
+    @Test
+    public void GameTest_compuerMakesMove_computersTurnShouldBeFalse()
+    {
+        ArrayList<Integer> computerHouses = new ArrayList<>();
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        computerHouses.add(3);
+        computerHouses.add(0);
+        computerHouses.add(0);
+        when(board.getComputerHouses()).thenReturn(computerHouses.iterator());
+        when(board.getSwitchTurn()).thenReturn(false);
+        sut.computerTakesBallsFrom(4);
+        boolean actual = sut.isPlayersTurn();
+        assertFalse(actual);
+    }
 }

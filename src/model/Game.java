@@ -119,5 +119,9 @@ public class Game
         {
             playerTurn = true;
         }
+        else
+        {
+            playerTurn = true;  // should be false
+        }
     }
 }
