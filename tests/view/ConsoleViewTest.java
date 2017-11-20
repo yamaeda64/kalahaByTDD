@@ -210,4 +210,11 @@ class ConsoleViewTest
         verify(printStream).println(wrongInputText);
     }
     
+    @Test
+    public void consoleView_presentFinalScore_playerShouldBeWinner()
+    {
+        sut.presentFinalScore(37,35);
+        verify(printStream).println("Player is Winner!");
+    }
+    
 }
