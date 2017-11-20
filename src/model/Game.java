@@ -2,6 +2,7 @@ package model;
 
 
 import java.util.Iterator;
+import java.util.Random;
 
 public class Game
 {
@@ -12,7 +13,7 @@ public class Game
     private ComputerFactory computerFactory;
     private boolean playerTurn;
     
-    public Game (BoardFactory boardFactory, ComputerFactory computerFactory)
+    public Game(BoardFactory boardFactory, ComputerFactory computerFactory, Random random)
     {
         this.computerFactory = computerFactory;
         computerFactory.setGame(this);

@@ -6,6 +6,7 @@ import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -18,10 +19,12 @@ class GameTest
     private Game sut;
     private Board board;
     private MediumComputer mediumComputer;
+    private Random random;
     
     @BeforeEach
     void setUp()
     {
+        random = mock(Random.class);
         bf = mock(BoardFactory.class);
         computerFactory = mock(ComputerFactory.class);
         board = mock(Board.class);
@@ -30,7 +33,7 @@ class GameTest
         mediumComputer = mock(MediumComputer.class);
         when(computerFactory.getMediumComputer()).thenReturn(mediumComputer);
         
-        sut = new Game(bf, computerFactory);
+        sut = new Game(bf, computerFactory, random);
         
     }
     
@@ -394,5 +397,14 @@ class GameTest
     
     
         assertEquals(44,actual);
+    }
+    
+    @Test
+    public void GameTest_whenStartGame_playersTurnShouldBeTrue()
+    {
+        when(random.nextBoolean()).thenReturn(true);
+        sut.startNewGame();
+        boolean actual = sut.isPlayersTurn();
+        assertTrue(actual);
     }
 }
