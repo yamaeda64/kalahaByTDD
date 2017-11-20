@@ -238,4 +238,11 @@ class ConsoleViewTest
         verify(printStream).println("PlayerScore = 39");
     }
     
+    @Test
+    public void consoleView_presentFinalScore_presentComputerScoer()
+    {
+        sut.presentFinalScore(41, 31);
+        verify(printStream).println("ComputerScore = 31");
+    }
+    
 }
