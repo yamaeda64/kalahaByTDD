@@ -224,4 +224,11 @@ class ConsoleViewTest
         verify(printStream).println("Computer is Winner!");
     }
     
+    @Test
+    public void consoleView_presentFinalScore_endedAsDraw()
+    {
+        sut.presentFinalScore(36,36);
+        verify(printStream).println("The game was draw!");
+    }
+    
 }
