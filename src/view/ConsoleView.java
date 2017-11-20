@@ -143,5 +143,7 @@ public class ConsoleView
         {
             out.println("Computer is Winner!");
         }
+        
+        out.println("PlayerScore = " + playerScore);
     }
 }
