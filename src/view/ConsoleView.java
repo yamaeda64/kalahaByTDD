@@ -135,6 +135,10 @@ public class ConsoleView
         {
             out.println("Player is Winner!");
         }
+        else if(playerScore == dealerScore)
+        {
+            out.println("The game was draw!");
+        }
         else
         {
             out.println("Computer is Winner!");
