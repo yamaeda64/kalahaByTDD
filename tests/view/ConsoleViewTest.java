@@ -206,7 +206,7 @@ class ConsoleViewTest
     public void consoleView_showWrongInputEror_shouldReturn()
     {
         sut.showWrongInputMessage();
-
+        
         verify(printStream).println(wrongInputText);
     }
     
@@ -227,8 +227,15 @@ class ConsoleViewTest
     @Test
     public void consoleView_presentFinalScore_endedAsDraw()
     {
-        sut.presentFinalScore(36,36);
+        sut.presentFinalScore(36, 36);
         verify(printStream).println("The game was draw!");
+    }
+    
+    @Test
+    public void consoleView_presentFinalScore_presentPlayerScore()
+    {
+        sut.presentFinalScore(39,33);
+        verify(printStream).println("PlayerScore = 39");
     }
     
 }
