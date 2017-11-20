@@ -131,6 +131,13 @@ public class ConsoleView
     
     public void presentFinalScore(int playerScore, int dealerScore)
     {
-        out.println("Player is Winner!");
+        if(playerScore>dealerScore)
+        {
+            out.println("Player is Winner!");
+        }
+        else
+        {
+            out.println("Computer is Winner!");
+        }
     }
 }
