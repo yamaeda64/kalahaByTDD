@@ -151,6 +151,6 @@ public class ConsoleView
     
     public void pressAnyKeyToContrinue()
     {
-        
+        out.println("Press enter key to contrinue");
     }
 }
