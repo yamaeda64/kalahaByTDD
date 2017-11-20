@@ -131,6 +131,6 @@ public class ConsoleView
     
     public void presentFinalScore(int playerScore, int dealerScore)
     {
-        
+        out.println("Player is Winner!");
     }
 }
