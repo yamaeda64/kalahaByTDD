@@ -31,7 +31,7 @@ public class Game
     {
         isGameActive = true;
         board.createHouseAndStores();
-        playerTurn = true;
+        playerTurn = random.nextBoolean();
     }
     
     public Board getBoard()
