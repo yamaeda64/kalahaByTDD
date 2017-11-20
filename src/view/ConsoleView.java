@@ -129,13 +129,13 @@ public class ConsoleView
         return board.toString();
     }
     
-    public void presentFinalScore(int playerScore, int dealerScore)
+    public void presentFinalScore(int playerScore, int computerScore)
     {
-        if(playerScore>dealerScore)
+        if(playerScore>computerScore)
         {
             out.println("Player is Winner!");
         }
-        else if(playerScore == dealerScore)
+        else if(playerScore == computerScore)
         {
             out.println("The game was draw!");
         }
@@ -145,5 +145,6 @@ public class ConsoleView
         }
         
         out.println("PlayerScore = " + playerScore);
+        out.println("ComputerScore = " + computerScore);
     }
 }
