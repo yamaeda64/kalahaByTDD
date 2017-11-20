@@ -145,7 +145,7 @@ public class Game
         return score;
     }
     
-    public int geComputerScoreWhenGameIsOver()
+    public int getComputerScoreWhenGameIsOver()
     {
         int score = getComputerStore();
         Iterator<Integer> playerHouses = getPlayerHouses();

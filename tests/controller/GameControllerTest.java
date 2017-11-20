@@ -171,15 +171,16 @@ class GameControllerTest
     {
         when(game.isPlayersTurn()).thenReturn(false);
         when(game.isGameActive()).thenReturn(true).thenReturn(false);
-       
+    
         sut.play();
         InOrder rightOrder = inOrder(view);
         
         rightOrder.verify(view).clearScreen();
-        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(), game.getComputerHouses());
-        rightOrder.verify(view).clearScreen();                                                                                            
-        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(), game.getComputerHouses());
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(), game.getComputerStore(), game.getPlayerHouses(), game.getComputerHouses());
+        rightOrder.verify(view).clearScreen();
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(), game.getComputerStore(), game.getPlayerHouses(), game.getComputerHouses());
     }
+    
     @Test
     public void GameController_playerTakeBallAndGameIsNotOver_computerShouldTakeBalls()
     {
@@ -202,7 +203,7 @@ class GameControllerTest
         InOrder rightOrder = inOrder(view);
         
         rightOrder.verify(view).clearScreen();
-        rightOrder.verify(view).drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+        rightOrder.verify(view).drawBoard(game.getPlayerStore(), game.getComputerStore(), game.getPlayerHouses(), game.getComputerHouses());
         rightOrder.verify(view).showChooseHouseText();
     }
     
@@ -222,10 +223,18 @@ class GameControllerTest
         when(view.getNumberAfterInput()).thenReturn(1).thenReturn(2).thenReturn(3);
         howManyRoundsGameShouldBeActive(6);
         sut.play();
-        verify(view,times(3)).collectEvent();
+        verify(view, times(3)).collectEvent();
     }
     
-    
+    @Test
+    public void GameController_whenGameOver_ShouldCallPresentFinalScore()
+    {
+        when(game.isGameActive()).thenReturn(false);
+        when(game.getPlayerScoreWhenGameIsOver()).thenReturn(35);
+        when(game.getComputerScoreWhenGameIsOver()).thenReturn(37);
+        sut.play();
+        verify(view).presentFinalScore(35,37);
+    }
     
     private void exchangeGameControllerToSpyThatDoesntExit()
     {

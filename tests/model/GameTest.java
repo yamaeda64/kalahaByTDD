@@ -393,7 +393,7 @@ class GameTest
         when(board.getPlayerHouses()).thenReturn(playerHouses.iterator());
     
         when(board.getComputerStore()).thenReturn(19);
-        int actual = sut.geComputerScoreWhenGameIsOver();
+        int actual = sut.getComputerScoreWhenGameIsOver();
     
     
         assertEquals(44,actual);
@@ -416,4 +416,5 @@ class GameTest
         boolean actual = sut.isPlayersTurn();
         assertFalse(actual);
     }
+    
 }
