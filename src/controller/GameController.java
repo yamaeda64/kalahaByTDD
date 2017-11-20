@@ -63,6 +63,7 @@ public class GameController
                 askViewToDrawBoard();
             }
         }
+        view.presentFinalScore(game.getPlayerScoreWhenGameIsOver(),game.getComputerScoreWhenGameIsOver());
     }
     
     
