@@ -407,4 +407,13 @@ class GameTest
         boolean actual = sut.isPlayersTurn();
         assertTrue(actual);
     }
+    
+    @Test
+    public void GameTest_whenStartGame_playersTurnShouldBeFalse()
+    {
+        when(random.nextBoolean()).thenReturn(false);
+        sut.startNewGame();
+        boolean actual = sut.isPlayersTurn();
+        assertFalse(actual);
+    }
 }
