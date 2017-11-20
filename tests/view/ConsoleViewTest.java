@@ -217,4 +217,11 @@ class ConsoleViewTest
         verify(printStream).println("Player is Winner!");
     }
     
+    @Test
+    public void consoleView_presentFinalScore_computerShouldBeWinner()
+    {
+        sut.presentFinalScore(0,72);
+        verify(printStream).println("Computer is Winner!");
+    }
+    
 }
