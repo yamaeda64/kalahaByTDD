@@ -12,6 +12,7 @@ public class Game
     private MediumComputer mediumComputer;
     private ComputerFactory computerFactory;
     private boolean playerTurn;
+    private Random random;
     
     public Game(BoardFactory boardFactory, ComputerFactory computerFactory, Random random)
     {
@@ -23,12 +24,14 @@ public class Game
         board = this.boardFactory.getKalahaBoard();
        
         mediumComputer.setBoard(board);
+        this.random = random;
     }
     
     public void startNewGame()
     {
         isGameActive = true;
         board.createHouseAndStores();
+        playerTurn = random.nextBoolean();
     }
     
     public Board getBoard()
