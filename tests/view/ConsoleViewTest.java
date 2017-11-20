@@ -245,4 +245,11 @@ class ConsoleViewTest
         verify(printStream).println("ComputerScore = 31");
     }
     
+    @Test
+    public void consoleView_pressAnyKeyToContrinue_shouldDisplayPressAnyKeyToContinue()
+    {
+        sut.pressAnyKeyToContrinue();
+        verify(printStream).println("Press enter key to contrinue");
+    }
+    
 }

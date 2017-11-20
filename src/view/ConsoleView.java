@@ -131,6 +131,7 @@ public class ConsoleView
     
     public void presentFinalScore(int playerScore, int computerScore)
     {
+        out.println();
         if(playerScore>computerScore)
         {
             out.println("Player is Winner!");
@@ -146,5 +147,10 @@ public class ConsoleView
         
         out.println("PlayerScore = " + playerScore);
         out.println("ComputerScore = " + computerScore);
+    }
+    
+    public void pressAnyKeyToContrinue()
+    {
+        
     }
 }
