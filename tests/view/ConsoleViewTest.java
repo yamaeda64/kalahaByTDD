@@ -94,12 +94,6 @@ class ConsoleViewTest
         assertEquals('5', actual);
     }
     
-    private void setFakeInputStream(String input)
-    {
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-    }
-    
     @Test
     public void consoleView_collectEvent_ShouldReturnQuit()
     {
@@ -252,4 +246,9 @@ class ConsoleViewTest
         verify(printStream).println("Press enter key to contrinue");
     }
     
+    private void setFakeInputStream(String input)
+    {
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+    }
 }

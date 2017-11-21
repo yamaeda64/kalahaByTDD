@@ -244,7 +244,6 @@ class GameControllerTest
         when(game.getComputerScoreWhenGameIsOver()).thenReturn(36);
         sut.play();
         verify(view).pressAnyKeyToContrinue();
-                
     }
     
     private void exchangeGameControllerToSpyThatDoesntExit()

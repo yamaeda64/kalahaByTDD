@@ -22,6 +22,7 @@ public class GameController
     
     public void start()
     {
+       
         view.clearScreen();
         view.showMenu();
         try
@@ -64,6 +65,7 @@ public class GameController
             }
         }
         view.presentFinalScore(game.getPlayerScoreWhenGameIsOver(),game.getComputerScoreWhenGameIsOver());
+        view.pressAnyKeyToContrinue();
     }
     
     
