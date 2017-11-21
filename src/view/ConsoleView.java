@@ -60,7 +60,7 @@ public class ConsoleView
         return scanner.next().toUpperCase().charAt(0);
     }
     
-    protected void waitForKeyPress()
+    public void waitForKeyPress()
     {
         Scanner scanner = new Scanner(System.in);
         scanner.hasNextLine();

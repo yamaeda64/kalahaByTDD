@@ -246,6 +246,16 @@ class GameControllerTest
         verify(view).pressAnyKeyToContrinue();
     }
     
+    @Test
+    public void GameController_whenGameOver_ShouldCallWaitForKeyPress()
+    {
+        when(game.isGameActive()).thenReturn(false);
+        when(game.getPlayerScoreWhenGameIsOver()).thenReturn(36);
+        when(game.getComputerScoreWhenGameIsOver()).thenReturn(36);
+        sut.play();
+        verify(view).waitForKeyPress();
+    }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
