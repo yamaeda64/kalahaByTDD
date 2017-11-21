@@ -66,6 +66,7 @@ public class GameController
         }
         view.presentFinalScore(game.getPlayerScoreWhenGameIsOver(),game.getComputerScoreWhenGameIsOver());
         view.pressAnyKeyToContrinue();
+        view.waitForKeyPress();
     }
     
     
