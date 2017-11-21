@@ -5,9 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Iterator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class BoardTest
@@ -247,5 +245,22 @@ class BoardTest
         boolean actual = sut.getSwitchTurn();
         assertFalse(actual);
     }
+    
+    @Test
+    public void boardTest_playerTakesFromEmptyHouse_shouldThrowException()
+    {
+        sut.playerTakesBallsFrom(6);
+       
+        try
+        {
+            sut.playerTakesBallsFrom(6);
+            fail("No Exception was thrown");
+        }
+        catch(IllegalArgumentException e)
+        {
+            assertEquals("No balls in chosen house", e.getMessage());
+        }
+    }
+    
     
 }
