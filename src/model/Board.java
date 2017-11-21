@@ -105,7 +105,13 @@ public class Board
     
     public void playerTakesBallsFrom(int i)
     {
+        
         i--;
+        if(ballHolder.get(i) == 0)
+        {
+            throw new NullPointerException("No balls in chosen house");
+        }
+      
         int hand = ballHolder.get(i);
         ballHolder.set(i,0);
         while(hand!=0)

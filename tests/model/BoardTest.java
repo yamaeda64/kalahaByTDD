@@ -249,14 +249,13 @@ class BoardTest
     @Test
     public void boardTest_playerTakesFromEmptyHouse_shouldThrowException()
     {
-        sut.playerTakesBallsFrom(6);
-       
         try
         {
             sut.playerTakesBallsFrom(6);
+            sut.playerTakesBallsFrom(6);
             fail("No Exception was thrown");
         }
-        catch(IllegalArgumentException e)
+        catch(NullPointerException e)
         {
             assertEquals("No balls in chosen house", e.getMessage());
         }
