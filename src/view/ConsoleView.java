@@ -162,6 +162,6 @@ public class ConsoleView
     
     public void userChoseEmptyHouse()
     {
-       
+       out.println("\nYou chose an empty house, please choose one with stones\n");
     }
 }
