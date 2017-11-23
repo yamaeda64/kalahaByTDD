@@ -246,6 +246,13 @@ class ConsoleViewTest
         verify(printStream).println("Press enter key to contrinue");
     }
     
+    @Test
+    public void consoleView_userChoseEmptyHouse_shouldDispelayChoseEmptyHouseMessage()
+    {
+        sut.userChoseEmptyHouse();
+        verify(printStream).println("\nYou chose an empty house, please choose one with stones\n");
+    }
+    
     private void setFakeInputStream(String input)
     {
         InputStream in = new ByteArrayInputStream(input.getBytes());

@@ -255,6 +255,7 @@ class GameControllerTest
         sut.play();
         verify(view).waitForKeyPress();
     }
+ 
     
     private void exchangeGameControllerToSpyThatDoesntExit()
     {

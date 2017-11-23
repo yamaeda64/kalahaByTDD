@@ -160,4 +160,8 @@ public class ConsoleView
         out.println("Press enter key to contrinue");
     }
     
+    public void userChoseEmptyHouse()
+    {
+       
+    }
 }
