@@ -255,7 +255,16 @@ class GameControllerTest
         sut.play();
         verify(view).waitForKeyPress();
     }
- 
+    
+    @Test()
+    public void GameController_whenUserPicksEmptyHouse_shouldCallPrintErrorMessage()
+    {
+        doThrow(new NullPointerException()).when(game).playerTakesBallsFrom(1);
+        when(view.getNumberAfterInput()).thenReturn(1);
+        sut.takeAction(UserInteraction.PICK_BALLS_FROM_HOUSE);
+        verify(view).userChoseEmptyHouse();
+        
+    }
     
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
