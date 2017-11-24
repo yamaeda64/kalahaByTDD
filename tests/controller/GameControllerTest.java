@@ -210,9 +210,10 @@ class GameControllerTest
     @Test
     public void GameController_startNewGame_shouldShowWrongInputText()
     {
-        when(view.collectEvent()).thenThrow(new IllegalArgumentException("Wrong Input"));
+        when(view.collectEvent()).thenThrow(new IllegalArgumentException("Wrong Input")).thenReturn(UserInteraction.PLAY);
         sut.start();
         verify(view).showWrongInputMessage();
+        
     }
     
     @Test
@@ -265,8 +266,7 @@ class GameControllerTest
     
         howManyRoundsGameShouldBeActive(1);
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
-        
-    
+
         sut.play();
         
         verify(view).userChoseEmptyHouse();

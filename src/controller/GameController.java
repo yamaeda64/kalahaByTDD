@@ -23,17 +23,22 @@ public class GameController
     
     public void start()
     {
+        boolean menuLoop = true;
        
-        view.clearScreen();
-        view.showMenu();
-        try
+            view.clearScreen();
+        while(menuLoop)
         {
-            UserInteraction currentInteraction = view.collectEvent();
-            takeAction(currentInteraction);
-        }
-        catch(IllegalArgumentException e)
-        {
-            view.showWrongInputMessage();
+            view.showMenu();
+            try
+            {
+                UserInteraction currentInteraction = view.collectEvent();
+                takeAction(currentInteraction);
+                menuLoop = false;
+            }
+            catch(IllegalArgumentException e)
+            {
+                view.showWrongInputMessage();
+            }
         }
     }
     
@@ -98,7 +103,7 @@ public class GameController
         if(userInteraction == UserInteraction.PICK_BALLS_FROM_HOUSE)
         {
             houseNumberToPickFrom = view.getNumberAfterInput();
-           
+            
             try
             {
                 game.playerTakesBallsFrom(houseNumberToPickFrom);
