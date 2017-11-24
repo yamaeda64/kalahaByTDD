@@ -47,7 +47,6 @@ public class Game
         Iterator<Integer> iterator = board.getPlayerHouses();
         while(iterator.hasNext())
         {
-           
             if(iterator.next() != 0)
             {
                 isGameActiveChanger = true;

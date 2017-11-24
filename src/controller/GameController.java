@@ -95,14 +95,14 @@ public class GameController
         {
             houseNumberToPickFrom = view.getNumberAfterInput();
            
-//            try
-//            {
+            try
+            {
                 game.playerTakesBallsFrom(houseNumberToPickFrom);
-//            }
-//            catch(NullPointerException e)
-//            {
-//                view.userChoseEmptyHouse();
-//            }
+            }
+            catch(NullPointerException e)
+            {
+                view.userChoseEmptyHouse();
+            }
             
         }
     }
