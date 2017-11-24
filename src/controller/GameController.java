@@ -13,7 +13,8 @@ public class GameController
 {
     private ConsoleView view;
     private Game game;
-    
+    private boolean shouldPrintErrorMessage;
+    private int errorMessageID;
     public GameController(ConsoleView consoleView, Game game)
     {
         this.view = consoleView;
@@ -56,6 +57,10 @@ public class GameController
                 takeActionWhenPlay(view.collectEvent());
                 view.clearScreen();
                 askViewToDrawBoard();
+                if(shouldPrintErrorMessage)
+                {
+                    printErrorMessage();
+                }
             }
             else
             {
@@ -101,7 +106,8 @@ public class GameController
             }
             catch(NullPointerException e)
             {
-                view.userChoseEmptyHouse();
+                shouldPrintErrorMessage = true;
+                errorMessageID = 1;
             }
             
         }
@@ -110,5 +116,15 @@ public class GameController
     private void askViewToDrawBoard()
     {
         view.drawBoard(game.getPlayerStore(),game.getComputerStore(),game.getPlayerHouses(),game.getComputerHouses());
+    }
+    
+    private void printErrorMessage()
+    {
+        if(errorMessageID == 1)
+        {
+            view.userChoseEmptyHouse();
+            shouldPrintErrorMessage = false;
+            errorMessageID = 0;
+        }
     }
 }
