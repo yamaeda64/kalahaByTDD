@@ -57,9 +57,9 @@ public class Board
     }
     
     public Iterator<Integer> getPlayerHouses()
-    {
-        return getIterator(0,BOARD_HOUSES);
-    }
+{
+    return getIterator(0,BOARD_HOUSES);
+}
     
     public int getPlayerStore()
     {

@@ -261,5 +261,18 @@ class BoardTest
         }
     }
     
+    @Test
+    public void boardTest_playerTakesFrom0_shouldThrowException()
+    {
+        try
+        {
+            sut.playerTakesBallsFrom(0);
+            fail("No Exception was thrown");
+        }
+        catch(IllegalArgumentException e)
+        {
+            assertEquals("Not a correct house number ", e.getMessage());
+        }
+    }
     
 }
