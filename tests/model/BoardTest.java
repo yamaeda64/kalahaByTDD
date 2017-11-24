@@ -271,7 +271,7 @@ class BoardTest
         }
         catch(IllegalArgumentException e)
         {
-            assertEquals("Not a correct house number ", e.getMessage());
+            assertEquals("Not a correct house number", e.getMessage());
         }
     }
     

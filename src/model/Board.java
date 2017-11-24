@@ -105,7 +105,10 @@ public class Board
     
     public void playerTakesBallsFrom(int i)
     {
-        
+        if(i < 1)
+        {
+            throw new IllegalArgumentException("Not a correct house number");
+        }
         i--;
         if(ballHolder.get(i) == 0)
         {
