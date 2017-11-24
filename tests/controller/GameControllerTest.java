@@ -234,7 +234,7 @@ class GameControllerTest
         when(game.getPlayerScoreWhenGameIsOver()).thenReturn(35);
         when(game.getComputerScoreWhenGameIsOver()).thenReturn(37);
         sut.play();
-        verify(view).presentFinalScore(35,37);
+        verify(view).presentFinalScore(35, 37);
     }
     
     @Test
@@ -266,11 +266,11 @@ class GameControllerTest
     
         howManyRoundsGameShouldBeActive(1);
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
-
+    
         sut.play();
         
         verify(view).userChoseEmptyHouse();
-       
+    
     }
     
     @Test
@@ -280,12 +280,21 @@ class GameControllerTest
         sut.start();
         verify(game).startNewGame();
     }
+    
     @Test
     public void GameController_whenUserFirstEntersNumberInMenueThenNewGame_shouldShowErrorMessage()
     {
         when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE).thenReturn(UserInteraction.PLAY);
         sut.start();
         verify(view).showWrongInputMessage();
+    }
+    
+    @Test
+    public void GameController_whenUserFirstEntersNumberInMenuThenNewGame_shouldStartNewGame()
+    {
+        when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE).thenReturn(UserInteraction.PLAY);
+        sut.start();
+        verify(game).startNewGame();
     }
     
     private void exchangeGameControllerToSpyThatDoesntExit()
