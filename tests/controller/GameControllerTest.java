@@ -279,7 +279,13 @@ class GameControllerTest
         when(view.collectEvent()).thenThrow(IllegalArgumentException.class).thenReturn(UserInteraction.PLAY);
         sut.start();
         verify(game).startNewGame();
-        
+    }
+    @Test
+    public void GameController_whenUserFirstEntersNumberInMenueThenNewGame_shouldShowErrorMessage()
+    {
+        when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE).thenReturn(UserInteraction.PLAY);
+        sut.start();
+        verify(view).showWrongInputMessage();
     }
     
     private void exchangeGameControllerToSpyThatDoesntExit()
