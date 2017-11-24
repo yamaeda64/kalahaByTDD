@@ -105,7 +105,7 @@ public class Board
     
     public void playerTakesBallsFrom(int i)
     {
-        if(i < 1)
+        if(i < 1 || i > BOARD_HOUSES)
         {
             throw new IllegalArgumentException("Not a correct house number");
         }
