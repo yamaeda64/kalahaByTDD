@@ -86,8 +86,7 @@ public class GameController
         if(userInteraction == QUIT)
         {
             quit();
-        }
-        else if(userInteraction == PLAY)
+        } else if(userInteraction == PLAY)
         {
             play();
         }

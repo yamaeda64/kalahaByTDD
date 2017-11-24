@@ -273,6 +273,15 @@ class GameControllerTest
        
     }
     
+    @Test
+    public void GameController_whenUserTakesWrongInputInMenueThenNewGame_shouldStartNewGame()
+    {
+        when(view.collectEvent()).thenThrow(IllegalArgumentException.class).thenReturn(UserInteraction.PLAY);
+        sut.start();
+        verify(game).startNewGame();
+        
+    }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
