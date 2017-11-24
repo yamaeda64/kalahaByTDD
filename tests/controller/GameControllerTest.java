@@ -299,6 +299,21 @@ class GameControllerTest
         verify(game).startNewGame();
     }
     
+    @Test
+    public void GameController_whenFaultyInputWhilePlaying_shouldShowErrorMessage()
+    {
+        
+        when(game.isPlayersTurn()).thenReturn(true);
+        when(view.getNumberAfterInput()).thenReturn(1);
+    
+        howManyRoundsGameShouldBeActive(1);
+        when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
+    
+        sut.play();
+    
+        verify(view).showWrongInputMessage();
+    }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));
