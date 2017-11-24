@@ -95,6 +95,10 @@ public class GameController
         {
             play();
         }
+        else
+        {
+            view.showWrongInputMessage();
+        }
     }
     
     private void takeActionWhenPlay(UserInteraction userInteraction)
