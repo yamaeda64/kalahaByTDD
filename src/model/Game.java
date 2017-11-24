@@ -39,9 +39,9 @@ public class Game
     return board;
 }
     
-    public void playerTakesBallsFrom(int i)
+    public boolean playerTakesBallsFrom(int i)
     {
-        
+        boolean playerTookBalls;
         board.playerTakesBallsFrom(i);
         boolean isGameActiveChanger = false;
         Iterator<Integer> iterator = board.getPlayerHouses();
@@ -62,6 +62,7 @@ public class Game
             playerTurn = true;
         }
         isGameActive = isGameActiveChanger;
+        return true;                         // need for testing purposes only
     }
     
     public void isGameActiveAfterComputerMove()

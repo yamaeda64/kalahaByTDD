@@ -94,7 +94,16 @@ public class GameController
         if(userInteraction == UserInteraction.PICK_BALLS_FROM_HOUSE)
         {
             houseNumberToPickFrom = view.getNumberAfterInput();
-            game.playerTakesBallsFrom(houseNumberToPickFrom);
+           
+//            try
+//            {
+                game.playerTakesBallsFrom(houseNumberToPickFrom);
+//            }
+//            catch(NullPointerException e)
+//            {
+//                view.userChoseEmptyHouse();
+//            }
+            
         }
     }
     

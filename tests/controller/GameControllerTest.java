@@ -259,11 +259,18 @@ class GameControllerTest
     @Test()
     public void GameController_whenUserPicksEmptyHouse_shouldCallPrintErrorMessage()
     {
-        doThrow(new NullPointerException()).when(game).playerTakesBallsFrom(1);
+        doThrow(NullPointerException.class).when(game).playerTakesBallsFrom(1);
+        when(game.isPlayersTurn()).thenReturn(true);
         when(view.getNumberAfterInput()).thenReturn(1);
-        sut.takeAction(UserInteraction.PICK_BALLS_FROM_HOUSE);
-        verify(view).userChoseEmptyHouse();
+    
+        howManyRoundsGameShouldBeActive(1);
+        when(view.collectEvent()).thenReturn(UserInteraction.PICK_BALLS_FROM_HOUSE);
         
+    
+        sut.play();
+        
+        verify(view).userChoseEmptyHouse();
+       
     }
     
     private void exchangeGameControllerToSpyThatDoesntExit()
