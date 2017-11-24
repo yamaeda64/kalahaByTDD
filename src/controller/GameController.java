@@ -60,7 +60,15 @@ public class GameController
             if(game.isPlayersTurn())
             {
                 view.showChooseHouseText();
-                takeActionWhenPlay(view.collectEvent());
+                try
+                {
+                    takeActionWhenPlay(view.collectEvent());
+                }
+                catch(IllegalArgumentException e)
+                {
+                    shouldPrintErrorMessage = true;
+                    errorMessageID = 2;
+                }
                 view.clearScreen();
                 askViewToDrawBoard();
                 if(shouldPrintErrorMessage)
@@ -119,6 +127,11 @@ public class GameController
             }
             
         }
+        else
+        {
+            shouldPrintErrorMessage = true;
+            errorMessageID = 2;
+        }
     }
     
     public void setGameLoop(boolean gameLoop)   // used make exit loops in testing
@@ -136,6 +149,11 @@ public class GameController
         if(errorMessageID == 1)
         {
             view.userChoseEmptyHouse();
+            shouldPrintErrorMessage = false;
+            errorMessageID = 0;
+        } else if(errorMessageID == 2)
+        {
+            view.showWrongInputMessage();
             shouldPrintErrorMessage = false;
             errorMessageID = 0;
         }
