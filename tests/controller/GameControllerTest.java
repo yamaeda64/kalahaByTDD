@@ -42,7 +42,9 @@ class GameControllerTest
     @Test
     public void shouldShowMenu_whenStart_shouldShowMenu()
     {
+        when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
         sut.start();
+        sut.setGameLoop(false);
         verify(view).showMenu();
     }
     
@@ -91,13 +93,12 @@ class GameControllerTest
         
         rightOrder.verify(view).clearScreen();
         rightOrder.verify(view).drawBoard(anyInt(), anyInt(), anyObject(), anyObject());
-        
-        
     }
     
     @Test
     public void start_getUserCommand_ShouldCallCollectEvent()
     {
+        when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
         sut.start();
         verify(view).collectEvent();
     }
@@ -124,6 +125,7 @@ class GameControllerTest
     @Test
     public void whenShowWelcomeScreen_ShouldClearScreen()
     {
+        when(view.collectEvent()).thenReturn(UserInteraction.PLAY);
         sut.start();
         
         InOrder rightOrder = inOrder(view);

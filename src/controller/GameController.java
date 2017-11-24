@@ -15,6 +15,8 @@ public class GameController
     private Game game;
     private boolean shouldPrintErrorMessage;
     private int errorMessageID;
+    private boolean gameLoop = true;
+    
     public GameController(ConsoleView consoleView, Game game)
     {
         this.view = consoleView;
@@ -23,21 +25,20 @@ public class GameController
     
     public void start()
     {
-        boolean menuLoop = true;
-       
-            view.clearScreen();
-        while(menuLoop)
+        view.clearScreen();
+        while(gameLoop)
         {
             view.showMenu();
+            gameLoop = false;
             try
             {
                 UserInteraction currentInteraction = view.collectEvent();
                 takeAction(currentInteraction);
-                menuLoop = false;
-            }
-            catch(IllegalArgumentException e)
+                
+            } catch(IllegalArgumentException e)
             {
                 view.showWrongInputMessage();
+                gameLoop = true;
             }
         }
     }
@@ -65,16 +66,16 @@ public class GameController
                 if(shouldPrintErrorMessage)
                 {
                     printErrorMessage();
+                    gameLoop = true;
                 }
-            }
-            else
+            } else
             {
                 game.getMediumComputer().chooseNextHouse();
                 view.clearScreen();
                 askViewToDrawBoard();
             }
         }
-        view.presentFinalScore(game.getPlayerScoreWhenGameIsOver(),game.getComputerScoreWhenGameIsOver());
+        view.presentFinalScore(game.getPlayerScoreWhenGameIsOver(), game.getComputerScoreWhenGameIsOver());
         view.pressAnyKeyToContrinue();
         view.waitForKeyPress();
     }
@@ -94,10 +95,10 @@ public class GameController
         } else if(userInteraction == PLAY)
         {
             play();
-        }
-        else
+        } else
         {
             view.showWrongInputMessage();
+            gameLoop = true;
         }
     }
     
@@ -111,14 +112,18 @@ public class GameController
             try
             {
                 game.playerTakesBallsFrom(houseNumberToPickFrom);
-            }
-            catch(NullPointerException e)
+            } catch(NullPointerException e)
             {
                 shouldPrintErrorMessage = true;
                 errorMessageID = 1;
             }
             
         }
+    }
+    
+    public void setGameLoop(boolean gameLoop)   // used make exit loops in testing
+    {
+        this.gameLoop = gameLoop;
     }
     
     private void askViewToDrawBoard()
