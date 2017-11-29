@@ -310,6 +310,16 @@ class GameControllerTest
         verify(view).showWrongInputMessage();
     }
     
+    @Test
+    public void GameController_whenExceptionDuringInputWhilePlay_shouldShowErrorMessage()
+    {
+        when(view.collectEvent()).thenThrow(IllegalArgumentException.class);
+        when(game.isPlayersTurn()).thenReturn(true);
+        howManyRoundsGameShouldBeActive(1);
+        sut.play();
+        verify(view).showWrongInputMessage();
+    }
+    
     private void exchangeGameControllerToSpyThatDoesntExit()
     {
         sut = spy(new GameController(view,game));

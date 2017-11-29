@@ -67,8 +67,8 @@ public class GameController
                 }
                 catch(IllegalArgumentException e)
                 {
-                    shouldPrintErrorMessage = true;
-                    errorMessageID = 2;
+                    //shouldPrintErrorMessage = true;
+                   // errorMessageID = 2;
                 }
                 view.clearScreen();
                 askViewToDrawBoard();
