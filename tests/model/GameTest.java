@@ -13,7 +13,6 @@ import static org.mockito.Mockito.*;
 
 class GameTest
 {
-    
     private BoardFactory bf;
     private ComputerFactory computerFactory;
     private Game sut;
@@ -415,6 +414,13 @@ class GameTest
         sut.startNewGame();
         boolean actual = sut.isPlayersTurn();
         assertFalse(actual);
+    }
+    
+    @Test
+    public void GameTest_whenGetMediumComputer_shouldReturnMediumComputer()
+    {
+        MediumComputer actual = sut.getMediumComputer();
+        assertEquals(mediumComputer,actual);
     }
     
 }
