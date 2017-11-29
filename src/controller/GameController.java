@@ -35,7 +35,8 @@ public class GameController
                 UserInteraction currentInteraction = view.collectEvent();
                 takeAction(currentInteraction);
                 
-            } catch(IllegalArgumentException e)
+            }
+            catch(IllegalArgumentException e)
             {
                 view.showWrongInputMessage();
                 gameLoop = true;
@@ -120,7 +121,8 @@ public class GameController
             try
             {
                 game.playerTakesBallsFrom(houseNumberToPickFrom);
-            } catch(NullPointerException e)
+            }
+            catch(NullPointerException e)
             {
                 shouldPrintErrorMessage = true;
                 errorMessageID = 1;

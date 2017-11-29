@@ -1,6 +1,5 @@
 package controller;
 
-import model.ComputerFactory;
 import model.Game;
 import model.MediumComputer;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +23,7 @@ class GameControllerTest
     private ConsoleView view;
     private Game game;
     private MediumComputer mediumComputer;
-    private ComputerFactory computerFactory;
+
     
     @BeforeEach
     public void setUp()
@@ -34,9 +33,6 @@ class GameControllerTest
         sut = new GameController(view, game);
         mediumComputer = mock(MediumComputer.class);
         when(game.getMediumComputer()).thenReturn(mediumComputer);
-        computerFactory = mock(ComputerFactory.class);
-        
-        
     }
     
     @Test
