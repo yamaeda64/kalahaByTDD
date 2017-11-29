@@ -106,8 +106,7 @@ public class Game
     
     public MediumComputer getMediumComputer()
     {
-        return null;
-       // return mediumComputer;
+       return mediumComputer;
     }
     
     public boolean isPlayersTurn()
