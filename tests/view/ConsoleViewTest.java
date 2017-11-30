@@ -252,7 +252,7 @@ class ConsoleViewTest
         sut.userChoseEmptyHouse();
         verify(printStream).println("\nYou chose an empty house, please choose one with stones\n");
     }
-    
+        
     private void setFakeInputStream(String input)
     {
         InputStream in = new ByteArrayInputStream(input.getBytes());

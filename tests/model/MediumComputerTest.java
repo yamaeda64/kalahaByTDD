@@ -23,7 +23,7 @@ class MediumComputerTest
     void setup()
     {
         game = mock(Game.class);
-        board = mock(Board.class);
+        board = new BoardStub();
         sut = new MediumComputer(game);
         when(game.getBoard()).thenReturn(board);
         sut.setBoard(game.getBoard());
